@@ -291,3 +291,8 @@ build
 .idea
 .jest-cache
 storybook-static
+
+node_modules/
+.cache/
+public
+src/gatsby-types.d.ts
