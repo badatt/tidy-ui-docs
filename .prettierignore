@@ -5,3 +5,7 @@
 *.log
 **/dist/**
 lerna.json
+.cache
+package.json
+package-lock.json
+public

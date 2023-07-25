@@ -1,40 +1,73 @@
 {
   "name": "tidy-ui-docs",
-  "version": "1.0.0",
   "private": true,
-  "description": "tidy-ui-docs",
-  "author": "badatt",
-  "keywords": [
-    "gatsby"
-  ],
-  "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit"
-  },
+  "description": "Docs site for tidy-ui react component library",
+  "version": "0.1.0",
+  "author": "Balu Praveen Datty",
   "dependencies": {
-    "@mdx-js/react": "^2.3.0",
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@loadable/component": "^5.15.3",
+    "@types/loadable__component": "^5.13.4",
     "babel-plugin-styled-components": "^2.1.4",
+    "framer-motion": "^10.13.1",
     "gatsby": "^5.11.0",
     "gatsby-plugin-image": "^3.11.0",
     "gatsby-plugin-manifest": "^5.11.0",
-    "gatsby-plugin-mdx": "^5.11.0",
+    "gatsby-plugin-offline": "^6.11.0",
+    "gatsby-plugin-purgecss": "^6.2.1",
+    "gatsby-plugin-react-helmet": "^6.11.0",
     "gatsby-plugin-sharp": "^5.11.0",
-    "gatsby-plugin-sitemap": "^6.11.0",
     "gatsby-plugin-styled-components": "^6.11.0",
+    "gatsby-plugin-typescript": "^5.11.0",
+    "gatsby-remark-images": "^7.11.0",
+    "gatsby-remark-relative-images": "^2.0.5",
     "gatsby-source-filesystem": "^5.11.0",
+    "gatsby-transformer-remark": "^6.11.0",
     "gatsby-transformer-sharp": "^5.11.0",
+    "javascript-time-ago": "^2.5.9",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styled-components": "^6.0.5"
+    "react-helmet": "^6.1.0",
+    "react-slick": "^0.29.0",
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
-    "@types/node": "^20.3.3",
-    "@types/react": "^18.2.14",
-    "@types/react-dom": "^18.2.6",
-    "typescript": "^5.1.6"
+    "@types/javascript-time-ago": "^2.0.3",
+    "@types/node": "^18.16.20",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@types/react-helmet": "^6.1.6",
+    "@types/react-slick": "^0.23.10",
+    "@types/styled-components": "^5.1.26",
+    "prettier": "^3.0.0",
+    "rsync": "^0.6.1"
+  },
+  "keywords": [
+    "gatsby",
+    "typescript",
+    "styled-components"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/badatt/tidy-ui-docs"
+  },
+  "bugs": {
+    "url": "https://github.com/badatt/tidy-ui-docs/issues"
   }
 }
