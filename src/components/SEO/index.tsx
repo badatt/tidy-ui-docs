@@ -1,17 +1,17 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
-import {SectionTitle} from "../../helpers/definitions";
-import {calculateExperience} from "../../helpers/utils";
+import { graphql, useStaticQuery } from 'gatsby';
+import { SectionTitle } from '../../helpers/definitions';
+import { calculateExperience } from '../../helpers/utils';
 
 type Meta =
   | {
-      name: string;
       content: any;
+      name: string;
     }
   | {
-      property: string;
       content: any;
+      property: string;
     };
 
 interface Props {
@@ -23,87 +23,85 @@ interface Props {
 
 interface MetaBanner extends SectionTitle {
   content: string;
-  linkTo: string;
-  linkText: string;
   dataOfJoining: string;
+  linkText: string;
+  linkTo: string;
 }
 
 const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
-  const { site, markdownRemark } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            author
-          }
-        }
-        markdownRemark(frontmatter: { category: { eq: "hero section" } }) {
-          frontmatter {
-            title
-            subtitle
-            content
-            linkTo
-            linkText
-            dataOfJoining
-          }
+  const { site, markdownRemark } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          author
         }
       }
-    `
-  );
+      markdownRemark(frontmatter: { category: { eq: "hero section" } }) {
+        frontmatter {
+          title
+          subtitle
+          content
+          linkTo
+          linkText
+          dataOfJoining
+        }
+      }
+    }
+  `);
 
   const metaBanner: MetaBanner = markdownRemark.frontmatter;
-  metaBanner.content = metaBanner.content.replace("{{experience}}", `${calculateExperience(metaBanner.dataOfJoining)}`)
+  metaBanner.content = metaBanner.content.replace('{{experience}}', `${calculateExperience(metaBanner.dataOfJoining)}`);
 
   return (
     <Helmet
       htmlAttributes={{
-        lang
+        lang,
       }}
       title={title}
       titleTemplate={`${site.siteMetadata.title} | %s`}
       meta={[
         {
+          content: metaBanner.content,
           name: `description`,
-          content: metaBanner.content
         },
         {
+          content: title,
           property: `og:title`,
-          content: title
         },
         {
+          content: metaBanner.content,
           property: `og:description`,
-          content: metaBanner.content
         },
         {
+          content: `website`,
           property: `og:type`,
-          content: `website`
         },
         {
+          content: `summary`,
           name: `twitter:card`,
-          content: `summary`
         },
         {
+          content: site.siteMetadata.author,
           name: `twitter:creator`,
-          content: site.siteMetadata.author
         },
         {
+          content: title,
           name: `twitter:title`,
-          content: title
         },
         {
+          content: metaBanner.content,
           name: `twitter:description`,
-          content: metaBanner.content
-        }
+        },
       ].concat(meta!)}
     />
   );
 };
 
 SEO.defaultProps = {
+  description: ``,
   lang: `en`,
   meta: [] as Meta[],
-  description: ``
 };
 
 export default SEO;

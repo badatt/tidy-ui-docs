@@ -1,7 +1,9 @@
+/* eslint-disable sort-keys/sort-keys-fix */
 module.exports = {
   siteMetadata: {
     title: `Balu Praveen Datty`,
     author: 'Balu Praveen Datty',
+    githubLink: 'https://github.com/badatt/tidy-ui',
   },
   plugins: [
     `gatsby-plugin-typescript`,
@@ -34,6 +36,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -50,5 +53,11 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`${__dirname}/src/components/App/index.tsx`),
+      },
+    },
   ],
 };
