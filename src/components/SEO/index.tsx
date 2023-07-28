@@ -1,8 +1,8 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
-import { SectionTitle } from '../../helpers/definitions';
-import { calculateExperience } from '../../helpers/utils';
+import { SectionTitle } from 'helpers/definitions';
+import { calculateExperience } from 'helpers/utils';
 
 type Meta =
   | {
@@ -28,7 +28,7 @@ interface MetaBanner extends SectionTitle {
   linkTo: string;
 }
 
-const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
+const SEO: React.FC<Props> = ({ lang, meta, title }) => {
   const { site, markdownRemark } = useStaticQuery(graphql`
     query {
       site {

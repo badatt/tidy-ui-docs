@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStaticQuery, graphql, Link } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 const HomeLogo: React.FC = () => {
