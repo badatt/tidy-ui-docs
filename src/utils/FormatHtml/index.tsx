@@ -1,15 +1,15 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
 interface Props {
-  content: any;
   className: string;
+  content: any;
 }
 
-const FormatHtml: React.FC<Props> = ({ className , content }) => (
+const FormatHtml: React.FC<Props> = ({ className, content }) => (
   <span
     className={`${className} format-html`}
     dangerouslySetInnerHTML={{
-      __html: content
+      __html: content,
     }}
   />
 );

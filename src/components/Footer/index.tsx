@@ -1,26 +1,28 @@
-import React from 'react';
+import * as React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import { Icon } from '@tidy-ui/commons';
+import { FlexBox, FlexItem } from '@tidy-ui/layout';
+import { Text } from '@tidy-ui/presentation';
 
-import Container from 'components/ui/Container';
-
-import * as Styled from './styles';
-
-const Footer: React.FC = () => (
-  <Styled.Footer>
-    <Container>
-      <Styled.Links>
-        <Styled.Link href="https://github.com/badatt" rel="noreferrer noopener" target="_blank">
-          Github
-        </Styled.Link>
-        <Styled.Link
-          href="https://www.linkedin.com/in/balu-praveen-datty-210561a4"
-          rel="noreferrer noopener"
-          target="_blank"
-        >
-          Linkedin
-        </Styled.Link>
-      </Styled.Links>
-    </Container>
-  </Styled.Footer>
-);
+const Footer: React.FC = () => {
+  const { indiaFlag } = useStaticQuery(graphql`
+    {
+      indiaFlag: file(relativePath: { eq: "india-flag-icon.svg" }) {
+        publicURL
+      }
+    }
+  `);
+  return (
+    <FlexBox as="footer" fld="column" ali="center" padding="2rem" gap="0.5rem">
+      <FlexBox gap="1rem">
+        <FlexItem>Made in</FlexItem>
+        <FlexItem>
+          <Icon ele={<img src={indiaFlag.publicURL} />} />
+        </FlexItem>
+      </FlexBox>
+      <Text.caption>with love for dev community</Text.caption>
+    </FlexBox>
+  );
+};
 
 export default Footer;

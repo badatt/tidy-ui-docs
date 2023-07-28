@@ -1,7 +1,7 @@
 /* eslint-disable sort-keys/sort-keys-fix */
 module.exports = {
   siteMetadata: {
-    title: `Balu Praveen Datty`,
+    title: `tidy-ui`,
     author: 'Balu Praveen Datty',
     githubLink: 'https://github.com/badatt/tidy-ui',
   },

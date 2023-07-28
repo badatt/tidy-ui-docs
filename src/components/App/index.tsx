@@ -1,10 +1,10 @@
 import React from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import Header from 'components/Header';
-import { useReadApp } from 'hooks/useApp';
 import { GlobalDefault, GlobalFont, GlobalReset, orchidDark, orchidLight, TidyUiProvider } from '@tidy-ui/commons';
 import { Container } from '@tidy-ui/layout';
+import { useReadApp } from 'hooks/useApp';
+import Header from 'components/Header';
 
 interface Props {
   children: React.ReactNode;
@@ -35,7 +35,7 @@ const Layout: React.FC<Props> = ({ children }) => {
       <GlobalFont />
       <TidyUiProvider theme={data?.theme == 'dark' ? orchidDark : orchidLight}>
         <GlobalDefault />
-        <Container height="100vh" maxWidth="xl" gutter="0">
+        <Container as="main" maxWidth="xl" gutter="0">
           <Header />
           {children}
         </Container>

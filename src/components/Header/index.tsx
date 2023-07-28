@@ -1,27 +1,18 @@
 import React from 'react';
-import { styled } from '@tidy-ui/commons';
 import { FlexBox } from '@tidy-ui/layout';
 import Actions from './Actions';
 import HomeLogo from './HomeLogo';
-
-const StyledHeader = styled(FlexBox)`
-  height: 80px;
-  justify-content: space-between;
-  align-items: center;
-  align-content: center;
-`;
+import * as Styled from './styles';
 
 const Header: React.FC = () => {
   return (
-    <StyledHeader>
-      <HomeLogo />
-      <Actions />
-    </StyledHeader>
+    <Styled.Header>
+      <FlexBox jsc="space-between" ali="center" width="100%">
+        <HomeLogo />
+        <Actions />
+      </FlexBox>
+    </Styled.Header>
   );
-};
-
-Header.defaultProps = {
-  siteTitle: ``,
 };
 
 export default Header;
