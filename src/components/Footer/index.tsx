@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
     }
   `);
   return (
-    <FlexBox as="footer" fld="column" ali="center" padding="2rem" gap="0.5rem">
+    <FlexBox as="footer" fld="column" ali="center" padding="2rem" margin="5rem 0 0 0" gap="0.5rem">
       <FlexBox gap="1rem">
         <FlexItem>Made in</FlexItem>
         <FlexItem>
