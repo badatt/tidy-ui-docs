@@ -5,7 +5,6 @@ export const Nav = styled.nav`
   position: sticky;
   overscroll-behavior: contain;
   top: 80px;
-  width: 280px;
   height: calc(100vh - 82px);
   overflow-y: auto;
   padding: 1rem 0;

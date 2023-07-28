@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { Badge } from '@tidy-ui/presentation';
 
 const HomeLogo: React.FC = () => {
   const { homeLogo } = useStaticQuery(graphql`
@@ -17,7 +18,9 @@ const HomeLogo: React.FC = () => {
 
   return (
     <Link to="/">
-      <GatsbyImage image={image!} alt="Home" />
+      <Badge content="beta" isOutlined>
+        <GatsbyImage image={image!} alt="Home" />
+      </Badge>
     </Link>
   );
 };

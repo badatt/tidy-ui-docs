@@ -1,8 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
-import { SectionTitle } from 'helpers/definitions';
-import { calculateExperience } from 'helpers/utils';
 
 type Meta =
   | {
@@ -21,37 +19,19 @@ interface Props {
   title: string;
 }
 
-interface MetaBanner extends SectionTitle {
-  content: string;
-  dataOfJoining: string;
-  linkText: string;
-  linkTo: string;
-}
-
 const SEO: React.FC<Props> = ({ lang, meta, title }) => {
-  const { site, markdownRemark } = useStaticQuery(graphql`
-    query {
+  const {
+    site: { siteMetadata },
+  } = useStaticQuery(graphql`
+    {
       site {
         siteMetadata {
           title
           author
         }
       }
-      markdownRemark(frontmatter: { category: { eq: "hero section" } }) {
-        frontmatter {
-          title
-          subtitle
-          content
-          linkTo
-          linkText
-          dataOfJoining
-        }
-      }
     }
   `);
-
-  const metaBanner: MetaBanner = markdownRemark.frontmatter;
-  metaBanner.content = metaBanner.content.replace('{{experience}}', `${calculateExperience(metaBanner.dataOfJoining)}`);
 
   return (
     <Helmet
@@ -59,10 +39,10 @@ const SEO: React.FC<Props> = ({ lang, meta, title }) => {
         lang,
       }}
       title={title}
-      titleTemplate={`${site.siteMetadata.title} | %s`}
+      titleTemplate={`${siteMetadata.title} | %s`}
       meta={[
         {
-          content: metaBanner.content,
+          content: siteMetadata.author,
           name: `description`,
         },
         {
@@ -70,7 +50,7 @@ const SEO: React.FC<Props> = ({ lang, meta, title }) => {
           property: `og:title`,
         },
         {
-          content: metaBanner.content,
+          content: siteMetadata.author,
           property: `og:description`,
         },
         {
@@ -82,7 +62,7 @@ const SEO: React.FC<Props> = ({ lang, meta, title }) => {
           name: `twitter:card`,
         },
         {
-          content: site.siteMetadata.author,
+          content: siteMetadata.author,
           name: `twitter:creator`,
         },
         {
@@ -90,7 +70,7 @@ const SEO: React.FC<Props> = ({ lang, meta, title }) => {
           name: `twitter:title`,
         },
         {
-          content: metaBanner.content,
+          content: siteMetadata.author,
           name: `twitter:description`,
         },
       ].concat(meta!)}

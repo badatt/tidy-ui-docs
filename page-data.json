@@ -1,0 +1,112 @@
+{
+  "path": "/docs/components/alert/",
+  "location": {
+    "pathname": "/docs/components/alert/",
+    "search": "",
+    "hash": "",
+    "href": "http://localhost:8000/docs/components/alert/",
+    "origin": "http://localhost:8000",
+    "protocol": "http:",
+    "host": "localhost:8000",
+    "hostname": "localhost",
+    "port": "8000",
+    "state": null,
+    "key": "initial"
+  },
+  "pageResources": {
+    "component": {},
+    "head": null,
+    "json": {
+      "pageContext": {
+        "id": "9123151a-8acc-5ba1-b02c-9d94af721f2c",
+        "slug": "/docs/components/alert",
+        "frontmatter": {
+          "component": "alert",
+          "class": "presentation",
+          "title": "Alert",
+          "package": "@tidy-ui/alert",
+          "description": "Alert can be used to throw any alerts in the application. You can have both actionable alerts as well as notification purpose based alerts"
+        }
+      },
+      "serverData": null
+    },
+    "page": {
+      "componentChunkName": "component---src-templates-component-jsx-content-file-path-content-docs-components-alert-mdx",
+      "path": "/docs/components/alert/",
+      "webpackCompilationHash": "123",
+      "staticQueryHashes": [
+        "2963876968",
+        "3763021265",
+        "3937241708"
+      ],
+      "slicesMap": {}
+    },
+    "staticQueryResults": {
+      "2963876968": {
+        "data": {
+          "indiaFlag": {
+            "publicURL": "/static/7c666b81d1c59546235f0fb02dc4cec3/india-flag-icon.svg"
+          }
+        }
+      },
+      "3763021265": {
+        "data": {
+          "homeLogo": {
+            "childImageSharp": {
+              "gatsbyImageData": {
+                "layout": "constrained",
+                "placeholder": {
+                  "fallback": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABsElEQVR42mNggIL9DP85KjnuRmWyH1aCiPxnRNAQdn39fyaEOB6wimEVM4gu5bg+J4tt7yFUAyHs/0gW/Mdi6KrQVcyrQv+DzWFYxj1b/Lzs3oZlEkdMEtlXP5ohfT4G7CKl/2JNSv9Vm9X+O4H4jRr/Leu1/stBDIBqZmAAG75N5QTfFt3DgmCRg2KbJ95SOHcdrEliT90mvQ9XKnT/Czaq/N8KxKH1an9S6lX+JLWo/l/arPq3qVHln3212n+PQyqHRIEGyexXOyOyRfW45hatkxJgA0/IHFgxVWzWNhD7kMn/vRvNfqwAsVvU/s/oUP8f0qnxf16ryv+uZpW/E5tV/6Q2qfzdU6H63+WO3lqxHarn9I/q3NA4oXvL4rDuTUj4n5E9o9wvNeHVJNlJ4bvM/ofON3+uAHat6n/bepXfbk3q/9WBLnWtV/0T0aj62xvIXgj0OtsxmWOc2zWOGW1VP2KyQ/ug7G6Nk8LwCNmqtazllPHGC/BogIYNcsSAyGqV78pVqv+l8UUQGNy338/x2O6A4xW3Y0IwsXqG/0wgDNIEolcxwCMCGYANhRkMAOXWvSQ/M28SAAAAAElFTkSuQmCC"
+                },
+                "images": {
+                  "fallback": {
+                    "src": "/static/05b2cf8afb489c911474f4ec903af941/8dd81/home-logo.png",
+                    "srcSet": "/static/05b2cf8afb489c911474f4ec903af941/f4950/home-logo.png 30w,\n/static/05b2cf8afb489c911474f4ec903af941/56ef3/home-logo.png 60w,\n/static/05b2cf8afb489c911474f4ec903af941/8dd81/home-logo.png 120w,\n/static/05b2cf8afb489c911474f4ec903af941/d5e23/home-logo.png 240w",
+                    "sizes": "(min-width: 120px) 120px, 100vw"
+                  },
+                  "sources": [
+                    {
+                      "srcSet": "/static/05b2cf8afb489c911474f4ec903af941/8b1d7/home-logo.avif 30w,\n/static/05b2cf8afb489c911474f4ec903af941/57b73/home-logo.avif 60w,\n/static/05b2cf8afb489c911474f4ec903af941/17701/home-logo.avif 120w,\n/static/05b2cf8afb489c911474f4ec903af941/ed9f8/home-logo.avif 240w",
+                      "type": "image/avif",
+                      "sizes": "(min-width: 120px) 120px, 100vw"
+                    },
+                    {
+                      "srcSet": "/static/05b2cf8afb489c911474f4ec903af941/aae70/home-logo.webp 30w,\n/static/05b2cf8afb489c911474f4ec903af941/fe532/home-logo.webp 60w,\n/static/05b2cf8afb489c911474f4ec903af941/a6917/home-logo.webp 120w,\n/static/05b2cf8afb489c911474f4ec903af941/4e3ae/home-logo.webp 240w",
+                      "type": "image/webp",
+                      "sizes": "(min-width: 120px) 120px, 100vw"
+                    }
+                  ]
+                },
+                "width": 120,
+                "height": 45
+              }
+            }
+          }
+        }
+      },
+      "3937241708": {
+        "data": {
+          "site": {
+            "siteMetadata": {
+              "githubLink": "https://github.com/badatt/tidy-ui"
+            }
+          }
+        }
+      }
+    }
+  },
+  "uri": "/docs/components/alert",
+  "pageContext": {
+    "id": "9123151a-8acc-5ba1-b02c-9d94af721f2c",
+    "slug": "/docs/components/alert",
+    "frontmatter": {
+      "component": "alert",
+      "class": "presentation",
+      "title": "Alert",
+      "package": "@tidy-ui/alert",
+      "description": "Alert can be used to throw any alerts in the application. You can have both actionable alerts as well as notification purpose based alerts"
+    }
+  },
+  "serverData": null,
+  "params": {}
+}
