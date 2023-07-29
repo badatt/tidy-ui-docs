@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { graphql, useStaticQuery } from 'gatsby';
 import { DarkModeIcon, LightModeIcon } from '@tidy-ui/icons';
 import { Stack } from '@tidy-ui/layout';
@@ -34,7 +33,7 @@ const Actions: React.FC = () => {
   return (
     <Stack gap="0.5rem">
       <a href={siteMetadata.githubLink} target="_blank">
-        <Styled.IconBtn icon={<Icon icon={faGithub} />} />
+        <Styled.IconBtn icon={<Icon icon="fa-brands fa-github" />} />
       </a>
       <Styled.IconBtn onClick={handleThemeChange} icon={data?.theme == 'dark' ? <LightModeIcon /> : <DarkModeIcon />} />
     </Stack>

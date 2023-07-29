@@ -15,11 +15,11 @@ const components = {
   p: (props) => <Text.p {...props} style={{ fontSize: '1.2rem', marginBottom: '1rem' }} />,
 };
 
-const ComponentTemplate = ({ children }) => {
+const Doc = ({ children, ...data }) => {
   return (
     <FlexBox>
       <FlexItem span={4}>
-        <MainNav />
+        <MainNav path={data.path} />
       </FlexItem>
       <FlexItem span={20} padding="0 1rem">
         <MDXProvider components={components}>{children}</MDXProvider>
@@ -29,4 +29,4 @@ const ComponentTemplate = ({ children }) => {
   );
 };
 
-export default ComponentTemplate;
+export default Doc;

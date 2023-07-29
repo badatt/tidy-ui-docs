@@ -5,6 +5,7 @@ import { GlobalDefault, GlobalFont, GlobalReset, orchidDark, orchidLight, TidyUi
 import { Container } from '@tidy-ui/layout';
 import { useReadApp } from 'hooks/useApp';
 import Header from 'components/Header';
+import { GlobalStyle } from './styles';
 
 interface Props {
   children: React.ReactNode;
@@ -35,6 +36,7 @@ const Layout: React.FC<Props> = ({ children }) => {
       <GlobalFont />
       <TidyUiProvider theme={data?.theme == 'dark' ? orchidDark : orchidLight}>
         <GlobalDefault />
+        <GlobalStyle />
         <Container as="main" maxWidth="xl" gutter="0">
           <Header />
           {children}
