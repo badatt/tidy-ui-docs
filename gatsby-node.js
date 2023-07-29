@@ -26,7 +26,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 };
 
-const componentTemplate = path.resolve(`${path.resolve(__dirname, 'src')}/templates/Component.jsx`);
+const docTemplate = path.resolve(`${path.resolve(__dirname, 'src')}/templates/doc.jsx`);
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
@@ -64,7 +64,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   componentNodes.forEach((node) => {
     createPage({
       // Provide the path to the MDX content file so webpack can pick it up and transform it into JSX
-      component: `${componentTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
+      component: `${docTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
       // You can use the values in this context in
       // our page layout component
       context: { id: node.id, slug: node.fields.slug },
