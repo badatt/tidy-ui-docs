@@ -4,6 +4,10 @@ module.exports = {
     title: `tidy-ui`,
     author: 'Balu Praveen Datty',
     githubLink: 'https://github.com/badatt/tidy-ui',
+    docs: {
+      githubLink: 'https://github.com/badatt/tidy-ui-docs',
+      contentPath: '/tree/main/content',
+    },
   },
   plugins: [
     `gatsby-plugin-typescript`,
