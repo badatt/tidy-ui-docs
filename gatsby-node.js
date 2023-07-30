@@ -23,6 +23,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         .map((s) => slugify(s))
         .join('/'),
     });
+    createNodeField({
+      name: `pageSourcePath`,
+      node,
+      value: `${slug}.mdx`,
+    });
   }
 };
 
@@ -45,9 +50,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
           fields {
             slug
+            pageSourcePath
           }
           internal {
             contentFilePath
+          }
+        }
+      }
+      site {
+        siteMetadata {
+          docs {
+            contentPath
+            githubLink
           }
         }
       }
@@ -58,19 +72,35 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     reporter.panicOnBuild('Error loading MDX result', result.errors);
   }
 
-  const componentNodes = result.data.allMdx.nodes;
+  const { allMdx, site } = result.data;
 
-  // you'll call `createPage` for each result
+  const {
+    docs: { contentPath, githubLink },
+  } = site.siteMetadata;
+
+  const componentNodes = allMdx.nodes;
   componentNodes.forEach((node) => {
+    const {
+      fields: { pageSourcePath, slug },
+      internal: { contentFilePath },
+    } = node;
+    const pageSourceUrl = `${githubLink}${contentPath}${pageSourcePath}`;
+    const slugs = slug.split('/');
+    slugs.shift();
+    const breadcrumb = [
+      {
+        name: slugs[0],
+        path: `/${slugs[0]}`,
+      },
+      {
+        name: slugs[1],
+        path: `/${slugs[0]}/${slugs[1]}`,
+      },
+    ];
     createPage({
-      // Provide the path to the MDX content file so webpack can pick it up and transform it into JSX
-      component: `${docTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
-      // You can use the values in this context in
-      // our page layout component
-      context: { id: node.id, slug: node.fields.slug },
-      // As mentioned above you could also query something else like frontmatter.title above and use a helper function
-      // like slugify to create a slug
-      path: node.fields.slug,
+      component: `${docTemplate}?__contentFilePath=${contentFilePath}`,
+      context: { breadcrumb, id: node.id, pageSourceUrl: encodeURI(pageSourceUrl), slug, slugs },
+      path: slug,
     });
   });
 };

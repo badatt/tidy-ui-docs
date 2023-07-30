@@ -16,7 +16,7 @@ export const H1 = styled(Text.h4)`
 `;
 
 export const H2 = styled(Text.h4)`
-  margin: 2.5rem 0 1.5rem 0;
+  margin: 2rem 0 1.5rem 0;
   font-size: 2.5rem;
   & > a {
     ${resetLinkStyle}

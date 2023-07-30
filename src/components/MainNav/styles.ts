@@ -10,6 +10,11 @@ export const Nav = styled.nav`
   height: calc(100vh - 82px);
   overflow-y: auto;
   padding: 2rem 0;
+  overflow: hidden;
+
+  :hover {
+    overflow-y: scroll;
+  }
 `;
 
 export const MainLinkIcon = styled(Icon)`
