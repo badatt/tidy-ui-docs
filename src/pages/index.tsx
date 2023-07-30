@@ -3,8 +3,7 @@ import { Link } from 'gatsby';
 import { color, css, hsla, styled, useTheme } from '@tidy-ui/commons';
 import { FlexBox } from '@tidy-ui/layout';
 import { Button, Text } from '@tidy-ui/presentation';
-import Footer from 'components/Footer';
-import SEO from 'components/SEO';
+import { Footer, SEO } from 'components';
 
 const TidyUiName = styled(Text.hero)`
   ${({ theme: { palette } }) => css`

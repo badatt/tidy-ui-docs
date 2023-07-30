@@ -27,7 +27,10 @@ const Components: React.FC = () => {
     components: { nodes },
   }: IComponentNodes = useStaticQuery(graphql`
     {
-      components: allMdx(filter: { fields: { slug: { glob: "/components/*" } } }) {
+      components: allMdx(
+        filter: { fields: { slug: { glob: "/components/*" } } }
+        sort: { frontmatter: { title: ASC } }
+      ) {
         nodes {
           id
           frontmatter {

@@ -1,8 +1,7 @@
 import * as React from 'react';
 import type { PageProps } from 'gatsby';
 import { FlexBox, FlexItem } from '@tidy-ui/layout';
-import Footer from 'components/Footer';
-import MainNav from 'components/MainNav';
+import { Footer, MainNav } from 'components';
 
 const Components: React.FC<PageProps> = (props: PageProps) => {
   return (
