@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { styled } from '@tidy-ui/commons';
-import { Divider, FlexBox, FlexItem } from '@tidy-ui/layout';
+import { Divider, FlexBox } from '@tidy-ui/layout';
+import { Text } from '@tidy-ui/presentation';
 import { mdxComponents } from 'ui';
-import { Breadcrumb, EditOnGithub, Footer, MainNav } from 'components';
+import { Page } from 'components';
 
 const ContentWrapper = styled.div`
   padding: 0 0 4rem 0;
@@ -11,26 +12,33 @@ const ContentWrapper = styled.div`
 
 const Doc = ({ children, ...data }) => {
   const {
-    pageContext: { breadcrumb, pageSourceUrl, slug },
+    pageContext: { breadcrumb, frontmatter, pageSourceUrl, libSource, libUrl, npmLibBadge, licenseBadge, sourceBadge },
+    path,
   } = data;
+  const { component, lib, description, title } = frontmatter;
+
   return (
-    <FlexBox>
-      <FlexItem span={4}>
-        <MainNav path={data.path} />
-      </FlexItem>
-      <FlexItem span={20} padding="0 1rem">
-        <FlexBox fld="row" jsc="space-between">
-          {slug !== '/getting-started' && <Breadcrumb links={breadcrumb} />}
-          <EditOnGithub source={pageSourceUrl} />
-        </FlexBox>
-        <ContentWrapper>
-          <MDXProvider components={mdxComponents}>{children}</MDXProvider>
-        </ContentWrapper>
+    <Page path={path} breadcrumb={breadcrumb} source={pageSourceUrl}>
+      <ContentWrapper>
+        <Text.h2 bld margin="2rem 0">
+          {title}
+        </Text.h2>
+        {description}
+        {lib && (
+          <FlexBox margin="2rem 0" gap="1rem">
+            <img alt="License" src={licenseBadge} />
+            <a href={libSource} target="_blank">
+              <img alt={component} src={sourceBadge} />
+            </a>
+            <a href={libUrl} target="_blank">
+              <img alt="npm (scoped)" src={npmLibBadge} />
+            </a>
+          </FlexBox>
+        )}
         <Divider />
-        <FlexBox></FlexBox>
-        <Footer />
-      </FlexItem>
-    </FlexBox>
+        <MDXProvider components={mdxComponents}>{children}</MDXProvider>
+      </ContentWrapper>
+    </Page>
   );
 };
 

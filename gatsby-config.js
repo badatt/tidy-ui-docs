@@ -3,7 +3,13 @@ module.exports = {
   siteMetadata: {
     title: `tidy-ui`,
     author: 'Balu Praveen Datty',
-    githubLink: 'https://github.com/badatt/tidy-ui',
+    npmJs: {
+      packageBaseUrl: 'https://www.npmjs.com/package/',
+    },
+    source: {
+      githubLink: 'https://github.com/badatt/tidy-ui',
+      packagesPath: '/tree/main/packages',
+    },
     docs: {
       githubLink: 'https://github.com/badatt/tidy-ui-docs',
       contentPath: '/tree/main/content',
@@ -30,6 +36,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/assets/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `remote`,
+        path: `${__dirname}/src/assets/remote`,
       },
     },
     {
