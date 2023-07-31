@@ -1,20 +1,18 @@
 import * as React from 'react';
 import { Breadcrumb as TBreadCrumb, BreadcrumbItem } from '@tidy-ui/navigation';
+import { IBreadcrumbItem } from './types';
 
 interface Props {
-  links: {
-    name: string;
-    path: string;
-  }[];
+  breadcrumb: IBreadcrumbItem[];
 }
 
-const Breadcrumb: React.FC<Props> = ({ links }) => {
+const Breadcrumb: React.FC<Props> = ({ breadcrumb }) => {
   return (
     <TBreadCrumb tone="info">
       <BreadcrumbItem href="/getting-started">Home</BreadcrumbItem>
-      {links.map((l) => (
-        <BreadcrumbItem key={l.name} href={l.path} style={{ textTransform: 'capitalize' }}>
-          {l.name}
+      {breadcrumb.map((b) => (
+        <BreadcrumbItem key={b.name} href={b.path} style={{ textTransform: 'capitalize' }}>
+          {b.name}
         </BreadcrumbItem>
       ))}
     </TBreadCrumb>

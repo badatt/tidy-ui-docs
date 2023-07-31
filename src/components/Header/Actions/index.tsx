@@ -8,12 +8,16 @@ import * as Styled from './styles';
 
 const Actions: React.FC = () => {
   const {
-    site: { siteMetadata },
+    site: {
+      siteMetadata: { source },
+    },
   } = useStaticQuery(graphql`
     {
       site {
         siteMetadata {
-          githubLink
+          source {
+            githubLink
+          }
         }
       }
     }
@@ -32,7 +36,7 @@ const Actions: React.FC = () => {
 
   return (
     <Stack gap="0.5rem">
-      <a href={siteMetadata.githubLink} target="_blank">
+      <a href={source.githubLink} target="_blank">
         <Styled.IconBtn icon={<Icon icon="fa-brands fa-github" />} />
       </a>
       <Styled.IconBtn onClick={handleThemeChange} icon={data?.theme == 'dark' ? <LightModeIcon /> : <DarkModeIcon />} />

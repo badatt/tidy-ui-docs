@@ -1,6 +1,6 @@
 const path = require(`path`);
 const slugify = require(`@sindresorhus/slugify`);
-const { createFilePath } = require(`gatsby-source-filesystem`);
+const { createFilePath, createRemoteFileNode } = require(`gatsby-source-filesystem`);
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -10,11 +10,29 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   });
 };
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions;
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+
+  createTypes(`
+    type MarkdownRemark implements Node { 
+      remote: File @link(from: "fields.localFile")
+    }
+  `);
+
+  createTypes(`
+    type Mdx implements Node { 
+      npmLibBadge: File @link(from: "fields.npmLibBadgeFile")
+      sourceBadge: File @link(from: "fields.sourceBadgeFile")
+    }
+  `);
+};
+
+exports.onCreateNode = async ({ node, actions, createNodeId, getCache, getNode }) => {
+  const { createNode, createNodeField } = actions;
 
   if (node.internal.type === `Mdx`) {
     const slug = createFilePath({ getNode, node, trailingSlash: false });
+    
     createNodeField({
       name: `slug`,
       node,
@@ -23,11 +41,55 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         .map((s) => slugify(s))
         .join('/'),
     });
+
     createNodeField({
       name: `pageSourcePath`,
       node,
       value: `${slug}.mdx`,
     });
+
+    if(node.frontmatter.lib && node.frontmatter.lib !== null) {
+
+      const npmLibBadgeFile = await createRemoteFileNode({
+        createNode, // helper function in gatsby-node to generate the node
+        createNodeId, // helper function in gatsby-node to generate the node id
+        ext: `.svg`,
+        getCache,
+        parentNodeId: node.id, // id of the parent node of the fileNode you are going to create
+        url: `https://img.shields.io/npm/v/${node.frontmatter.lib}`, // string that points to the URL of the image
+      });
+      if (npmLibBadgeFile) {
+        createNodeField({ name: 'npmLibBadgeFile', node, value: npmLibBadgeFile.id });
+      }
+
+      const sourceBadgeFile = await createRemoteFileNode({
+        createNode, // helper function in gatsby-node to generate the node
+        createNodeId, // helper function in gatsby-node to generate the node id
+        ext: `.svg`,
+        getCache,
+        parentNodeId: node.id, // id of the parent node of the fileNode you are going to create
+        url: `https://img.shields.io/badge/source-${node.frontmatter.component}-DarkGreen?logo=github`, // string that points to the URL of the image
+      });
+      if (npmLibBadgeFile) {
+        createNodeField({ name: 'sourceBadgeFile', node, value: sourceBadgeFile.id });
+      }
+    }
+  }
+
+  if (node.internal.type === 'MarkdownRemark' && node.frontmatter.url && node.frontmatter.url !== null) {
+    const fileNode = await createRemoteFileNode({
+      createNode, // helper function in gatsby-node to generate the node
+      createNodeId, // helper function in gatsby-node to generate the node id
+      ext: `.svg`,
+      getCache,
+      parentNodeId: node.id, // id of the parent node of the fileNode you are going to create
+      url: node.frontmatter.url, // string that points to the URL of the image
+    });
+
+    // if the file was created, extend the node with "localFile"
+    if (fileNode) {
+      createNodeField({ name: 'localFile', node, value: fileNode.id });
+    }
   }
 };
 
@@ -45,12 +107,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             class
             component
             description
-            package
+            lib
             title
           }
           fields {
             slug
             pageSourcePath
+          }
+          npmLibBadge {
+            publicURL
+          }
+          sourceBadge {
+            publicURL
           }
           internal {
             contentFilePath
@@ -63,6 +131,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             contentPath
             githubLink
           }
+          source {
+            githubLink
+            packagesPath
+          }
+          npmJs {
+            packageBaseUrl
+          }
+        }
+      }
+      licenseBadge: markdownRemark(frontmatter: {title: {eq: "License"}}) {
+        remote {
+          publicURL
         }
       }
     }
@@ -72,19 +152,20 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     reporter.panicOnBuild('Error loading MDX result', result.errors);
   }
 
-  const { allMdx, site } = result.data;
+  const { allMdx, site, licenseBadge } = result.data;
 
-  const {
-    docs: { contentPath, githubLink },
-  } = site.siteMetadata;
+  const { docs, source, npmJs } = site.siteMetadata;
 
   const componentNodes = allMdx.nodes;
+
   componentNodes.forEach((node) => {
     const {
       fields: { pageSourcePath, slug },
+      frontmatter: { component, lib },
       internal: { contentFilePath },
+      npmLibBadge,
+      sourceBadge
     } = node;
-    const pageSourceUrl = `${githubLink}${contentPath}${pageSourcePath}`;
     const slugs = slug.split('/');
     slugs.shift();
     const breadcrumb = [
@@ -99,7 +180,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     ];
     createPage({
       component: `${docTemplate}?__contentFilePath=${contentFilePath}`,
-      context: { breadcrumb, id: node.id, pageSourceUrl: encodeURI(pageSourceUrl), slug, slugs },
+      context: {
+        breadcrumb: slug !== '/getting-started' ? breadcrumb : undefined,
+        id: node.id,
+        libSource: `${source.githubLink}${source.packagesPath}/${component}`,
+        libUrl: `${npmJs.packageBaseUrl}${lib}`,
+        licenseBadge: licenseBadge.remote.publicURL,
+        npmLibBadge: npmLibBadge?.publicURL,
+        pageSourceUrl: encodeURI(`${docs.githubLink}${docs.contentPath}${pageSourcePath}`),
+        slug,
+        sourceBadge: sourceBadge?.publicURL
+      },
       path: slug,
     });
   });

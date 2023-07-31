@@ -5,6 +5,7 @@ import { Text } from '@tidy-ui/presentation';
 import * as Styled from './styles';
 
 const Footer: React.FC = () => {
+  // use gatsby image where ever possible
   const { indiaFlag, reactIcon, scIcon, gatsbyIcon } = useStaticQuery(graphql`
     {
       indiaFlag: file(relativePath: { eq: "india-flag-icon.svg" }) {
