@@ -69,6 +69,7 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    // TODO update manifest
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

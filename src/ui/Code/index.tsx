@@ -15,12 +15,17 @@ const Ide: React.FC<Props> = (props) => {
   return (
     <LiveProvider scope={ReactLiveScope} {...props}>
       <Border
-        align={14}
-        content={<Chip girth="xs">Live editor</Chip>}
+        align={16}
+        content={
+          <Chip girth="xs" tone="info">
+            LIVE EXAMPLE
+          </Chip>
+        }
         margin="4rem 0"
         padding="2rem 1rem 1rem 1rem"
         variant="dashed"
         density="2px"
+        positioning="top-center"
       >
         <Editor />
       </Border>

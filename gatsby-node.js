@@ -1,6 +1,7 @@
 const path = require(`path`);
 const slugify = require(`@sindresorhus/slugify`);
 const { createFilePath, createRemoteFileNode } = require(`gatsby-source-filesystem`);
+const readingTime = require(`reading-time`);
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -32,7 +33,7 @@ exports.onCreateNode = async ({ node, actions, createNodeId, getCache, getNode }
 
   if (node.internal.type === `Mdx`) {
     const slug = createFilePath({ getNode, node, trailingSlash: false });
-    
+
     createNodeField({
       name: `slug`,
       node,
@@ -48,27 +49,32 @@ exports.onCreateNode = async ({ node, actions, createNodeId, getCache, getNode }
       value: `${slug}.mdx`,
     });
 
-    if(node.frontmatter.lib && node.frontmatter.lib !== null) {
+    createNodeField({
+      name: `timeToRead`,
+      node,
+      value: readingTime(node.body),
+    });
 
+    if (node.frontmatter.lib && node.frontmatter.lib !== null) {
       const npmLibBadgeFile = await createRemoteFileNode({
-        createNode, // helper function in gatsby-node to generate the node
-        createNodeId, // helper function in gatsby-node to generate the node id
+        createNode,
+        createNodeId,
         ext: `.svg`,
         getCache,
-        parentNodeId: node.id, // id of the parent node of the fileNode you are going to create
-        url: `https://img.shields.io/npm/v/${node.frontmatter.lib}`, // string that points to the URL of the image
+        parentNodeId: node.id,
+        url: `https://img.shields.io/npm/v/${node.frontmatter.lib}`,
       });
       if (npmLibBadgeFile) {
         createNodeField({ name: 'npmLibBadgeFile', node, value: npmLibBadgeFile.id });
       }
 
       const sourceBadgeFile = await createRemoteFileNode({
-        createNode, // helper function in gatsby-node to generate the node
-        createNodeId, // helper function in gatsby-node to generate the node id
+        createNode,
+        createNodeId,
         ext: `.svg`,
         getCache,
-        parentNodeId: node.id, // id of the parent node of the fileNode you are going to create
-        url: `https://img.shields.io/badge/source-${node.frontmatter.component}-DarkGreen?logo=github`, // string that points to the URL of the image
+        parentNodeId: node.id,
+        url: `https://img.shields.io/badge/source-${node.frontmatter.component}-DarkGreen?logo=github`,
       });
       if (npmLibBadgeFile) {
         createNodeField({ name: 'sourceBadgeFile', node, value: sourceBadgeFile.id });
@@ -78,15 +84,14 @@ exports.onCreateNode = async ({ node, actions, createNodeId, getCache, getNode }
 
   if (node.internal.type === 'MarkdownRemark' && node.frontmatter.url && node.frontmatter.url !== null) {
     const fileNode = await createRemoteFileNode({
-      createNode, // helper function in gatsby-node to generate the node
-      createNodeId, // helper function in gatsby-node to generate the node id
+      createNode,
+      createNodeId,
       ext: `.svg`,
       getCache,
-      parentNodeId: node.id, // id of the parent node of the fileNode you are going to create
-      url: node.frontmatter.url, // string that points to the URL of the image
+      parentNodeId: node.id,
+      url: node.frontmatter.url,
     });
 
-    // if the file was created, extend the node with "localFile"
     if (fileNode) {
       createNodeField({ name: 'localFile', node, value: fileNode.id });
     }
@@ -113,6 +118,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           fields {
             slug
             pageSourcePath
+            timeToRead {
+              text
+              minutes
+              time
+              words
+            }
           }
           npmLibBadge {
             publicURL
@@ -140,7 +151,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
         }
       }
-      licenseBadge: markdownRemark(frontmatter: {title: {eq: "License"}}) {
+      licenseBadge: markdownRemark(frontmatter: { title: { eq: "License" } }) {
         remote {
           publicURL
         }
@@ -160,11 +171,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   componentNodes.forEach((node) => {
     const {
-      fields: { pageSourcePath, slug },
+      fields: { pageSourcePath, slug, timeToRead },
       frontmatter: { component, lib },
       internal: { contentFilePath },
       npmLibBadge,
-      sourceBadge
+      sourceBadge,
     } = node;
     const slugs = slug.split('/');
     slugs.shift();
@@ -189,7 +200,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         npmLibBadge: npmLibBadge?.publicURL,
         pageSourceUrl: encodeURI(`${docs.githubLink}${docs.contentPath}${pageSourcePath}`),
         slug,
-        sourceBadge: sourceBadge?.publicURL
+        sourceBadge: sourceBadge?.publicURL,
+        timeToRead,
       },
       path: slug,
     });
