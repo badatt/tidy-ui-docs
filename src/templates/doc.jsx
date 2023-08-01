@@ -12,13 +12,23 @@ const ContentWrapper = styled.div`
 
 const Doc = ({ children, ...data }) => {
   const {
-    pageContext: { breadcrumb, frontmatter, pageSourceUrl, libSource, libUrl, npmLibBadge, licenseBadge, sourceBadge },
+    pageContext: {
+      breadcrumb,
+      frontmatter,
+      pageSourceUrl,
+      libSource,
+      libUrl,
+      npmLibBadge,
+      licenseBadge,
+      sourceBadge,
+      timeToRead,
+    },
     path,
   } = data;
   const { component, lib, description, title } = frontmatter;
 
   return (
-    <Page path={path} breadcrumb={breadcrumb} source={pageSourceUrl}>
+    <Page path={path} breadcrumb={breadcrumb} source={pageSourceUrl} timeToRead={timeToRead}>
       <ContentWrapper>
         <Text.h2 bld margin="2rem 0">
           {title}
