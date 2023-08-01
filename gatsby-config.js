@@ -73,13 +73,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-personal-website-starter`,
-        short_name: `starter`,
+        name: `Tidy UI documentation site`,
+        description: `Tidy UI is a family of lightweight, modular React component library, providing essential building blocks for effortless application development. 
+        The components are powered styled-components, features include css-in-js, typography, layouts, theming etc`,
+        short_name: `tidy-ui-docs`,
         start_url: `/`,
-        background_color: `#81e6d9`,
-        theme_color: `#81e6d9`,
-        display: `minimal-ui`,
-        icon: `src/assets/images/passport-photo.png`,
+        display: `standalone`,
+        icon: `src/assets/images/tidy-ui-logo.png`,
       },
     },
     `gatsby-plugin-offline`,
