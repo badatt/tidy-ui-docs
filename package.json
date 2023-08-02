@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "@mdx-js/react": "^2.3.0",
+    "@mkitio/gatsby-theme-password-protect": "^2.1.2",
     "@sindresorhus/slugify": "^1.1.2",
     "@tanstack/react-query-devtools": "^4.32.0",
     "@types/javascript-time-ago": "^2.0.3",
@@ -60,7 +61,9 @@
     "gatsby-plugin-offline": "^6.11.0",
     "gatsby-plugin-purgecss": "^6.2.1",
     "gatsby-plugin-react-helmet": "^6.11.0",
+    "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sharp": "^5.11.0",
+    "gatsby-plugin-sitemap": "^6.11.0",
     "gatsby-plugin-styled-components": "^6.11.0",
     "gatsby-plugin-typescript": "^5.11.0",
     "gatsby-remark-images": "^7.11.0",
@@ -85,7 +88,8 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build:dev": "GATSBY_ACTIVE_ENV=dev gatsby build",
+    "build:prd": "GATSBY_ACTIVE_ENV=prd gatsby build",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",

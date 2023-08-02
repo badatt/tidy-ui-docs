@@ -17,7 +17,7 @@ const IndexPage: React.FC = () => {
   const { isDark } = useTheme();
   return (
     <>
-      <SEO title="Home" />
+      <SEO title="/Home" />
       <FlexBox as="section" ctr fld="column" padding="4rem 0" gap="2rem" ali="center">
         <Text.h2 bld ctr color={isDark ? hsla(color.gray[300]) : hsla(color.gray[700])}>
           Create elegant React apps with

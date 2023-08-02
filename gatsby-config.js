@@ -1,8 +1,13 @@
 /* eslint-disable sort-keys/sort-keys-fix */
 module.exports = {
   siteMetadata: {
-    title: `tidy-ui`,
-    author: 'Balu Praveen Datty',
+    title: `Tidy UI`,
+    author: {
+      name: 'Balu Praveen Datty',
+      email: 'dev.badatt@gmail.com',
+    },
+    description:
+      'Tidy UI is a family of lightweight, modular React component library, providing essential building blocks for effortless application development. The components are powered styled-components, features include css-in-js, typography, layouts, theming etc',
     npmJs: {
       packageBaseUrl: 'https://www.npmjs.com/package/',
     },
@@ -14,6 +19,7 @@ module.exports = {
       githubLink: 'https://github.com/badatt/tidy-ui-docs',
       contentPath: '/tree/main/content',
     },
+    siteUrl: `http://localhost:8000`, // TODO change after deployment
   },
   plugins: [
     `gatsby-plugin-typescript`,
@@ -69,7 +75,6 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    // TODO update manifest
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -88,6 +93,26 @@ module.exports = {
       resolve: `gatsby-plugin-layout`,
       options: {
         component: require.resolve(`${__dirname}/src/components/App/index.tsx`),
+      },
+    },
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        env: {
+          dev: {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+          },
+          prd: {
+            policy: [{ userAgent: '*', allow: '/' }],
+          },
+        },
+      },
+    },
+    {
+      resolve: '@mkitio/gatsby-theme-password-protect',
+      options: {
+        password: 'tidyui@123',
       },
     },
   ],

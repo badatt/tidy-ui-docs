@@ -1,0 +1,41 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    name: Github pages
+    environment: PROD
+    runs-on: ubuntu-latest
+    env:
+      CI: true
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.16.0'
+          registry-url: https://registry.npmjs.org/
+
+      - name: Bootstrap
+        run: npm install
+
+      - name: Build
+        run: npm build:dev
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
