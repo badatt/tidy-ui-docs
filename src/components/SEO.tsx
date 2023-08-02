@@ -2,32 +2,39 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
 
-type Meta =
-  | {
-      content: any;
-      name: string;
-    }
-  | {
-      content: any;
-      property: string;
-    };
-
 interface Props {
-  description?: string;
   lang?: string;
-  meta?: Meta[];
   title: string;
 }
 
-const SEO: React.FC<Props> = ({ lang, meta, title }) => {
+interface SiteMetaData {
+  author: {
+    email: string;
+    name: string;
+  };
+  description: string;
+  title: string;
+}
+
+interface Site {
+  site: {
+    siteMetadata: SiteMetaData;
+  };
+}
+
+const SEO: React.FC<Props> = ({ lang, title }) => {
   const {
     site: { siteMetadata },
-  } = useStaticQuery(graphql`
+  }: Site = useStaticQuery(graphql`
     {
       site {
         siteMetadata {
+          author {
+            email
+            name
+          }
+          description
           title
-          author
         }
       }
     }
@@ -39,10 +46,10 @@ const SEO: React.FC<Props> = ({ lang, meta, title }) => {
         lang,
       }}
       title={title}
-      titleTemplate={`${siteMetadata.title} | %s`}
+      titleTemplate={`${siteMetadata.title} %s`}
       meta={[
         {
-          content: siteMetadata.author,
+          content: siteMetadata.description,
           name: `description`,
         },
         {
@@ -50,7 +57,7 @@ const SEO: React.FC<Props> = ({ lang, meta, title }) => {
           property: `og:title`,
         },
         {
-          content: siteMetadata.author,
+          content: siteMetadata.description,
           property: `og:description`,
         },
         {
@@ -62,7 +69,7 @@ const SEO: React.FC<Props> = ({ lang, meta, title }) => {
           name: `twitter:card`,
         },
         {
-          content: siteMetadata.author,
+          content: siteMetadata.author.name,
           name: `twitter:creator`,
         },
         {
@@ -70,18 +77,17 @@ const SEO: React.FC<Props> = ({ lang, meta, title }) => {
           name: `twitter:title`,
         },
         {
-          content: siteMetadata.author,
+          content: siteMetadata.description,
           name: `twitter:description`,
         },
-      ].concat(meta!)}
+      ]}
     />
   );
 };
 
 SEO.defaultProps = {
-  description: ``,
   lang: `en`,
-  meta: [] as Meta[],
+  title: ``,
 };
 
 export default SEO;

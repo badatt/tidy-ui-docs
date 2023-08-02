@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { DarkModeIcon, LightModeIcon } from '@tidy-ui/icons';
 import { Stack } from '@tidy-ui/layout';
 import { useReadApp, useUpdateApp } from 'hooks/useApp';
 import Icon from 'ui/Icon';
@@ -39,7 +38,10 @@ const Actions: React.FC = () => {
       <a href={source.githubLink} target="_blank">
         <Styled.IconBtn icon={<Icon icon="fa-brands fa-github" />} />
       </a>
-      <Styled.IconBtn onClick={handleThemeChange} icon={data?.theme == 'dark' ? <LightModeIcon /> : <DarkModeIcon />} />
+      <Styled.IconBtn
+        onClick={handleThemeChange}
+        icon={data?.theme == 'dark' ? <Icon icon="fa-regular fa-sun" /> : <Icon icon="fa-solid fa-moon" />}
+      />
     </Stack>
   );
 };

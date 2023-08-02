@@ -3,7 +3,7 @@ import SEO from 'components/SEO';
 
 const NotFoundPage: React.FC = () => (
   <>
-    <SEO title="404: Not found" />
+    <SEO title="/404 Not found" />
     Not Found (Please contact admin)
   </>
 );
