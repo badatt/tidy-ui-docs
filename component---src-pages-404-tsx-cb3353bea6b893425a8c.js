@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktidy_ui_docs=self.webpackChunktidy_ui_docs||[]).push([[218],{2513:function(e,t,n){n.r(t);var u=n(7294),a=n(1470);t.default=()=>u.createElement(u.Fragment,null,u.createElement(a.Z,{title:"/404 Not found"}),"Not Found (Please contact admin)")}}]);
+//# sourceMappingURL=component---src-pages-404-tsx-cb3353bea6b893425a8c.js.map
