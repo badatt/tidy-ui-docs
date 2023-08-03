@@ -1,1 +1,1 @@
-[![pages-build-deployment](https://github.com/badatt/badatt.github.io/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://github.com/badatt/badatt.github.io/actions/workflows/pages/pages-build-deployment)
+# tidy-ui docs
