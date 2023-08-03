@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Balu Praveen Datty",
   "dependencies": {
+    "@commitlint/cli": "^14.1.0",
+    "@commitlint/config-conventional": "^14.1.0",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
@@ -71,6 +73,7 @@
     "gatsby-source-filesystem": "^5.11.0",
     "gatsby-transformer-remark": "^6.11.0",
     "gatsby-transformer-sharp": "^5.11.0",
+    "husky": "^7.0.4",
     "markdownlint-cli2": "^0.4.0",
     "prettier": "^3.0.0",
     "reading-time": "^1.5.0",
@@ -88,8 +91,8 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build:dev": "GATSBY_ACTIVE_ENV=dev gatsby build",
-    "build:prd": "GATSBY_ACTIVE_ENV=prd gatsby build",
+    "bootstrap": "npm install --force && husky install",
+    "build": "GATSBY_ACTIVE_ENV=dev gatsby build",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
@@ -99,7 +102,8 @@
     "format:fix": "prettier \"**/*.{js,jsx,json,yml,yaml,css,less,scss,ts,tsx,md,graphql,mdx}\" --write --loglevel warn",
     "lint": "eslint . -c .eslintrc --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npm run format:fix && npm run lint:md && eslint . -c .eslintrc --ext .js,.jsx,.ts,.tsx --fix",
-    "lint:md": "markdownlint-cli2-fix \"**/*.md\" \"#**/node_modules/**\" \"#**/CHANGELOG.md\" \"#LICENSE\" \"#**/*/_*.md\" \"#internals/md/**\""
+    "lint:md": "markdownlint-cli2-fix \"**/*.md\" \"**/*.mdx\" \"#**/node_modules/**\" \"#**/CHANGELOG.md\" \"#LICENSE\" \"#**/*/_*.md\" \"#internals/md/**\"",
+    "vet": "npm run format && npm run lint"
   },
   "repository": {
     "type": "git",

@@ -6,23 +6,23 @@ interface IBadgeNode {
   frontmatter: {
     reference: string;
     title: string;
-  },
+  };
   id: string;
   remote: {
-    publicURL: string
+    publicURL: string;
   };
 }
 
 interface IBadges {
   badges: {
-    nodes: IBadgeNode[]
-  }
+    nodes: IBadgeNode[];
+  };
 }
 
 const HealthBadge: React.FC = () => {
   const { badges }: IBadges = useStaticQuery(graphql`
     {
-      badges: allMarkdownRemark(filter: {frontmatter: {category: {eq: "badge"}}}) {
+      badges: allMarkdownRemark(filter: { frontmatter: { category: { eq: "badge" } } }) {
         nodes {
           id
           remote {
@@ -38,11 +38,11 @@ const HealthBadge: React.FC = () => {
   `);
   return (
     <FlexBox margin="2rem 0" gap="0.5rem" jsc="center">
-      {
-        badges.nodes.map(b => <a key={b.id} href={b.frontmatter.reference} target="_blank">
-          <img src={b.remote.publicURL} alt={b.frontmatter.title}/>
-        </a>)
-      }
+      {badges.nodes.map((b) => (
+        <a key={b.id} href={b.frontmatter.reference} target="_blank">
+          <img src={b.remote.publicURL} alt={b.frontmatter.title} />
+        </a>
+      ))}
     </FlexBox>
   );
 };
