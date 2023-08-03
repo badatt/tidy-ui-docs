@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 interface Props {
   lang?: string;
-  title: string;
+  title?: string;
 }
 
 interface SiteMetaData {
@@ -87,7 +87,7 @@ const SEO: React.FC<Props> = ({ lang, title }) => {
 
 SEO.defaultProps = {
   lang: `en`,
-  title: ``,
+  title: `Tidy UI`,
 };
 
 export default SEO;

@@ -5,7 +5,7 @@ import { Breadcrumb, EditOnGithub, Footer, HealthBadge, IBreadcrumbItem, MainNav
 
 interface Props extends React.PropsWithChildren {
   breadcrumb?: IBreadcrumbItem[];
-  path: string;
+  path?: string;
   source?: string;
   timeToRead?: {
     minutes: number;

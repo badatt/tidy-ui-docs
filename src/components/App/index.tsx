@@ -47,7 +47,7 @@ const Layout: React.FC<Props> = ({ children }) => {
       <TidyUiProvider theme={data?.theme == 'dark' ? orchidDark : orchidLight}>
         <GlobalDefaultStyle />
         <GlobalStyle />
-        <Container as="main" maxWidth="xl" gutter="0">
+        <Container as="main" maxWidth="xl">
           <Header />
           {children}
         </Container>
