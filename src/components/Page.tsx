@@ -1,12 +1,25 @@
 import * as React from 'react';
 import { DividerEnhanced, FlexBox, FlexItem } from '@tidy-ui/layout';
 import { Text } from '@tidy-ui/presentation';
-import { Breadcrumb, EditOnGithub, Footer, HealthBadge, IBreadcrumbItem, MainNav, SEO } from 'components';
+import {
+  Breadcrumb,
+  EditOnGithub,
+  Footer,
+  HealthBadge,
+  IBreadcrumbItem,
+  ITocItem,
+  MainNav,
+  SEO,
+  Toc,
+} from 'components';
 
 interface Props extends React.PropsWithChildren {
   breadcrumb?: IBreadcrumbItem[];
   path?: string;
   source?: string;
+  tableOfContents?: {
+    items: Array<ITocItem>;
+  };
   timeToRead?: {
     minutes: number;
     text: string;
@@ -15,7 +28,7 @@ interface Props extends React.PropsWithChildren {
   };
 }
 
-const Page: React.FC<Props> = ({ breadcrumb, children, path, source, timeToRead }) => {
+const Page: React.FC<Props> = ({ breadcrumb, children, path, source, timeToRead, tableOfContents }) => {
   return (
     <>
       <SEO title={path} />
@@ -23,7 +36,7 @@ const Page: React.FC<Props> = ({ breadcrumb, children, path, source, timeToRead 
         <FlexItem span={4}>
           <MainNav path={path} />
         </FlexItem>
-        <FlexItem span={20} padding="0 1rem">
+        <FlexItem span={16} padding="0 1rem">
           <FlexBox jsc="space-between">
             <FlexBox>{breadcrumb ? <Breadcrumb breadcrumb={breadcrumb} /> : <div />}</FlexBox>
             <FlexBox ali="center" gap="2rem">
@@ -37,6 +50,9 @@ const Page: React.FC<Props> = ({ breadcrumb, children, path, source, timeToRead 
           </DividerEnhanced>
           <HealthBadge />
           <Footer />
+        </FlexItem>
+        <FlexItem span={4}>
+          <Toc items={tableOfContents?.items} />
         </FlexItem>
       </FlexBox>
     </>
