@@ -11,6 +11,7 @@ export { default as Icon } from './Icon';
 export {};
 
 export const mdxComponents = {
+  Text,
   a: (props: Props) => (
     <Anchor {...props} tone="info" rel="nofollow noopener noreferrer" target="_blank" display="inline-block" />
   ),

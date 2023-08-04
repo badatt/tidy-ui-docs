@@ -15,6 +15,7 @@ const Doc = ({ children, ...data }) => {
     pageContext: {
       breadcrumb,
       frontmatter,
+      headings,
       pageSourceUrl,
       libSource,
       libUrl,
@@ -35,6 +36,7 @@ const Doc = ({ children, ...data }) => {
       source={pageSourceUrl}
       timeToRead={timeToRead}
       tableOfContents={tableOfContents}
+      headings={headings}
     >
       <ContentWrapper>
         <Text.h2 bld margin="2rem 0">

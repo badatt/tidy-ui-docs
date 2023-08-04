@@ -31,7 +31,6 @@ const Img = styled.img`
 
 const Image: React.FC = (props: ImageProps) => {
   const { alt, src, title } = props;
-  console.log(props);
   return (
     <Figure>
       <Img {...{ alt, src, title }} loading="lazy" />

@@ -191,10 +191,24 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         path: `/${slugs[0]}/${slugs[1]}`,
       },
     ];
+    const headings = [];
+
+    const toc2Headings = (items) => {
+      items?.forEach((i) => {
+        headings.push(i.url.replace('#', ''));
+        if (i.items && i.items.length > 0) {
+          toc2Headings(i.items);
+        }
+      });
+    };
+
+    toc2Headings(tableOfContents.items);
+
     createPage({
       component: `${docTemplate}?__contentFilePath=${contentFilePath}`,
       context: {
         breadcrumb: slug !== '/getting-started' ? breadcrumb : undefined,
+        headings,
         id: node.id,
         libSource: `${source.githubLink}${source.packagesPath}/${component}`,
         libUrl: `${npmJs.packageBaseUrl}${lib}`,
