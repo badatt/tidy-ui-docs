@@ -15,6 +15,7 @@ import {
 
 interface Props extends React.PropsWithChildren {
   breadcrumb?: IBreadcrumbItem[];
+  headings?: [];
   path?: string;
   source?: string;
   tableOfContents?: {
@@ -28,7 +29,7 @@ interface Props extends React.PropsWithChildren {
   };
 }
 
-const Page: React.FC<Props> = ({ breadcrumb, children, path, source, timeToRead, tableOfContents }) => {
+const Page: React.FC<Props> = ({ breadcrumb, children, headings, path, source, timeToRead, tableOfContents }) => {
   return (
     <>
       <SEO title={path} />
@@ -52,7 +53,7 @@ const Page: React.FC<Props> = ({ breadcrumb, children, path, source, timeToRead,
           <Footer />
         </FlexItem>
         <FlexItem span={4}>
-          <Toc items={tableOfContents?.items} />
+          <Toc items={tableOfContents?.items} headings={headings ?? []} />
         </FlexItem>
       </FlexBox>
     </>

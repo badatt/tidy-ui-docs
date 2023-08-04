@@ -54,7 +54,7 @@ export const ComponentLink = styled(Link)`
   padding: 0.5rem 0.5rem;
   margin-right: 0.5rem;
   border-radius: 4px;
-  ${({ theme: { isDark, palette } }) => css`
+  ${({ theme: { isDark, font, palette } }) => css`
     color: ${palette.text.primary};
     :hover {
       background-color: ${hsla(color.pink[500], 0.1)};
@@ -62,14 +62,24 @@ export const ComponentLink = styled(Link)`
     &.active {
       color: ${isDark ? palette.minor[400] : palette.minor[700]};
       background-color: ${hsla(color.pink[500], 0.3)};
+      font-weight: ${font.bold};
     }
   `}
 `;
 
 export const TocGroup = styled.ul`
-  padding: 0.25rem 0 0 0.75rem;
+  padding: 0.5rem 0 0 0.75rem;
 `;
 
 export const TocItem = styled.li`
-  ${createFontStyle('caption')}
+  ${createFontStyle('body2')}
+  color: ${hsla(color.gray[500])};
+`;
+
+export const TocActiveItem = styled.li`
+  ${createFontStyle('body2')}
+  ${({ theme: { font, palette } }) => css`
+    font-weight: ${font.bold};
+    color: ${palette.minor[500]};
+  `}
 `;
