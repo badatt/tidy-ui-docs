@@ -10,7 +10,7 @@ interface Props {
 const EditOnGithub: React.FC<Props> = ({ source }) => {
   return (
     <a href={source} target="_blank">
-      <Chip tone="minor" ele={<FlexBox gap="0.5rem" />}>
+      <Chip ele={<FlexBox gap="0.5rem" />}>
         <Icon icon="fa-brands fa-github" />
         Edit this page
       </Chip>

@@ -21,6 +21,7 @@ const Doc = ({ children, ...data }) => {
       npmLibBadge,
       licenseBadge,
       sourceBadge,
+      tableOfContents,
       timeToRead,
     },
     path,
@@ -28,7 +29,13 @@ const Doc = ({ children, ...data }) => {
   const { component, lib, description, title } = frontmatter;
 
   return (
-    <Page path={path} breadcrumb={breadcrumb} source={pageSourceUrl} timeToRead={timeToRead}>
+    <Page
+      path={path}
+      breadcrumb={breadcrumb}
+      source={pageSourceUrl}
+      timeToRead={timeToRead}
+      tableOfContents={tableOfContents}
+    >
       <ContentWrapper>
         <Text.h2 bld margin="2rem 0">
           {title}

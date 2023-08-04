@@ -1,5 +1,5 @@
 import { Link } from 'gatsby';
-import { color, css, hsla, styled } from '@tidy-ui/commons';
+import { color, createFontStyle, css, hsla, styled } from '@tidy-ui/commons';
 import Icon from 'ui/Icon';
 
 export const Nav = styled.nav`
@@ -64,4 +64,12 @@ export const ComponentLink = styled(Link)`
       background-color: ${hsla(color.pink[500], 0.3)};
     }
   `}
+`;
+
+export const TocGroup = styled.ul`
+  padding: 0.25rem 0 0 0.75rem;
+`;
+
+export const TocItem = styled.li`
+  ${createFontStyle('caption')}
 `;

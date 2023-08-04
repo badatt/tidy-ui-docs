@@ -7,7 +7,7 @@ interface Props {
   path?: string;
 }
 
-const MainNav: React.FC<Props> = ({ path }) => {
+const Main: React.FC<Props> = ({ path }) => {
   return (
     <Styled.Nav>
       <Stack order="column" gap="1rem">
@@ -33,4 +33,4 @@ const MainNav: React.FC<Props> = ({ path }) => {
   );
 };
 
-export default MainNav;
+export default Main;

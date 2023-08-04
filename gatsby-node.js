@@ -134,6 +134,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           internal {
             contentFilePath
           }
+          tableOfContents
         }
       }
       site {
@@ -174,6 +175,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       fields: { pageSourcePath, slug, timeToRead },
       frontmatter: { component, lib },
       internal: { contentFilePath },
+      tableOfContents,
       npmLibBadge,
       sourceBadge,
     } = node;
@@ -201,6 +203,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         pageSourceUrl: encodeURI(`${docs.githubLink}${docs.contentPath}${pageSourcePath}`),
         slug,
         sourceBadge: sourceBadge?.publicURL,
+        tableOfContents,
         timeToRead,
       },
       path: slug,
