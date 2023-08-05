@@ -11,8 +11,9 @@ import {
 } from '@tidy-ui/commons';
 import { Container } from '@tidy-ui/layout';
 import { useReadApp } from 'hooks/useApp';
+import { Icon } from 'ui';
 import Header from 'components/Header';
-import { GlobalStyle } from './styles';
+import { BackToTop, GlobalStyle } from './styles';
 
 interface Props {
   children: React.ReactNode;
@@ -37,6 +38,21 @@ const App: React.FC<Props> = ({ children }) => {
 
 const Layout: React.FC<Props> = ({ children }) => {
   const { data } = useReadApp();
+  const scrollToTopBtnRef = React.useRef<HTMLButtonElement>(null);
+
+  React.useEffect(() => {
+    scrollToTopBtnRef.current?.addEventListener('click', () => {
+      window.scrollTo({
+        behavior: 'smooth',
+        left: 0,
+        top: 0,
+      });
+    });
+    window.addEventListener('scroll', () => {
+      scrollToTopBtnRef.current!.style.display = window.scrollY > 640 ? 'flex' : 'none';
+    });
+  }, []);
+
   return (
     <>
       <GlobalResetStyle />
@@ -51,6 +67,7 @@ const Layout: React.FC<Props> = ({ children }) => {
           <Header />
           {children}
         </Container>
+        <BackToTop ref={scrollToTopBtnRef} icon={<Icon icon="fa-solid fa-circle-arrow-up" />} girth="xxl" />
       </TidyUiProvider>
     </>
   );
