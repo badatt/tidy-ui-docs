@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
 import { Text } from '@tidy-ui/presentation';
-import { useScrollSpy } from 'utils';
+import { useScrollSpy } from 'hooks';
 import * as Styled from './styles';
 
 export interface ITocItem {

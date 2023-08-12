@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Stack } from '@tidy-ui/layout';
-import { useReadApp, useUpdateApp } from 'hooks/useApp';
+import { useReadApp, useUpdateApp } from 'hooks';
 import Icon from 'ui/Icon';
 import * as Styled from './styles';
 
