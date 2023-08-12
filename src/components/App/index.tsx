@@ -10,7 +10,7 @@ import {
   TidyUiProvider,
 } from '@tidy-ui/commons';
 import { Container } from '@tidy-ui/layout';
-import { useReadApp } from 'hooks/useApp';
+import { useReadApp } from 'hooks';
 import { Icon } from 'ui';
 import Header from 'components/Header';
 import { BackToTop, GlobalStyle } from './styles';
