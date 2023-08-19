@@ -1,19 +1,29 @@
 import * as React from 'react';
-import { Link } from 'gatsby';
-import { Text } from '@tidy-ui/presentation';
+import { graphql, Link, useStaticQuery } from 'gatsby';
+import { Text } from '@tidy-ui/all';
 import { useScrollSpy } from 'hooks';
 import * as Styled from './styles';
 
 export interface ITocItem {
   activeItem?: string;
-  items?: Array<ITocItem>;
+  items?: ITocItem[];
   title?: string;
   url?: string;
 }
 
-interface Props {
-  headings: string[];
-  items?: Array<ITocItem>;
+interface INode {
+  fields: {
+    slug: string;
+  };
+  tableOfContents: {
+    items: ITocItem[];
+  };
+}
+
+interface ITocNodes {
+  toc: {
+    nodes: INode[];
+  };
 }
 
 const ContentItems: React.FC<ITocItem> = ({ items, title, url, activeItem }) => {
@@ -33,7 +43,39 @@ const ContentItems: React.FC<ITocItem> = ({ items, title, url, activeItem }) => 
   );
 };
 
-const Toc: React.FC<Props> = ({ items, headings }) => {
+interface Props {
+  slug?: string;
+}
+
+const Toc: React.FC<Props> = ({ slug }) => {
+  const {
+    toc: { nodes },
+  }: ITocNodes = useStaticQuery(graphql`
+    {
+      toc: allMdx {
+        nodes {
+          tableOfContents
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  `);
+  const tableOfContents = nodes.find((n) => n.fields.slug === slug)?.tableOfContents;
+  const headings: string[] = [];
+
+  const toc2Headings = (items?: ITocItem[]) => {
+    items?.forEach((i) => {
+      headings.push(i.url?.replace('#', '') ?? '');
+      if (i.items && i.items.length > 0) {
+        toc2Headings(i.items);
+      }
+    });
+  };
+
+  toc2Headings(tableOfContents?.items);
+
   const activeItem = useScrollSpy(headings?.map((h) => `[id="${h}"]`));
 
   return (
@@ -41,7 +83,7 @@ const Toc: React.FC<Props> = ({ items, headings }) => {
       <Text.caption uc bld padding="1rem 0 0 0">
         Index
       </Text.caption>
-      <ContentItems items={items} activeItem={activeItem} />
+      <ContentItems items={tableOfContents?.items} activeItem={activeItem} />
     </Styled.Nav>
   );
 };

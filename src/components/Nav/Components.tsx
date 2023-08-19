@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import _ from 'lodash';
-import { FlexBox } from '@tidy-ui/layout';
-import { Text } from '@tidy-ui/presentation';
+import { FlexBox, Text } from '@tidy-ui/all';
 import * as Styled from './styles';
 
 interface IComponentNode {

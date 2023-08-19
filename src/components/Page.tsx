@@ -1,49 +1,29 @@
 import * as React from 'react';
-import { DividerEnhanced, FlexBox, FlexItem } from '@tidy-ui/layout';
-import { Text } from '@tidy-ui/presentation';
-import {
-  Breadcrumb,
-  EditOnGithub,
-  Footer,
-  HealthBadge,
-  IBreadcrumbItem,
-  ITocItem,
-  MainNav,
-  SEO,
-  Toc,
-} from 'components';
+import { DividerEnhanced, FlexBox, FlexItem, Text } from '@tidy-ui/all';
+import Breadcrumb from './Breadcrumb';
+import DocInfo from './DocInfo';
+import Footer from './Footer';
+import HealthBadge from './HealthBadge';
+import { MainNav, Toc } from './Nav';
+import SEO from './SEO';
 
 interface Props extends React.PropsWithChildren {
-  breadcrumb?: IBreadcrumbItem[];
-  headings?: [];
-  path?: string;
-  source?: string;
-  tableOfContents?: {
-    items: Array<ITocItem>;
-  };
-  timeToRead?: {
-    minutes: number;
-    text: string;
-    time: number;
-    words: number;
-  };
+  path: string;
+  slug: string;
 }
 
-const Page: React.FC<Props> = ({ breadcrumb, children, headings, path, source, timeToRead, tableOfContents }) => {
+const Page: React.FC<Props> = ({ children, path, slug }) => {
   return (
     <>
       <SEO title={path} />
       <FlexBox>
         <FlexItem span={4}>
-          <MainNav path={path} />
+          <MainNav slug={slug} />
         </FlexItem>
         <FlexItem span={16} padding="0 1rem">
           <FlexBox jsc="space-between">
-            <FlexBox>{breadcrumb ? <Breadcrumb breadcrumb={breadcrumb} /> : <div />}</FlexBox>
-            <FlexBox ali="center" gap="2rem">
-              {timeToRead && <Text.body2>{timeToRead.text}</Text.body2>}
-              {source && <EditOnGithub source={source} />}
-            </FlexBox>
+            <Breadcrumb slug={slug} />
+            <DocInfo slug={slug} />
           </FlexBox>
           {children}
           <DividerEnhanced>
@@ -53,7 +33,7 @@ const Page: React.FC<Props> = ({ breadcrumb, children, headings, path, source, t
           <Footer />
         </FlexItem>
         <FlexItem span={4}>
-          <Toc items={tableOfContents?.items} headings={headings ?? []} />
+          <Toc slug={slug} />
         </FlexItem>
       </FlexBox>
     </>

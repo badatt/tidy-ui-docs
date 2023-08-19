@@ -1,4 +1,4 @@
-import { styled } from '@tidy-ui/commons';
+import { styled } from '@tidy-ui/all';
 
 export const Header = styled.header`
   display: flex;

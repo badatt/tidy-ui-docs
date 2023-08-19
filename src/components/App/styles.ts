@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { color, hsla, ITheme, styled } from '@tidy-ui/commons';
-import { Button } from '@tidy-ui/presentation';
+import { Button, color, hsla, ITheme, styled } from '@tidy-ui/all';
 
 export const GlobalStyle = createGlobalStyle<ITheme>`
 

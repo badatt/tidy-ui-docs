@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { Stack } from '@tidy-ui/layout';
+import { Stack } from '@tidy-ui/all';
 import Components from './Components';
 import * as Styled from './styles';
 
 interface Props {
-  path?: string;
+  slug: string;
 }
 
-const Main: React.FC<Props> = ({ path }) => {
+const Main: React.FC<Props> = ({ slug }) => {
   return (
     <Styled.Nav>
       <Stack order="column" gap="1rem">
@@ -28,7 +28,7 @@ const Main: React.FC<Props> = ({ path }) => {
           Themes
         </Styled.MainLink>
       </Stack>
-      {path?.match(/\/components.*/gm) && <Components />}
+      {slug.match(/\/components.*/gm) && <Components />}
     </Styled.Nav>
   );
 };

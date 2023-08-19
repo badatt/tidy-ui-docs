@@ -3,15 +3,96 @@ component: card
 class: presentation
 title: Card
 lib: '@tidy-ui/card'
-description: Card documentaion
+description: The Card component gives your website a modern card layout, perfect for showcasing important details in a stylish box. Whether you're displaying products, music albums, movies, or hotel info, the possibilities are endless. Multiple cards can create a cool layout, and they even have a raised effect for that extra visual pop. It's like bringing content to life on your web page!
 ---
 
-## Import statement
+## Card Component Documentation
 
-## Usage
+The **Card** component is a versatile tool that brings a sleek and organized card-like layout to your web pages. It is designed to encapsulate and highlight important information, providing a clear separation from other page elements. With its distinct elevation effect, the Card component creates a subtle 3D illusion, making content appear as if it's rising from the surface of the webpage.
 
-## Props
+### Overview
 
-## Theming
+Cards are an essential design element used across various applications to present relevant and engaging content. Each Card serves as a self-contained container, making it perfect for showcasing a wide range of information, from product details to articles, and more. By grouping multiple Cards together, you can create visually appealing and organized layouts, making it an ideal choice for scenarios such as product catalogs, music albums, movie listings, hotel offerings, and more.
 
-## Accessibility
+### Key Features
+
+- **Elevation Effect:** The Card component is equipped with an elevation effect that adds depth to your layout. This subtle shadow creates a visual distinction between the Card and the underlying content, giving it a sense of prominence.
+
+### Usage
+
+The Card component is designed to be intuitive and user-friendly. Simply wrap your desired content within the Card, and it will instantly gain the distinctive Card layout. You can customize each Card with various attributes, allowing you to tailor the appearance and behavior according to your application's requirements.
+
+### Example
+
+Here's a simple example of how the Card component can be used:
+
+```jsx
+import React from 'react';
+import Card from './Card'; // Import the Card component
+
+const ProductCard = () => {
+  return (
+    <Card>
+      <img src="product-image.jpg" alt="Product" />
+      <h3>Product Title</h3>
+      <p>Product description goes here.</p>
+      <button>Add to Cart</button>
+    </Card>
+  );
+};
+
+export default ProductCard;
+```
+
+## Card Component Documentation
+
+The **Card** component is a versatile tool that empowers you to create visually appealing and organized layouts on your web pages. It offers a range of components designed to enhance the presentation and organization of your content. With its user-friendly features, the Card component is perfect for a variety of scenarios, from showcasing product details to displaying articles and more.
+
+### Overview
+
+The Card component brings a touch of elegance to your web design by encapsulating information within distinct containers. It primarily exports four underlying components: `Card`, `CardHeader`, `CardBody`, and `CardFooter`. Each of these components serves a unique purpose, contributing to the overall structure and visual appeal of the card layout.
+
+### Key Components
+
+1. **Card:** The heart of the Card component, this primary element allows you to wrap and highlight essential information. You have the freedom to choose from various accents that provide users with insights into the nature of the enclosed content. You can even select the edge of the Card where the accent should be displayed. Whether you're presenting articles, products, or any other content, the Card component ensures a seamless and visually pleasing layout.
+
+2. **CardHeader:** This component is perfect for titles and headings that introduce the card's content. It offers the added feature of linking the card to external sources by providing hyperlinks that open in new tabs. You can also choose to visually separate the header from the body using a divider.
+
+3. **CardBody:** The CardBody component is designed to contain the main content of the card. Whether you're displaying images, text, or media, the CardBody ensures a clean and organized presentation that captures users' attention.
+
+4. **CardFooter:** Use the CardFooter to add footer content, such as additional information and action buttons. This component is particularly useful for displaying supplementary details and allowing users to interact with the card. Similar to the CardHeader, you have the option to separate the footer from the body using a divider.
+
+### Customization and Theming
+
+The Card component provides a range of customization options to align with your design preferences. Each card comes with rounded edges by default, creating a visually pleasing look and feel. For a more distinct appearance, you can opt for sharp edges, adding a touch of modernity to your design.
+
+All components within the Card family are powered by theming and styling, allowing you to seamlessly integrate them into your application's overall visual scheme. You can easily adapt the Card's appearance to match your branding and design standards, ensuring a consistent and polished user experience.
+
+### Example Usage
+
+Here's a simple example demonstrating how the Card component and its underlying elements can be used:
+
+```jsx
+import React from 'react';
+import { Card, CardHeader, CardBody, CardFooter } from './Card';
+
+const ArticleCard = () => {
+  return (
+    <Card accent="info" accentPosition="top" href="article-link">
+      <CardHeader>Breaking News</CardHeader>
+      <CardBody>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </CardBody>
+      <CardFooter>
+        <button>Read More</button>
+      </CardFooter>
+    </Card>
+  );
+};
+
+export default ArticleCard;
+```
+
+### Conclusion
+
+The Card component and its associated elements provide an effective and visually engaging solution for presenting information on your web pages. With versatile customization options and seamless theming capabilities, you can create stunning layouts that capture users' attention and enhance their browsing experience. Whether you're showcasing articles, products, or any other content, the Card component's flexibility and aesthetic appeal make it a valuable addition to your web development toolkit.

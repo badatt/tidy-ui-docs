@@ -3,15 +3,271 @@ component: button
 class: presentation
 title: Button
 lib: '@tidy-ui/button'
-description: Button documentaion
+description: A "Button" is like a magic wand for websites. When you click it, cool things happen! It can send forms, pop up chats, undo stuff, or even whisk you away to new places on the web. So, it's your go-to for making things tick and getting stuff done with a simple click!
 ---
 
-## Import statement
+## Button Component Documentation
 
-## Usage
+The Button component is an essential element that empowers you to trigger a variety of actions and events on your web pages. Whether you're submitting a form, opening a dialogue, canceling an action, or even navigating to a different page, the Button component has you covered. This component is a versatile tool that enhances user interaction and engagement. Let's dive into the details of what the Button component offers.
 
-## Props
+## Primary Exported Components
 
-## Theming
+The Button component is feature-rich and provides the following main exported components:
 
-## Accessibility
+## Button Component - Your Gateway to Interaction
+
+Welcome to the world of Buttons, where interaction meets aesthetics in perfect harmony! 🎉
+
+The Button component is your go-to solution for adding engaging actions and interactions to your web pages. Its charming rounded borders and inviting design create a sense of visual appeal that naturally motivates users to engage and explore. Let's take a tour of the fantastic features that make Buttons an essential part of your web toolkit.
+
+### Diverse Variants for Every Occasion
+
+Buttons come with four exciting variants, each serving a unique purpose:
+
+1. **Primary Button**: Standout Star 🌟
+   Use this variant when you want your button to shine like a beacon, signaling a primary and attention-grabbing action on your page.
+
+2. **Outlined Button**: Subtle Supporter 🌿
+   The perfect companion for secondary actions, providing just the right touch of impact without overwhelming the user.
+
+3. **Simple Button**: The Friendly Ghost 👻
+   For those subtle yet meaningful interactions that come to life when hovered over, adding a touch of intrigue to your design.
+
+4. **Hero Button**: The Bold Crusader 🦸‍♂️
+   A special treat for heroic actions! This variant stretches to fit the full width of its parent component, making a grand statement on the page.
+
+### Default to Outlined, Enhance with Variety
+
+If you don't explicitly specify a variant, the outlined option takes the stage, ensuring consistency and a clean appearance across your application.
+
+### Tailored Sizes and Tones
+
+Buttons come in various sizes, with the default being a medium size that adapts seamlessly to different contexts. Each button also boasts a unique tone, reflecting the nature of the underlying action. Whether it's a major or minor tone, the Button component effortlessly adapts to your content.
+
+### Icons for Extra Oomph
+
+Elevate your buttons by seamlessly embedding icons alongside text. But wait, there's more! You can create a button that exclusively showcases an icon – perfect for conveying meaning at a glance.
+
+### Stretch, Style, and More
+
+Want to make a bold statement? Stretch your button to span the entire width of its parent, creating a visually striking effect. Play with gradient styles, adding a touch of elegance to your hero variants. And when you're waiting for an action to complete, showcase a loading state to keep users engaged.
+
+### Crafting Masterpieces: Combining with Components
+
+Buttons aren't just solitary stars – they love to collaborate! Pair your Button component with other powerhouses like ButtonGroup and ButtonCluster to craft intricate composite buttons and captivating toolbars.
+
+## Anchor Component - Guiding Links with Style
+
+Welcome to the world of Anchors, where links come to life with a touch of elegance! 🌐
+
+The Anchor component is your trusty guide for crafting clickable links that seamlessly navigate users through your web pages. As the name suggests, it provides a clear and intuitive visual cue with a solid underline, making it crystal clear that a link is waiting to be clicked. Let's delve into the captivating features that make Anchors an essential tool for enhancing user experience.
+
+### Guiding with Underline Elegance
+
+Anchors shine with a distinct solid underline that elegantly highlights their presence. This subtle yet effective visual cue draws attention and guides users to click, ensuring seamless navigation across your web pages.
+
+### Customizable Sizes and Tones
+
+Anchors come in various sizes, providing flexibility to harmonize with your design. The default size is medium, fitting comfortably into diverse contexts. Plus, each Anchor boasts a tone that adapts based on the action it signifies, enhancing user engagement and interaction.
+
+### External Links, New Tabs
+
+For links that venture beyond the scope of your application, you have the power to choose. With the optional link launch mode, you can set an Anchor to open in a new tab. This convenient feature ensures a seamless transition for users exploring external content.
+
+### Crafting Your Web Story
+
+Use the Anchor component for a variety of scenarios:
+
+- **Navigation Links**: Seamlessly guide users to different sections within your web pages.
+- **External Links**: Effortlessly connect users to external resources beyond your website.
+- **Enhancing Usability**: Elevate the user experience by providing intuitive navigation cues.
+
+### Your Creative Canvas: Theming and Styling
+
+Anchors seamlessly blend into your application's overall design and aesthetics through the magic of theming and styling. Customize their appearance to perfectly align with your vision and create a cohesive user experience.
+
+### Example Usage
+
+```jsx
+import { Anchor } from 'your-button-library';
+
+// ...
+
+<Anchor href="/about" tone="major">
+  Learn More About Us
+</Anchor>
+
+<Anchor href="https://external-link.com" target="_blank" rel="noopener noreferrer">
+  Explore Beyond
+</Anchor>
+```
+
+So, embark on a journey with Anchors and elevate your web links into a world of style, clarity, and effortless navigation! ⚓
+
+## IconButton Component - The Iconic Touch to Buttons
+
+Welcome to the world of IconButton, where buttons get an exciting upgrade with the power of icons! 🚀
+
+The IconButton component is your key to crafting buttons that communicate their purpose at a glance. By embedding an icon within a button, you enhance its functionality and provide users with a clear understanding of the action it represents. Let's dive into the fascinating features that make IconButton an essential tool for adding clarity and elegance to your button interactions.
+
+### Elevating Buttons with Icons
+
+IconButton takes your buttons to the next level by introducing expressive icons. These icons act as visual ambassadors, conveying additional information and context about the button's intended action. Users can quickly grasp the purpose of the button even before reading its label.
+
+### Seamless Variants
+
+IconButton offers two powerful variants that mirror the familiar Button variants:
+
+1. **Primary**: This variant stands tall as the primary action, demanding attention and emphasizing its importance.
+
+2. **Outlined**: A subtle yet impactful choice, perfect for secondary actions that support the main task.
+
+### Mandatory Icon, Optional Placement
+
+In IconButton, setting an icon is mandatory, ensuring that each button boasts a distinct visual cue. Additionally, you have the freedom to choose the placement of the icon inside the button. Place it on the left or right side, depending on your design preferences.
+
+### Simplified Icon-Only Mode
+
+IconButton allows you to create a button that exclusively displays an icon without any accompanying text. This minimalist approach is perfect for scenarios where the icon alone suffices to convey the action.
+
+### Sizes and Tones for a Harmonious Blend
+
+IconButton comes in various sizes, with the default being medium to seamlessly integrate into diverse layouts. Moreover, each IconButton features a tone that adapts based on the nature of the underlying action, enriching user interaction and engagement.
+
+### Unleash the Power of IconButton
+
+Use the IconButton component for a wide array of scenarios:
+
+- **Call-to-Action Buttons**: Empower users to take bold actions with visually enticing icons.
+- **Enhancing Navigation**: Create intuitive navigation buttons with icons that guide users through your app.
+- **Feature Activation**: Highlight special features or functions with expressive icons for a delightful user experience.
+
+### Example Usage
+
+```jsx
+import { IconButton } from 'your-button-library';
+
+// ...
+
+<IconButton icon={<HeartIcon />} variant="primary">
+  Like
+</IconButton>
+
+<IconButton icon={<ChatIcon />} variant="outlined" placement="right">
+  Comment
+</IconButton>
+
+<IconButton icon={<SearchIcon />} isIconOnly size="small" tone="minor">
+  Explore
+</IconButton>
+```
+
+## ButtonGroup Component - Uniting Buttons for Seamless Actions
+
+Welcome to the realm of ButtonGroup, where individual buttons come together to form a harmonious ensemble of actions! 📚
+
+The ButtonGroup component is your toolkit for creating organized clusters of buttons that elegantly communicate a series of related actions. By grouping similar variant buttons, you provide users with a clear understanding that these buttons are connected and collectively represent a set of interactions. Let's explore the captivating features that make ButtonGroup an essential asset for streamlining user interactions.
+
+### Creating Unified Action Sequences
+
+ButtonGroup seamlessly merges two or more buttons, fostering a sense of unity among related actions. When users encounter a ButtonGroup, they intuitively grasp that the buttons within share a common purpose or context.
+
+### Flexibility in Alignment
+
+With ButtonGroup, aligning buttons is a breeze. You have the freedom to arrange buttons both horizontally and vertically, adapting to your design and content layout seamlessly.
+
+### Unveiling Unity with Unified Mode
+
+ButtonGroup introduces a remarkable unified mode, where buttons appear as a cohesive whole. Upon hovering, the subtle differences between each button become evident, providing users with a clear indication of individual actions within the group.
+
+### Sizes and Tones, Individually Tailored
+
+Each button within a ButtonGroup retains its distinct size and tone, ensuring that the individual identity of each action remains intact. This harmonious blend of unity and individuality enhances user comprehension and interaction.
+
+### Enhance User Experience with ButtonGroup
+
+Utilize the ButtonGroup component in various scenarios:
+
+- **Option Sets**: Present users with a group of related choices, enhancing user-friendliness.
+- **Filter and Sort**: Simplify data manipulation by providing users with a set of action buttons for filtering and sorting content.
+- **Multi-Step Processes**: Guide users through multi-step processes with an organized sequence of action buttons.
+
+### Example Usage
+
+```jsx
+import { ButtonGroup, Button } from 'your-button-library';
+
+// ...
+
+<ButtonGroup>
+  <Button variant="primary">Save</Button>
+  <Button variant="outlined">Cancel</Button>
+</ButtonGroup>
+
+<ButtonGroup isVertical>
+  <Button variant="outlined">Edit</Button>
+  <Button variant="outlined">Delete</Button>
+</ButtonGroup>
+
+<ButtonGroup isUnified>
+  <Button variant="outlined">Copy</Button>
+  <Button variant="outlined">Paste</Button>
+</ButtonGroup>
+```
+
+## ButtonCluster Component - Clustering Buttons for Unified Functionality
+
+Welcome to the world of ButtonCluster, where buttons unite to form a seamless cluster of interactive power! 🛠️
+
+The ButtonCluster component is your secret weapon for creating organized groups of buttons and ButtonGroups. By clustering these components together, you create a visually appealing and functional ensemble that streamlines user interactions. Let's dive into the captivating features that make ButtonCluster an indispensable tool for crafting versatile and efficient toolbars and clusters of actions.
+
+### Building Cohesive Action Clusters
+
+ButtonCluster seamlessly groups two or more Buttons and ButtonGroups, presenting them as a unified entity. This cohesion ensures that related actions are conveniently accessible to users within a compact and intuitive layout.
+
+### Harmonious Separation
+
+ButtonCluster introduces a subtle yet effective element of separation between buttons and ButtonGroups. A small gap elegantly divides these components, enhancing the visual clarity and user-friendliness of your cluster.
+
+### A Toolkit for Toolbars
+
+ButtonCluster is tailor-made for creating toolbars, those invaluable collections of actions that elevate user experience. By assembling buttons and ButtonGroups in a tidy and cohesive layout, you transform your application into a dynamic hub of productivity.
+
+### Flexible and Adaptable
+
+ButtonCluster empowers you with flexibility in arrangement and composition. Combine buttons and ButtonGroups in various configurations, adjust sizes, tones, and alignments to align with your design vision.
+
+### Example Usage
+
+```jsx
+import { ButtonCluster, Button, ButtonGroup } from 'your-button-library';
+
+// ...
+
+<ButtonCluster>
+  <Button variant="primary">Save</Button>
+  <Button variant="outlined">Cancel</Button>
+</ButtonCluster>
+
+<ButtonCluster>
+  <ButtonGroup>
+    <Button variant="outlined">Edit</Button>
+    <Button variant="outlined">Delete</Button>
+  </ButtonGroup>
+  <Button variant="outlined">Export</Button>
+</ButtonCluster>
+```
+
+### Elevate Your Application with ButtonCluster
+
+Utilize the ButtonCluster component for a range of scenarios:
+
+- **Toolbars**: Create efficient and attractive toolbars with a seamless arrangement of buttons and ButtonGroups.
+- **Contextual Actions**: Offer users a curated collection of context-specific actions for enhanced usability.
+- **Multi-Step Processes**: Streamline multi-step processes by grouping related actions together.
+
+### Your Creative Playground: Theming and Styling
+
+All these features come together through the magic of theming and styling, allowing you to create buttons that seamlessly integrate into your application's overall design and user experience.
+
+So, what are you waiting for? Unleash the magic of Buttons and elevate your web interactions to a whole new level! ✨

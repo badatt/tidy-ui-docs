@@ -2,6 +2,23 @@ const path = require(`path`);
 const slugify = require(`@sindresorhus/slugify`);
 const { createFilePath, createRemoteFileNode } = require(`gatsby-source-filesystem`);
 const readingTime = require(`reading-time`);
+const _  = require(`lodash`);
+const jd  = require(`./src/utils/jd`);
+
+function createBreadCrumb(slug) {
+  const slugs = slug.split('/');
+  slugs.shift();
+  return [
+    {
+      name: slugs[0],
+      path: `/${slugs[0]}`,
+    },
+    {
+      name: slugs[1],
+      path: `/${slugs[0]}/${slugs[1]}`,
+    },
+  ];
+}
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -31,16 +48,16 @@ exports.createSchemaCustomization = ({ actions }) => {
 exports.onCreateNode = async ({ node, actions, createNodeId, getCache, getNode }) => {
   const { createNode, createNodeField } = actions;
 
+  /** 
+   * Customizing Mdx nodes
+  */
   if (node.internal.type === `Mdx`) {
     const slug = createFilePath({ getNode, node, trailingSlash: false });
 
     createNodeField({
       name: `slug`,
       node,
-      value: slug
-        .split('/')
-        .map((s) => slugify(s))
-        .join('/'),
+      value: _.split(slug, '/').map((s) => slugify(s)).join('/')
     });
 
     createNodeField({
@@ -53,6 +70,12 @@ exports.onCreateNode = async ({ node, actions, createNodeId, getCache, getNode }
       name: `timeToRead`,
       node,
       value: readingTime(node.body),
+    });
+    
+    createNodeField({
+      name: `breadcrumb`,
+      node,
+      value: createBreadCrumb(slug),
     });
 
     if (node.frontmatter.lib && node.frontmatter.lib !== null) {
@@ -79,9 +102,24 @@ exports.onCreateNode = async ({ node, actions, createNodeId, getCache, getNode }
       if (npmLibBadgeFile) {
         createNodeField({ name: 'sourceBadgeFile', node, value: sourceBadgeFile.id });
       }
+      
+      createNodeField({
+        name: `componentInterfaces`,
+        node,
+        value: jd(node.frontmatter.component),
+      });
+
+      createNodeField({
+        name: `component`,
+        node,
+        value: node.frontmatter.component,
+      });
     }
   }
 
+  /** 
+   * Customizing MarkdownRemark nodes
+  */
   if (node.internal.type === 'MarkdownRemark' && node.frontmatter.url && node.frontmatter.url !== null) {
     const fileNode = await createRemoteFileNode({
       createNode,
@@ -107,54 +145,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       allMdx {
         nodes {
           id
-          body
-          frontmatter {
-            class
-            component
-            description
-            lib
-            title
-          }
           fields {
             slug
-            pageSourcePath
-            timeToRead {
-              text
-              minutes
-              time
-              words
-            }
-          }
-          npmLibBadge {
-            publicURL
-          }
-          sourceBadge {
-            publicURL
           }
           internal {
             contentFilePath
           }
-          tableOfContents
-        }
-      }
-      site {
-        siteMetadata {
-          docs {
-            contentPath
-            githubLink
-          }
-          source {
-            githubLink
-            packagesPath
-          }
-          npmJs {
-            packageBaseUrl
-          }
-        }
-      }
-      licenseBadge: markdownRemark(frontmatter: { title: { eq: "License" } }) {
-        remote {
-          publicURL
         }
       }
     }
@@ -164,61 +160,21 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     reporter.panicOnBuild('Error loading MDX result', result.errors);
   }
 
-  const { allMdx, site, licenseBadge } = result.data;
-
-  const { docs, source, npmJs } = site.siteMetadata;
+  const { allMdx } = result.data;
 
   const componentNodes = allMdx.nodes;
 
   componentNodes.forEach((node) => {
     const {
-      fields: { pageSourcePath, slug, timeToRead },
-      frontmatter: { component, lib },
+      fields: { slug },
       internal: { contentFilePath },
-      tableOfContents,
-      npmLibBadge,
-      sourceBadge,
     } = node;
-    const slugs = slug.split('/');
-    slugs.shift();
-    const breadcrumb = [
-      {
-        name: slugs[0],
-        path: `/${slugs[0]}`,
-      },
-      {
-        name: slugs[1],
-        path: `/${slugs[0]}/${slugs[1]}`,
-      },
-    ];
-    const headings = [];
-
-    const toc2Headings = (items) => {
-      items?.forEach((i) => {
-        headings.push(i.url.replace('#', ''));
-        if (i.items && i.items.length > 0) {
-          toc2Headings(i.items);
-        }
-      });
-    };
-
-    toc2Headings(tableOfContents.items);
 
     createPage({
       component: `${docTemplate}?__contentFilePath=${contentFilePath}`,
       context: {
-        breadcrumb: slug !== '/getting-started' ? breadcrumb : undefined,
-        headings,
         id: node.id,
-        libSource: `${source.githubLink}${source.packagesPath}/${component}`,
-        libUrl: `${npmJs.packageBaseUrl}${lib}`,
-        licenseBadge: licenseBadge.remote.publicURL,
-        npmLibBadge: npmLibBadge?.publicURL,
-        pageSourceUrl: encodeURI(`${docs.githubLink}${docs.contentPath}${pageSourcePath}`),
         slug,
-        sourceBadge: sourceBadge?.publicURL,
-        tableOfContents,
-        timeToRead,
       },
       path: slug,
     });
