@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { color, css, hsla, styled, useTheme } from '@tidy-ui/commons';
-import { FlexBox } from '@tidy-ui/layout';
-import { Button, Text } from '@tidy-ui/presentation';
+import { Button, color, css, FlexBox, hsla, styled, Text, useTheme } from '@tidy-ui/all';
 import { Footer, SEO } from 'components';
 
 const HeroName = styled(Text.hero)`

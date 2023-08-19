@@ -3,15 +3,45 @@ component: checkbox
 class: form
 title: Checkbox
 lib: '@tidy-ui/checkbox'
-description: Checkbox documentaion
+description: The Checkboxes component is a versatile tool for collecting user responses with a simple "yes" or "no." Users can check for "yes" and leave it for "no." It offers size and style options, including filled or outlined variants with tick marks upon selection. The intermediate state adds a line, and dynamic status reflects emitted information. Enhanced by robust theming and styling, it seamlessly adapts to your design preferences.
 ---
 
-## Import statement
+# Checkboxes Component Documentation
 
-## Usage
+The **Checkboxes** component serves as an interactive user interface element designed to capture binary responses. It is particularly useful when you need to obtain "yes" or "no" answers from users. By offering customizable appearance and behavior options, this component ensures a seamless integration into your application's user interface.
 
-## Props
+## Key Features
 
-## Theming
+- **Binary Responses:** The primary purpose of the **Checkboxes** component is to gather binary responses from users. When a user checks the checkbox, it signifies a "yes" response, and leaving it unchecked indicates a "no" response.
 
-## Accessibility
+- **Customizable Size:** You have the freedom to determine the size of the checkbox based on your design preferences and user interface requirements. Choose from options like small, medium, large, and extra-large.
+
+- **Visual Variants:** The component offers two distinct visual variants for the checkboxes:
+
+  - **Filled Variant:** When selected (checked), a distinctive tick mark is prominently displayed within the checkbox.
+  - **Outlined Variant:** The checkbox remains outlined, with a tick mark appearing inside when selected.
+
+- **Intermediate State:** In scenarios where you need to indicate an intermediate state of response, such as "partially agreed" or "in progress," the **Checkboxes** component accommodates this requirement. When in the intermediate state, a subtle line is added inside the checkbox.
+
+- **Dynamic Status Indication:** Depending on the status of the emitted information, you can assign a relevant status to the checkbox. This dynamic status allows you to visually represent the current state of the checkbox, such as success, error, or a neutral state.
+
+- **Theming and Styling:** The **Checkboxes** component is designed to seamlessly integrate with your application's theming and styling. You can effortlessly align the component's appearance with your overall design scheme.
+
+## How to Use
+
+1. Import the **Checkboxes** component into your application.
+
+2. Place the **Checkboxes** component within your user interface, providing the relevant question or statement associated with the checkbox.
+
+3. Customize the following options as needed:
+
+   - Choose the size of the checkbox: small, medium, large, or extra-large.
+   - Select the visual variant: filled or outlined.
+   - Set the checkbox to an intermediate state (optional).
+   - Assign a status based on emitted information (optional).
+
+4. Implement the `onChange` callback function to capture user interactions and responses.
+
+## Note
+
+The **Checkboxes** component provides an intuitive and user-friendly means of capturing binary responses from users. It is a versatile and customizable tool that seamlessly integrates into your application's design and enhances the user experience. With its adaptable features, the **Checkboxes** component ensures that obtaining "yes" or "no" answers becomes a seamless part of your application's functionality.

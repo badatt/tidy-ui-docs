@@ -1,5 +1,4 @@
-import { color, hsla, styled } from '@tidy-ui/commons';
-import { Button } from '@tidy-ui/presentation';
+import { Button, color, hsla, styled } from '@tidy-ui/all';
 
 export const IconBtn = styled(Button)`
   font-size: 1.2rem;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Stack } from '@tidy-ui/layout';
+import { Stack } from '@tidy-ui/all';
 import { useReadApp, useUpdateApp } from 'hooks';
 import Icon from 'ui/Icon';
 import * as Styled from './styles';

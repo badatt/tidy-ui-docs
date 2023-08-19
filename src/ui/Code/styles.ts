@@ -1,6 +1,5 @@
 import { LiveEditor, LiveError, LivePreview } from 'react-live';
-import { color, css, hsla, styled } from '@tidy-ui/commons';
-import { Code as TCode } from '@tidy-ui/presentation';
+import { Code as TCode, color, css, hsla, styled } from '@tidy-ui/all';
 
 export const Code = styled(TCode)`
   margin: 2rem 0 0 0;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { Props } from '@mdx-js/react/lib';
-import { createFontStyle, css, styled } from '@tidy-ui/commons';
+import { createFontStyle, css, styled } from '@tidy-ui/all';
 
 interface ImageProps extends Props, React.ImgHTMLAttributes<HTMLImageElement> {}
 

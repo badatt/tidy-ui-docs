@@ -1,4 +1,4 @@
-import { createFontStyle, styled } from '@tidy-ui/commons';
+import { createFontStyle, styled } from '@tidy-ui/all';
 
 export const Ul = styled.ul`
   list-style-type: disc;

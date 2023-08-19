@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { FlexBox } from '@tidy-ui/layout';
+import { FlexBox } from '@tidy-ui/all';
 
 interface IBadgeNode {
   frontmatter: {

@@ -1,5 +1,4 @@
-import { css, styled } from '@tidy-ui/commons';
-import { Text } from '@tidy-ui/presentation';
+import { css, styled, Text } from '@tidy-ui/all';
 
 const resetLinkStyle = css`
   color: inherit;
