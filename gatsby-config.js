@@ -109,11 +109,5 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: '@mkitio/gatsby-theme-password-protect',
-      options: {
-        password: 'tidyui@123',
-      },
-    },
   ],
 };

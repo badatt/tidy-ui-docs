@@ -29,7 +29,6 @@
   },
   "devDependencies": {
     "@mdx-js/react": "^2.3.0",
-    "@mkitio/gatsby-theme-password-protect": "^2.1.2",
     "@sindresorhus/slugify": "^1.1.2",
     "@tanstack/react-query-devtools": "^4.32.0",
     "@types/fs-extra": "^11.0.1",
