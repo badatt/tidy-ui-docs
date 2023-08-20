@@ -1,9 +1,7 @@
 import * as React from 'react';
 import { DividerEnhanced, FlexBox, FlexItem, Text } from '@tidy-ui/all';
-import Breadcrumb from './Breadcrumb';
-import DocInfo from './DocInfo';
+import { Breadcrumb, DocInfo, HealthBadge } from './Doc';
 import Footer from './Footer';
-import HealthBadge from './HealthBadge';
 import { MainNav, Toc } from './Nav';
 import SEO from './SEO';
 

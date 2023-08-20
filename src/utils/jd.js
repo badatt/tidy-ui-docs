@@ -52,7 +52,7 @@ const typeResolver = (types) => {
   for(const type of types) {
     resolvedTypes.push(allowedTypeValues(type));
   }
-  return _.flattenDeep(resolvedTypes);
+  return _.flattenDeep(resolvedTypes).join(" | ");
 };
 
 const getMembers = (docs, i) => {
@@ -66,7 +66,7 @@ const getMembers = (docs, i) => {
       nullable: v.nullable,
       optional: v.optional,
       since: v.since,
-      type: typeResolver(v.type.names),
+      types: typeResolver(v.type.names),
     }
   })
   .value();

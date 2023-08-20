@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { FlexBox } from '@tidy-ui/all';
-import { IMdxFields, IMdxFrontmatter, IPublicUrl, IRemoteAsset, ISite } from './types';
+import { IMdxFields, IMdxFrontmatter, IPublicUrl, IRemoteAsset, ISite } from '../types';
 
 interface ILibData {
   lib: {
@@ -19,10 +19,10 @@ interface ILibNode {
 }
 
 interface Props {
-  slug: string;
+  component: string;
 }
 
-const Lib: React.FC<Props> = ({ slug }) => {
+const Lib: React.FC<Props> = ({ component }) => {
   const {
     lib: { nodes },
     licenseBadge,
@@ -64,7 +64,7 @@ const Lib: React.FC<Props> = ({ slug }) => {
       }
     }
   `);
-  const currentLib = nodes.find((n) => n.frontmatter.lib && n.fields.slug === slug);
+  const currentLib = nodes.find((n) => n.frontmatter.lib && n.frontmatter.component === component);
 
   if (currentLib === undefined) {
     return;

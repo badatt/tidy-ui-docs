@@ -21,9 +21,27 @@ export interface ITimeToRead {
   words?: number;
 }
 
+export interface IComponentInterface {
+  description?: string;
+  members?: IComponentInterfaceMember[];
+  name?: string;
+  since?: string;
+}
+
+export interface IComponentInterfaceMember {
+  defaultValue?: string;
+  description?: string;
+  name?: string;
+  nullable?: boolean;
+  optional?: boolean;
+  since?: string;
+  types?: string;
+}
+
 export interface IMdxFields {
   breadcrumb?: IBreadcrumbField[];
   component?: string;
+  componentInterfaces: IComponentInterface[];
   pageSourcePath?: string;
   slug?: string;
   timeToRead?: ITimeToRead;
