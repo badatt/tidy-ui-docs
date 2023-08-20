@@ -19,14 +19,6 @@ const Main: React.FC<Props> = ({ slug }) => {
           <Styled.MainLinkIcon icon="fa-solid fa-cube" />
           Components
         </Styled.MainLink>
-        <Styled.MainLink to="/hooks/use-portal" activeClassName="active">
-          <Styled.MainLinkIcon icon="fa-solid fa-screwdriver-wrench" />
-          Hooks
-        </Styled.MainLink>
-        <Styled.MainLink to="/themes/orchid" activeClassName="active">
-          <Styled.MainLinkIcon icon="fa-solid fa-palette" />
-          Themes
-        </Styled.MainLink>
       </Stack>
       {slug.match(/\/components.*/gm) && <Components />}
     </Styled.Nav>

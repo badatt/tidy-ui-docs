@@ -2,7 +2,7 @@ import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Chip, FlexBox, Text } from '@tidy-ui/all';
 import { Icon } from 'ui';
-import { IMdxFields, ISite } from './types';
+import { IMdxFields, ISite } from '../types';
 
 interface IDocInfoData {
   docInfo: {
@@ -19,7 +19,7 @@ interface Props {
   slug: string;
 }
 
-const DocInfo: React.FC<Props> = ({ slug }) => {
+const Info: React.FC<Props> = ({ slug }) => {
   const {
     docInfo: { nodes },
     site,
@@ -69,4 +69,4 @@ const DocInfo: React.FC<Props> = ({ slug }) => {
   );
 };
 
-export default DocInfo;
+export default Info;

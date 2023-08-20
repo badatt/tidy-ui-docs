@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { MDXProvider } from '@mdx-js/react';
-import { Divider, styled,Text } from '@tidy-ui/all';
+import { styled, Text } from '@tidy-ui/all';
 import { mdxComponents } from 'ui';
-import { Lib, Page } from 'components';
+import { Page } from 'components';
 
 const ContentWrapper = styled.div`
   padding: 0 0 4rem 0;
@@ -28,8 +28,6 @@ const Doc = ({ children, ...data }) => {
           {title}
         </Text.h2>
         <Text.base>{description}</Text.base>
-        <Lib slug={slug}/>
-        <Divider />
         <MDXProvider components={mdxComponents}>{children}</MDXProvider>
       </ContentWrapper>
     </Page>

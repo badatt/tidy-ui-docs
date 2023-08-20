@@ -1,15 +1,16 @@
 import * as React from 'react';
 import type { Props } from '@mdx-js/react/lib';
 import { Anchor, Divider, Text } from '@tidy-ui/all';
+import { DocApi, DocLib } from '../components';
 import { H1, H2, H3, H4, H5, H6 } from './headings';
 import Image from './Image';
 import { Li, Ol, Ul } from './list';
 import Pre from './Pre';
-
 export { default as Icon } from './Icon';
-export {};
 
 export const mdxComponents = {
+  DocApi,
+  DocLib,
   Text,
   a: (props: Props) => (
     <Anchor {...props} tone="info" rel="nofollow noopener noreferrer" target="_blank" display="inline-block" />
