@@ -10,19 +10,13 @@ const ContentWrapper = styled.div`
 
 const Doc = ({ children, ...data }) => {
   const {
-    pageContext: {
-      frontmatter,
-      slug,
-    },
+    pageContext: { frontmatter, slug },
     path,
   } = data;
   const { description, title } = frontmatter;
 
   return (
-    <Page
-      path={path}
-      slug={slug}
-    >
+    <Page path={path} slug={slug}>
       <ContentWrapper>
         <Text.h2 bld margin="2rem 0">
           {title}

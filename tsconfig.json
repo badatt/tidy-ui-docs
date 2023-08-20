@@ -19,12 +19,6 @@
   "include": ["./src/**/*", "@types"],
   "exclude": ["node_modules"],
   "mdx": {
-    "plugins": [
-      [
-        "remark-frontmatter",
-        ["toml", "yaml"]
-      ],
-      "remark-gfm"
-    ]
+    "plugins": [["remark-frontmatter", ["toml", "yaml"]], "remark-gfm"]
   }
 }
