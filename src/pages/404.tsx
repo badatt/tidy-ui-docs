@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { FlexBox, FlexItem, IconButton, Text } from '@tidy-ui/all';
 import { Icon } from 'ui';
-import SEO from 'components/SEO';
+import { Page } from 'components';
 
 const NotFoundPage: React.FC = () => {
   const { notFound } = useStaticQuery(graphql`
@@ -13,9 +13,8 @@ const NotFoundPage: React.FC = () => {
     }
   `);
   return (
-    <>
-      <SEO title="/404 Not found" />
-      <FlexBox>
+    <Page path="/404 Not found">
+      <FlexBox ctr fld="column" ali="center">
         <FlexItem span={6}>
           <FlexBox ctr fld="column" gap="2rem">
             <FlexItem>
@@ -43,7 +42,7 @@ const NotFoundPage: React.FC = () => {
           <img src={notFound.publicURL} />
         </FlexItem>
       </FlexBox>
-    </>
+    </Page>
   );
 };
 

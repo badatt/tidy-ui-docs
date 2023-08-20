@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { LiveContext, LiveProvider } from 'react-live';
+import { LiveContext, LivePreview, LiveProvider } from 'react-live';
 import { Alert, Border, Chip } from '@tidy-ui/all';
 import ReactLiveScope from './scope';
 import * as Styled from './styles';
@@ -41,7 +41,7 @@ const Editor: React.FC = () => {
           <Styled.Err />
         </Alert>
       ) : (
-        <Styled.Preview />
+        <LivePreview />
       )}
       <Styled.Code>
         <Styled.Editor code={code} language={language} disabled={disabled} onChange={onChange} />

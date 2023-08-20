@@ -3,20 +3,21 @@ component: alert
 class: presentation
 title: Alert
 lib: '@tidy-ui/alert'
-description: The Alert component delivers user alerts based on info, success, warning, or danger. It offers actionable alerts with titles, content, and buttons, and solid bars for informational alerts. Customize edges and styles, all enhanced by theming.
+description: The Alert component is like your trusty sidekick, delivering tailored alerts for all sorts of
+  situations - whether it's updates, successes, friendly warnings, or important info.
+  It's not just about messages; it's a powerful tool that helps you give users clear insights.
+  You can add titles, detailed content, and handy buttons for quick actions. And there's more - it can show sturdy bars for key info,
+  and you get to style it just the way you like. Plus, it fits right into your design theme for a smooth and unified user journey.
 ---
 
 <DocLib component="alert" />
 
 ---
 
-## Alert Component Guide
-
-Welcome to the Alert Component Guide! Get ready to communicate effectively with your users using the versatile Alert component. Whether you need to deliver important information, guide user actions, or emphasize a message's classification, the Alert component is here to help. Let's dive into the exciting details!
-
 ## Overview
 
-The Alert component is your tool for delivering clear and impactful messages to your users. It's like having your own personal messenger that knows how to grab attention. With the Alert component, you can:
+The Alert component is your tool for delivering clear and impactful messages to your users.
+It's like having your own personal messenger that knows how to grab attention. With the Alert component, you can:
 
 - Display alerts based on information classification: info, success, warning, or danger.
 - Create two types of alerts: actionable and informational.
@@ -24,103 +25,111 @@ The Alert component is your tool for delivering clear and impactful messages to 
 - Highlight classification with solid bars for informational alerts.
 - Choose between sharp-edged or rounded alert styles.
 
-## Key Features
+Tidy UI is excited to offer you a trio of alert-related components that are here to make your interface shine!
 
-### 1. Classification-Based Alerts
+**Alert** : Think of this as the main hub for alerting your users. It's like a super versatile wrapper that holds different types of alerts,
+and it can even stand alone as a solid alert. So whether you're telling them something important or just giving them a heads-up, the Alert's got your back!
 
-The Alert component lets you categorize your messages based on their importance and nature. Whether it's an informative update, a successful action, a warning, or a critical issue, you can tailor your alerts accordingly.
+**AlertTitle** : This is like the spokesperson for the alert. It's in charge of showing how serious or important the alert is.
+It's like the headline that gives you a quick idea of what's going on.
 
-### 2. Actionable Alerts
+**AlertFooter** : Imagine this as the helper down at the bottom of the alert. It's there to assist with any extra things you want to share.
+Need to add actions or notes? The AlertFooter's the place to do it. It's like the friendly neighbor that's always willing to lend a hand.
 
-Create alerts that prompt user actions using the AlertTitle, content, and AlertFooter. Highlight the title, provide crucial information, and even add buttons for actions. The layout is flexible, accommodating your unique design preferences.
-
-### 3. Accented Style
-
-Actionable alerts dynamically adapt their appearance based on the classification. The color accents help users quickly grasp the alert's nature, enhancing usability and understanding.
-
-### 4. Informational Alerts
-
-Use informational alerts to emphasize the message's classification. These solid bars catch the user's eye, ensuring important information doesn't go unnoticed.
-
-### 5. Rounded or Sharp-Edged
-
-Tailor the alert's visual style to match your app's aesthetics. Choose between sharp-edged or rounded corners to create the look you desire.
-
-### 6. Theming and Styles
-
-Just like a chameleon, the Alert component seamlessly blends with your app's design language. It's powered by theming and styles, ensuring consistency across your user interface.
-
-## Getting Started
-
-Now that you're acquainted with the Alert component's superpowers, it's time to make your messages shine! Dive into the implementation details and explore the limitless possibilities for delivering user-friendly alerts that command attention and guide interactions.
-
-Remember, the Alert component is your ally for effective communication and user engagement. Let your creativity flow and watch as your app becomes a master of delivering messages with impact. Get ready to captivate your users with the Alert component's prowess!
-
-## Import
-
-Tidy UI exports 3 alert related components.
-
-- `Alert` : The wrapper for alert components, which can be used standalone for solid alerts.
-- `AlertTitle` : The title of the alert that signifies its severity.
-- `AlertFooter` : Footer to have any actions, notes etc.
+## Imports
 
 ```js
+import { Alert, AlertFooter, AlertTitle } from '@tidy-ui/all';
+// or
+import { Alert, AlertFooter, AlertTitle } from '@tidy-ui/presentation';
+// or
 import { Alert, AlertFooter, AlertTitle } from '@tidy-ui/alert';
 ```
 
-## Usage
+## Key Features
+
+### Classification-Based
+
+Whether you've got exciting updates `info`, triumphant victories `success`, cautionary tales `warning`, or serious matters `danger`,
+you can fit each message into the perfect box. Just tell the component which vibe you want with the <mark>status</mark> attribute, and voila - you've
+got a personalized alert that speaks your language!
 
 ```jsx
-<Alert>Simple alert</Alert>
+<Stack order="column" gap="1rem">
+  <Alert status="info">
+    Psst! Here's a fun fact: Butterflies taste with their feet. 🦋👣 Just thought you should know!
+  </Alert>
+  <Alert status="success">High-five! 🙌 You just leveled up in the game of life. Keep rocking!</Alert>
+  <Alert status="warning">Caution: Life's a roller coaster. Secure your snacks and emotions!</Alert>
+  <Alert status="danger">404 Error: Brain not found. Please try again after caffeine.</Alert>
+</Stack>
 ```
 
-### Status
+### Actionable
 
-Change the status of the alerts by passing the `status` prop. This affects the
-color scheme and icon used. Alert supports `error`, `success`, `warning`, and
-`info` statuses.
+Get ready to create alerts that spark action! With the **AlertTitle**, message content, and **AlertFooter** combo, you've got the ultimate trio.
+Make your title pop, share the important stuff in the message, and hey, why not throw in some action buttons too?
+It's like your alert's very own stage. And guess what? You're the director, customizing the layout just the way you like it!
 
 ```jsx
-<Alert ele={<FlexBox fld="column" />} status="success">
+<Alert ele={<FlexBox fld="column" />} status="info">
   <AlertTitle>
-    <Text.h6 tone="success">success</Text.h6>
+    <Text.h6>Your action needed!</Text.h6>
   </AlertTitle>
-  Lorem Ipsum dolor
+  🔔 Hey there! Just a heads-up: Your inbox is feeling lonely. Give it some love and check for new messages. Happy communicating!
   <AlertFooter>
     <ButtonCluster isStretched>
-      <Button variant="simple" tone="neutral">
-        Cancel
+      <Button variant="simple" tone="danger">
+        Next time
       </Button>
-      <Button tone="success">Ok</Button>
+      <Button tone="major">Go to inbox</Button>
     </ButtonCluster>
   </AlertFooter>
 </Alert>
 ```
 
-### Variant
+### Informational
 
-`Alert` has 4 variant styles you can use. Pass the `variant` prop and use either
-`subtle`, `solid`, `left-accent` or `top-accent`.
+Time to let your messages shine! Grab the spotlight with informational alerts. These sturdy bars are like the VIP section for your important news -
+they make sure nobody misses out. And the best part? You're in control! Just flip the switch by using the <mark>isFilled</mark> property, and watch your message take center stage.
 
 ```jsx
-<Alert>Simple alert</Alert>
+<Stack order="column" gap="1rem">
+  <Alert status="info" isFilled>
+    Psst! Here's a fun fact: Butterflies taste with their feet. 🦋👣 Just thought you should know!
+  </Alert>
+  <Alert status="success" isFilled>
+    High-five! 🙌 You just leveled up in the game of life. Keep rocking!
+  </Alert>
+  <Alert status="warning" isFilled>
+    Caution: Life's a roller coaster. Secure your snacks and emotions!
+  </Alert>
+  <Alert status="danger" isFilled>
+    404 Error: Brain not found. Please try again after caffeine.
+  </Alert>
+</Stack>
 ```
 
-### Composition
+### Rounded or Sharp-Edged
 
-`Alert` ships with smaller components to allow for flexibility in creating all
-kinds of layouts. Here's an example of a custom alert style and layout:
-
-```jsx
-<Alert>Simple alert</Alert>
-```
-
-`Alert` can also incorporate other Chakra components. Here's an example of an
-alert with wrapping description text and the `CloseButton` component with simple
-close functionality:
+You're in charge of the alert's fashion show! Whether you're into sleek edges or cozy curves, you've got the power to make it your own.
+Just snap your fingers (or set the <mark>isSharp</mark> property), and watch your alert transform into the style icon you've always dreamed of. Walk that runway, designer! 🎉
 
 ```jsx
-<Alert>Simple alert</Alert>
+<Stack order="column" gap="1rem">
+  <Alert status="info" isFilled isSharp>
+    Psst! Here's a fun fact: Butterflies taste with their feet. 🦋👣 Just thought you should know!
+  </Alert>
+  <Alert status="success" isFilled isSharp>
+    High-five! 🙌 You just leveled up in the game of life. Keep rocking!
+  </Alert>
+  <Alert status="warning" isFilled isSharp>
+    Caution: Life's a roller coaster. Secure your snacks and emotions!
+  </Alert>
+  <Alert status="danger" isFilled isSharp>
+    404 Error: Brain not found. Please try again after caffeine.
+  </Alert>
+</Stack>
 ```
 
 ## Props

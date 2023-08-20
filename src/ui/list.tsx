@@ -6,6 +6,7 @@ export const Ul = styled.ul`
   * + * {
     margin-top: 0.5rem;
   }
+  margin-bottom: 1rem;
 `;
 
 export const Ol = styled.ol`
@@ -14,6 +15,7 @@ export const Ol = styled.ol`
   * + * {
     margin-top: 0.5rem;
   }
+  margin-bottom: 1rem;
 `;
 
 export const Li = styled.li`

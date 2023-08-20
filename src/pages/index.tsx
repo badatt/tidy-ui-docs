@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { Button, color, css, FlexBox, hsla, styled, Text, useTheme } from '@tidy-ui/all';
-import { Footer, SEO } from 'components';
+import { Page } from 'components';
 
 const HeroName = styled(Text.hero)`
   ${({ theme: { palette } }) => css`
@@ -14,8 +14,7 @@ const HeroName = styled(Text.hero)`
 const IndexPage: React.FC = () => {
   const { isDark } = useTheme();
   return (
-    <>
-      <SEO title="/Home" />
+    <Page path="/Home">
       <FlexBox as="section" ctr fld="column" padding="4rem 0" gap="2rem" ali="center">
         <Text.h2 bld ctr color={isDark ? hsla(color.gray[300]) : hsla(color.gray[700])}>
           Create elegant React apps with
@@ -33,8 +32,7 @@ const IndexPage: React.FC = () => {
           </Button>
         </Link>
       </FlexBox>
-      <Footer />
-    </>
+    </Page>
   );
 };
 
