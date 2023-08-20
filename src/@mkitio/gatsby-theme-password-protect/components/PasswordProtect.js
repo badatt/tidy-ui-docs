@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { setSessionPassword } from '@mkitio/gatsby-theme-password-protect/src/utils/utils';
-import { Button, FlexBox, Input, Note, styled,Text } from '@tidy-ui/all';
+import { Button, FlexBox, Input, Note, styled, Text } from '@tidy-ui/all';
 import { App, SEO } from 'components';
 
 const Password = styled(Input)`
@@ -34,7 +34,7 @@ const PasswordProtect = () => {
         <form onSubmit={onSubmit}>
           <FlexBox margin="auto" width="80%" gap="1rem">
             <Password
-              type='password'
+              type="password"
               placeholder="Enter password"
               girth="xxl"
               value={password}

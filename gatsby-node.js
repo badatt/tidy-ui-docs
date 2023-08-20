@@ -2,8 +2,8 @@ const path = require(`path`);
 const slugify = require(`@sindresorhus/slugify`);
 const { createFilePath, createRemoteFileNode } = require(`gatsby-source-filesystem`);
 const readingTime = require(`reading-time`);
-const _  = require(`lodash`);
-const jd  = require(`./src/utils/jd`);
+const _ = require(`lodash`);
+const jd = require(`./src/utils/jd`);
 
 function createBreadCrumb(slug) {
   const slugs = slug.split('/');
@@ -48,16 +48,18 @@ exports.createSchemaCustomization = ({ actions }) => {
 exports.onCreateNode = async ({ node, actions, createNodeId, getCache, getNode }) => {
   const { createNode, createNodeField } = actions;
 
-  /** 
+  /**
    * Customizing Mdx nodes
-  */
+   */
   if (node.internal.type === `Mdx`) {
     const slug = createFilePath({ getNode, node, trailingSlash: false });
 
     createNodeField({
       name: `slug`,
       node,
-      value: _.split(slug, '/').map((s) => slugify(s)).join('/')
+      value: _.split(slug, '/')
+        .map((s) => slugify(s))
+        .join('/'),
     });
 
     createNodeField({
@@ -71,7 +73,7 @@ exports.onCreateNode = async ({ node, actions, createNodeId, getCache, getNode }
       node,
       value: readingTime(node.body),
     });
-    
+
     createNodeField({
       name: `breadcrumb`,
       node,
@@ -102,7 +104,7 @@ exports.onCreateNode = async ({ node, actions, createNodeId, getCache, getNode }
       if (npmLibBadgeFile) {
         createNodeField({ name: 'sourceBadgeFile', node, value: sourceBadgeFile.id });
       }
-      
+
       createNodeField({
         name: `componentInterfaces`,
         node,
@@ -117,9 +119,9 @@ exports.onCreateNode = async ({ node, actions, createNodeId, getCache, getNode }
     }
   }
 
-  /** 
+  /**
    * Customizing MarkdownRemark nodes
-  */
+   */
   if (node.internal.type === 'MarkdownRemark' && node.frontmatter.url && node.frontmatter.url !== null) {
     const fileNode = await createRemoteFileNode({
       createNode,
