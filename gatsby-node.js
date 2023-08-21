@@ -143,19 +143,22 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
   const result = await graphql(`
-    {
-      allMdx {
-        nodes {
-          id
-          fields {
-            slug
-          }
-          internal {
-            contentFilePath
-          }
+  {
+    allMdx {
+      nodes {
+        id
+        fields {
+          slug
+        }
+        internal {
+          contentFilePath
+        }
+        frontmatter {
+          status
         }
       }
     }
+  }
   `);
 
   if (result.errors) {
@@ -170,7 +173,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const {
       fields: { slug },
       internal: { contentFilePath },
+      frontmatter: { status }
     } = node;
+
+    if(status === "DRAFT") {
+      return;
+    }
 
     createPage({
       component: `${docTemplate}?__contentFilePath=${contentFilePath}`,

@@ -1,17 +1,13 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import _ from 'lodash';
-import { FlexBox, Text } from '@tidy-ui/all';
+import { IMdxFields, IMdxFrontmatter } from 'types';
+import { FlexBox, Tag, Text } from '@tidy-ui/all';
 import * as Styled from './styles';
 
 interface IComponentNode {
-  fields: {
-    slug: string;
-  };
-  frontmatter: {
-    class: string;
-    component: string;
-  };
+  fields: IMdxFields;
+  frontmatter: IMdxFrontmatter;
   id: string;
 }
 
@@ -27,7 +23,7 @@ const Components: React.FC = () => {
   }: IComponentNodes = useStaticQuery(graphql`
     {
       components: allMdx(
-        filter: { fields: { slug: { glob: "/components/*" } } }
+        filter: { fields: { slug: { glob: "/components/*" } }, frontmatter: { status: { ne: "DRAFT" } } }
         sort: { frontmatter: { title: ASC } }
       ) {
         nodes {
@@ -35,6 +31,7 @@ const Components: React.FC = () => {
           frontmatter {
             class
             component
+            status
           }
           fields {
             slug
@@ -62,6 +59,11 @@ const Components: React.FC = () => {
             {sorted[s].map((c) => (
               <Styled.ComponentLink to={`${c.fields.slug}`} key={c.id} activeClassName="active">
                 {c.frontmatter.component}
+                {c.frontmatter.status === 'NEW' && (
+                  <Tag girth="sm" tone="info">
+                    new
+                  </Tag>
+                )}
               </Styled.ComponentLink>
             ))}
           </FlexBox>

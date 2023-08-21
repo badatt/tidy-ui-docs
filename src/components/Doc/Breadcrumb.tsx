@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Breadcrumb as TBreadCrumb, BreadcrumbItem } from '@tidy-ui/all';
-import { IMdxFields } from '../types';
+import { IMdxFields } from '../../types';
 
 interface IBreadcrumbNode {
   fields: IMdxFields;

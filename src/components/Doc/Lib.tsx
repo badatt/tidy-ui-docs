@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { FlexBox } from '@tidy-ui/all';
-import { IMdxFields, IMdxFrontmatter, IPublicUrl, IRemoteAsset, ISite } from '../types';
+import { IMdxFields, IMdxFrontmatter, IPublicUrl, IRemoteAsset, ISite } from '../../types';
 
 interface ILibData {
   lib: {

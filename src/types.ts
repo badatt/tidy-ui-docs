@@ -6,6 +6,7 @@ export interface IMdxFrontmatter {
   component?: string;
   description?: string;
   lib?: string;
+  status?: string;
   title?: string;
 }
 

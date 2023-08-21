@@ -54,6 +54,7 @@ export const ComponentLink = styled(Link)`
   padding: 0.5rem 0.5rem;
   margin-right: 0.5rem;
   border-radius: 4px;
+  gap: 0.5rem;
   ${({ theme: { isDark, font, palette } }) => css`
     color: ${palette.text.primary};
     :hover {
