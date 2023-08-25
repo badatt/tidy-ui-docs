@@ -6,13 +6,17 @@ import { H1, H2, H3, H4, H5, H6 } from './headings';
 import Image from './Image';
 import { Li, Ol, Ul } from './list';
 import Pre from './Pre';
+import { Prop } from './text';
+
 export { default as Icon } from './Icon';
+export * from './text';
 
 export const mdxComponents = {
   Chip: (props: Props) => <Chip {...props} tone="minor" girth="sm" margin="0 0 0.5rem 0" />,
   DocApi,
   DocLib,
   Note,
+  Prop,
   Text,
   a: (props: Props) => <Anchor {...props} tone="major" display="inline-block" />,
   h1: H1,

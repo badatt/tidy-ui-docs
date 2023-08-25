@@ -51,7 +51,7 @@ module.exports = {
           remarkPlugins: [
             require(`remark-gfm`),
             require(`remark-emoji`),
-            require(`./plugins/gatsby-remark-custom-mark-plugin`)
+            require(`./plugins/gatsby-remark-prop-style-plugin`)
           ],
           rehypePlugins: [
             require(`rehype-slug`), 

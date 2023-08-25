@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Divider, FlexBox, Stack, Tag, Text } from '@tidy-ui/all';
+import { Prop } from 'ui';
 import { IMdxFields, IMdxFrontmatter } from '../../types';
 
 interface IApiDocData {
@@ -80,7 +81,7 @@ const Api: React.FC<Props> = ({ component }) => {
                 <Stack align="center" gap="1rem" margin="0.5rem 0">
                   <FlexBox gap="1rem" ali="center">
                     <b>
-                      <mark style={{ padding: '0 0.25em' }}>{m.name}</mark>
+                      <Prop>{m.name}</Prop>
                     </b>
                     {(m.optional === false || m.optional === null) && (
                       <Tag girth="sm" tone="warning">

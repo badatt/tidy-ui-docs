@@ -3,8 +3,8 @@ const _ = require('lodash')
 const visit = require('unist-util-visit');
 const unistBuilder = require('unist-builder');
 
-const REGEX = /\[(.*?)\]/;
-const REGEX_GLOBAL = /\[(.*?)\]/g;
+const REGEX = /\[\[(.*?)\]\]/;
+const REGEX_GLOBAL = /\[\[(.*?)\]\]/g;
 
 function constructMarker(
   markedText,
@@ -20,7 +20,7 @@ function constructMarker(
       }
     ],
     data: { _mdxExplicitJsx: true },
-    name: "mark",
+    name: "Prop",
     type: "mdxJsxTextElement"
   };
 }
