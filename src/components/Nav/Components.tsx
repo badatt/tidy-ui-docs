@@ -2,7 +2,8 @@ import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import _ from 'lodash';
 import { IMdxFields, IMdxFrontmatter } from 'types';
-import { FlexBox, Tag, Text } from '@tidy-ui/all';
+import { FlexBox, Text } from '@tidy-ui/all';
+import { Icon } from 'ui';
 import * as Styled from './styles';
 
 interface IComponentNode {
@@ -59,11 +60,7 @@ const Components: React.FC = () => {
             {sorted[s].map((c) => (
               <Styled.ComponentLink to={`${c.fields.slug}`} key={c.id} activeClassName="active">
                 {c.frontmatter.component}
-                {c.frontmatter.status === 'NEW' && (
-                  <Tag girth="sm" tone="info">
-                    new
-                  </Tag>
-                )}
+                {c.frontmatter.status === 'NEW' && <Icon icon="fa-solid fa-wand-magic-sparkles" />}
               </Styled.ComponentLink>
             ))}
           </FlexBox>

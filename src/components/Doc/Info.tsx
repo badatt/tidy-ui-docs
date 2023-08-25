@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Chip, FlexBox, Text } from '@tidy-ui/all';
+import { FlexBox, IconButton, Text } from '@tidy-ui/all';
 import { Icon } from 'ui';
 import { IMdxFields, ISite } from '../../types';
 
@@ -57,13 +57,12 @@ const Info: React.FC<Props> = ({ slug }) => {
 
   const { docs } = site.siteMetadata!;
   return (
-    <FlexBox ali="center" gap="2rem">
-      <Text.body2>{currentDoc.fields.timeToRead?.text}</Text.body2>
+    <FlexBox ali="center" gap="1rem">
+      <Text.caption>{currentDoc.fields.timeToRead?.text}</Text.caption>
       <a href={encodeURI(`${docs?.githubLink}${docs?.contentPath}${currentDoc.fields.pageSourcePath}`)} target="_blank">
-        <Chip ele={<FlexBox gap="0.5rem" />}>
-          <Icon icon="fa-brands fa-github" />
+        <IconButton girth="xs" tone="info" icon={<Icon icon="fa-brands fa-github" />}>
           Edit this page
-        </Chip>
+        </IconButton>
       </a>
     </FlexBox>
   );

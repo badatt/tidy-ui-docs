@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { Props } from '@mdx-js/react/lib';
-import { Anchor, Divider, Text } from '@tidy-ui/all';
+import { Anchor, Chip, Divider, Note, Text } from '@tidy-ui/all';
 import { DocApi, DocLib } from '../components';
 import { H1, H2, H3, H4, H5, H6 } from './headings';
 import Image from './Image';
@@ -9,12 +9,12 @@ import Pre from './Pre';
 export { default as Icon } from './Icon';
 
 export const mdxComponents = {
+  Chip: (props: Props) => <Chip {...props} tone="minor" girth="sm" margin="0 0 0.5rem 0" />,
   DocApi,
   DocLib,
+  Note,
   Text,
-  a: (props: Props) => (
-    <Anchor {...props} tone="info" rel="nofollow noopener noreferrer" target="_blank" display="inline-block" />
-  ),
+  a: (props: Props) => <Anchor {...props} tone="major" display="inline-block" />,
   h1: H1,
   h2: H2,
   h3: H3,

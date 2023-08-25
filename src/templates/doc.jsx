@@ -21,7 +21,9 @@ const Doc = ({ children, ...data }) => {
         <Text.h2 bld margin="2rem 0">
           {title}
         </Text.h2>
-        <Text.base style={{ lineHeight: 1.8 }}>{description}</Text.base>
+        <Text.base style={{ lineHeight: 1.8 }}>
+          <blockquote>{description}</blockquote>
+        </Text.base>
         <MDXProvider components={mdxComponents}>{children}</MDXProvider>
       </ContentWrapper>
     </MdDoc>

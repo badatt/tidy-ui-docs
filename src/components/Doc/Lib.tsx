@@ -1,21 +1,17 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { FlexBox } from '@tidy-ui/all';
-import { IMdxFields, IMdxFrontmatter, IPublicUrl, IRemoteAsset, ISite } from '../../types';
+import { Anchor, Chip, FlexBox } from '@tidy-ui/all';
+import { IMdxFrontmatter, ISite } from '../../types';
 
 interface ILibData {
   lib: {
     nodes: ILibNode[];
   };
-  licenseBadge: IRemoteAsset;
   site: ISite;
 }
 
 interface ILibNode {
-  fields: IMdxFields;
   frontmatter: IMdxFrontmatter;
-  npmLibBadge: IPublicUrl;
-  sourceBadge: IPublicUrl;
 }
 
 interface Props {
@@ -25,7 +21,6 @@ interface Props {
 const Lib: React.FC<Props> = ({ component }) => {
   const {
     lib: { nodes },
-    licenseBadge,
     site,
   }: ILibData = useStaticQuery(graphql`
     {
@@ -40,22 +35,8 @@ const Lib: React.FC<Props> = ({ component }) => {
           }
         }
       }
-      licenseBadge: markdownRemark(frontmatter: { title: { eq: "License" } }) {
-        remote {
-          publicURL
-        }
-      }
       lib: allMdx {
         nodes {
-          npmLibBadge {
-            publicURL
-          }
-          sourceBadge {
-            publicURL
-          }
-          fields {
-            slug
-          }
           frontmatter {
             lib
             component
@@ -72,14 +53,21 @@ const Lib: React.FC<Props> = ({ component }) => {
 
   const { source, npmJs } = site.siteMetadata!;
   return (
-    <FlexBox margin="2rem 0" gap="1rem">
-      <img alt="License" src={licenseBadge.remote?.publicURL} />
-      <a href={`${source!.githubLink}${source!.packagesPath}/${currentLib?.frontmatter.component}`} target="_blank">
-        <img alt={currentLib?.frontmatter.component} src={currentLib?.sourceBadge.publicURL} />
-      </a>
-      <a href={`${npmJs!.packageBaseUrl}${currentLib?.frontmatter.lib}`} target="_blank">
-        <img alt="npm (scoped)" src={currentLib?.npmLibBadge.publicURL} />
-      </a>
+    <FlexBox margin="2rem 0" gap="1rem" ali="center" alc="center">
+      <Chip girth="xs" tone="info">
+        MIT
+      </Chip>
+      <Anchor
+        canLaunch
+        href={`${source!.githubLink}${source!.packagesPath}/${currentLib?.frontmatter.component}`}
+        girth="xs"
+        tone="info"
+      >
+        Source
+      </Anchor>
+      <Anchor href={`${npmJs!.packageBaseUrl}${currentLib?.frontmatter.lib}`} canLaunch girth="xs" tone="info">
+        Npm
+      </Anchor>
     </FlexBox>
   );
 };

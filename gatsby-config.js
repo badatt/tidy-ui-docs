@@ -22,21 +22,6 @@ module.exports = {
     siteUrl: `http://localhost:8000`, // TODO change after deployment
   },
   plugins: [
-    `gatsby-plugin-typescript`,
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        mdxOptions: {
-          remarkPlugins: [
-            require(`remark-gfm`),
-            require(`remark-emoji`),
-            [require(`remark-external-links`), { target: true }],
-          ],
-          rehypePlugins: [require(`rehype-slug`), [require(`rehype-autolink-headings`), { behavior: `wrap` }]],
-        },
-      },
-    },
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -58,6 +43,32 @@ module.exports = {
         path: `${__dirname}/content`,
       },
     },
+    `gatsby-plugin-typescript`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        mdxOptions: {
+          remarkPlugins: [
+            require(`remark-gfm`),
+            require(`remark-emoji`),
+            require(`./plugins/gatsby-remark-custom-mark-plugin`)
+          ],
+          rehypePlugins: [
+            require(`rehype-slug`), 
+            [require(`rehype-autolink-headings`), { behavior: `wrap` }]],
+        },
+        gatsbyRemarkPlugins: [
+          {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: "_blank",
+              rel: "nofollow"
+            }
+          },
+        ]
+      },
+    },
+    `gatsby-plugin-react-helmet`,
     {
       resolve: 'gatsby-transformer-remark',
       options: {

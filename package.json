@@ -61,6 +61,7 @@
     "gatsby-plugin-sitemap": "^6.11.0",
     "gatsby-plugin-styled-components": "^6.11.0",
     "gatsby-plugin-typescript": "^5.11.0",
+    "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^7.11.0",
     "gatsby-remark-relative-images": "^2.0.5",
     "gatsby-source-filesystem": "^5.11.0",
@@ -72,10 +73,13 @@
     "reading-time": "^1.5.0",
     "rehype-autolink-headings": "^5.1.0",
     "rehype-slug": "^4.0.1",
+    "remark": "^13.0.0",
     "remark-emoji": "^2.2.0",
     "remark-external-links": "^8.0.0",
     "remark-gfm": "^1.0.0",
-    "rsync": "^0.6.1"
+    "rsync": "^0.6.1",
+    "unist-builder": "^2.0.0",
+    "unist-util-visit": "^2.0.0"
   },
   "keywords": [
     "gatsby",
@@ -84,9 +88,9 @@
   ],
   "license": "MIT",
   "scripts": {
-    "bootstrap": "npm install --force && husky install",
+    "bootstrap": "npm install --force",
     "build": "GATSBY_ACTIVE_ENV=dev gatsby build",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop --verbose",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",

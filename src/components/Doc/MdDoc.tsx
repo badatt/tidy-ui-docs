@@ -4,7 +4,7 @@ import Footer from '../Footer';
 import { MainNav, Toc } from '../Nav';
 import SEO from '../SEO';
 import Breadcrumb from './Breadcrumb';
-import { DocInfo, HealthBadge } from '.';
+import { DocInfo } from '.';
 
 interface Props extends React.PropsWithChildren {
   path: string;
@@ -28,7 +28,6 @@ const MdDoc: React.FC<Props> = ({ children, path, slug }) => {
           <DividerEnhanced>
             <Text.caption disabled>End of content</Text.caption>
           </DividerEnhanced>
-          <HealthBadge />
           <Footer />
         </FlexItem>
         <FlexItem span={4}>
