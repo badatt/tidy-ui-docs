@@ -3,8 +3,8 @@ const _ = require('lodash')
 const visit = require('unist-util-visit');
 const unistBuilder = require('unist-builder');
 
-const REGEX = /==([^=]+)==/;
-const REGEX_GLOBAL = /==([^=]+)==/g;
+const REGEX = /\[(.*?)\]/;
+const REGEX_GLOBAL = /\[(.*?)\]/g;
 
 function constructMarker(
   markedText,
@@ -30,6 +30,7 @@ module.exports = function(options = {  }) {
     visit(node, 'text', (node, index, parent) => {
       if (!parent) return;
       if (!REGEX.test(node.value)) return;
+      
       const children = [];
       const value = node.value;
       let tempValue = "";
