@@ -1,6 +1,132 @@
 ---
-status: DRAFT
+status: PUBLISHED
 class: main
-title: Getting started
-description: Getting started
+title: Beginning your journey
+description:
 ---
+
+Tidy UI presents a collection of lightweight, modularized, and opinionated React components.
+These components adhere to a consistent design and theme, meaning you won't have to worry much about styling them.
+
+At the heart of Tidy UI is [ReactJS](https://react.dev/), which forms the foundation of the entire logic.
+The coherence of styling and design system is achieved through the utilization of the
+[styled-components](https://styled-components.com/) library. These two frameworks together form the core of Tidy UI.
+
+## Prerequisites
+
+Before you dive into Tidy UI, ensure that you include the following dependencies in your React application:
+
+- [React](https://www.npmjs.com/package/react) (v18 or later)
+- [Styled components](https://www.npmjs.com/package/styled-components) (v5.3.3 or later)
+
+## Installation
+
+To use Tidy UI, you have a couple of options to choose from:
+
+### All-in-One
+
+If you want every single component from the entire Tidy UI collection, just install the
+[@tidy-ui/all](https://www.npmjs.com/package/@tidy-ui/all) package.
+This is the easiest approach to start with and it's also simple to manage. However, if you're concerned about
+your **node_modules** folder becoming too big, the next installation method might suit you better.
+
+```shell
+npm i @tidy-ui/all
+```
+
+### Pick and Choose
+
+Alternatively, you can decide to install [individual packages](https://www.npmjs.com/search?q=%40tidy-ui) as per
+your project's requirements. But keep in mind,
+you must include the essential [@tidy-ui/commons](https://www.npmjs.com/package/@tidy-ui/commons) package,
+which provides the basic building blocks for all other Tidy UI packages.
+This way, you'll only be adding the necessary packages, and only when you need them.
+If you're concerned about keeping your **node_modules** size in check, this is the optimal choice.
+However, as your project's dependency count grows, keeping track of version compatibility might become challenging.
+
+```shell
+npm i @tidy-ui/commons @tidy-ui/...
+```
+
+## Usage
+
+Once you've installed Tidy UI's dependencies, follow these steps to set up your app's root using a custom provider
+exported by Tidy UI. Depending on your project's needs, you can choose from these different ways of using Tidy UI:
+
+### Basic Setup
+
+At the very least, you need to configure your app's root with the **TidyUiProvider** and a chosen [[theme]].
+
+<Note>
+  If you want to offer multi-theme support to your app, you'll need to manage the logic for theme switching on your own.
+  This way, users can switch to whatever theme suits them best.
+</Note>
+
+```js
+// 1. Import the custom provider and a theme of your choice
+import { orchidLight, TidyUiProvider } from '@tidy-ui/commons';
+
+function App() {
+  // 2. Wrap TidyUiProvider at the root of your app
+  return (
+    <TidyUiProvider theme={orchidLight}>
+      <RestOfYourApp />
+    </TidyUiProvider>
+  );
+}
+```
+
+### Adding Extra CSS Goodness
+
+<Chip>recommended</Chip>
+
+To bring some CSS best practices to your app, include the following components along with the TidyUiProvider:
+
+- **GlobalResetStyle**: This takes care of inconsistencies that can arise across various browsers.
+  Each browser has default rules applied to all pages before loading files. These browser-specific styles persist unless
+  you override them explicitly. Adding this component will reset all these browser-specific styles.
+
+- **GlobalDefaultStyle**: This component brings standardization to potential HTML elements. It adds default
+  CSS to specific HTML elements, which serves as a fallback in case no configuration is provided by any Tidy UI components.
+
+```js
+// 1. Import the custom provider and a theme of your choice, along with reset and default styles
+import { GlobalDefaultStyle, GlobalResetStyle, orchidLight, TidyUiProvider } from '@tidy-ui/commons';
+
+function App() {
+  // 2. Wrap TidyUiProvider at the root of your app
+  return (
+    <>
+      <GlobalResetStyle />
+      <TidyUiProvider theme={orchidLight}>
+        <GlobalDefaultStyle />
+        <RestOfYourApp />
+      </TidyUiProvider>
+    </>
+  );
+}
+```
+
+### Importing a Custom Font
+
+You can also opt to include a custom font of your choice in your app using the **GlobalFont** component.
+Just provide the [[family]] and [[url]] attributes, and the font will be loaded into your app.
+
+```js
+// 1. Import the custom provider and a theme of your choice, along with reset and default styles and font
+import { GlobalDefaultStyle, GlobalResetStyle, GlobalFont, orchidLight, TidyUiProvider } from '@tidy-ui/commons';
+
+function App() {
+  // 2. Wrap TidyUiProvider at the root of your app
+  return (
+    <>
+      <GlobalResetStyle />
+      <GlobalFont family="'Open Sans', sans-serif" url="https://fonts.googleapis.com/css2?family=Open+Sans" />
+      <TidyUiProvider theme={orchidLight}>
+        <GlobalDefaultStyle />
+        <RestOfYourApp />
+      </TidyUiProvider>
+    </>
+  );
+}
+```

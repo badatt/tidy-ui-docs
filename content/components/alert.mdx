@@ -4,11 +4,12 @@ component: alert
 class: presentation
 title: Alert
 lib: '@tidy-ui/alert'
-description: The Alert component is like your trusty sidekick, delivering tailored alerts for all sorts of
-  situations - whether it's updates, successes, friendly warnings, or important info.
-  It's not just about messages; it's a powerful tool that helps you give users clear insights.
-  You can add titles, detailed content, and handy buttons for quick actions. And there's more - it can show sturdy bars for key info,
-  and you get to style it just the way you like. Plus, it fits right into your design theme for a smooth and unified user journey.
+description: The Alert component acts as a trustworthy helper, delivering personalized alerts for various situations,
+  like updates, successes, warnings, and important details. It goes beyond just sending messages - it's a powerful
+  tool for giving users clear understanding. You can include titles, detailed content, and buttons for quick actions,
+  which helps in effective communication. Moreover, it uses strong visual signals like solid bars to highlight important
+  information. This component can also be styled according to your preference, making it blend seamlessly with your
+  design theme and improving the overall user experience.
 ---
 
 <DocLib component="alert" />
@@ -17,25 +18,31 @@ description: The Alert component is like your trusty sidekick, delivering tailor
 
 ## Overview
 
-The Alert component is your tool for delivering clear and impactful messages to your users.
-It's like having your own personal messenger that knows how to grab attention. With the Alert component, you can:
+The Alert component functions as a powerful instrument designed to convey precise and impactful messages to users.
+Resembling a personalized messenger adept at capturing attention, the Alert component facilitates the following functionalities:
 
-- Display alerts based on information classification: info, success, warning, or danger.
-- Create two types of alerts: actionable and informational.
-- Craft actionable alerts with titles, content, and footers for buttons.
-- Highlight classification with solid bars for informational alerts.
-- Choose between sharp-edged or rounded alert styles.
+- <u>Classification-Based Alert Display</u>: Alerts are presented based on information categorization, encompassing
+  classifications such as information, success, warning, or danger.
+- <u>Duality of Alert Types</u>: Two distinct types of alerts can be generated—actionable alerts, which prompt user
+  interaction, and informational alerts, which relay essential details.
+- <u>Crafting Actionable Alerts</u>: Actionable alerts can be meticulously composed by incorporating titles, content
+  descriptions, and footers housing buttons for user engagement.
+- <u>Emphasizing Classification</u>: Informational alerts can be distinguished through the integration of solid bars,
+  underscoring their respective classifications.
+- <u>Alert Style Customization</u>: Users have the flexibility to choose between two alert styles, each characterized by
+  either sharp-edged or rounded design aesthetics.
 
-We are excited to offer you a trio of alert-related components that are here to make your interface shine!
+Introducing an exciting trio of components designed to elevate your interface - the alert-related toolkit is here to work its magic!
 
-**Alert** : Think of this as the main hub for alerting your users. It's like a super versatile wrapper that holds different types of alerts,
-and it can even stand alone as a solid alert. So whether you're telling them something important or just giving them a heads-up, the Alert's got your back!
+**Alert** : Think of this as the central command for communicating with your users. It's like an incredibly versatile container
+that houses a variety of alerts, and it can even hold its own as a standalone alert. Whether you're conveying essential
+information or simply giving them a heads-up, the Alert component has got your back!
 
-**AlertTitle** : This is like the spokesperson for the alert. It's in charge of showing how serious or important the alert is.
-It's like the headline that gives you a quick idea of what's going on.
+**AlertTitle** : Meet the spokesperson for the alert. Its role is to convey the seriousness or significance of the alert.
+Consider it the headline that offers a quick glimpse into the situation.
 
-**AlertFooter** : Imagine this as the helper down at the bottom of the alert. It's there to assist with any extra things you want to share.
-Need to add actions or notes? The AlertFooter's the place to do it. It's like the friendly neighbor that's always willing to lend a hand.
+**AlertFooter** : Envision this as the helpful assistant situated at the bottom of the alert. Its purpose is to aid in sharing any
+additional information you might have in mind. Need to include actions or notes? The AlertFooter is the designated spot.
 
 ## Imports
 
@@ -51,9 +58,9 @@ import { Alert, AlertFooter, AlertTitle } from '@tidy-ui/alert';
 
 ### Classification-Based
 
-Whether you've got exciting updates `info`, triumphant victories `success`, cautionary tales `warning`, or serious matters `danger`,
-you can fit each message into the perfect box. Just tell the component which vibe you want with the <mark>status</mark> attribute, and voila - you've
-got a personalized alert that speaks your language!
+To specify the type of information you want to convey through an alert, you can use different levels like `info` for updates,
+`success` for indicating successful actions, `warning` for providing cautionary messages, and `danger`
+to highlight critical events. This can be achieved by adjusting the [[status]] attribute of the alert component.
 
 ```jsx
 <Stack order="column" gap="1rem">
@@ -68,9 +75,11 @@ got a personalized alert that speaks your language!
 
 ### Actionable
 
-Get ready to create alerts that spark action! With the **AlertTitle**, message content, and **AlertFooter** combo, you've got the ultimate trio.
-Make your title pop, share the important stuff in the message, and hey, why not throw in some action buttons too?
-It's like your alert's very own stage. And guess what? You're the director, customizing the layout just the way you like it!
+By using the **AlertTitle**, message content, and **AlertFooter** components, you can create alerts with
+richer descriptions. The **AlertTitle** allows you to emphasize the context of the alert,
+while the message content section lets you offer additional details. In the **AlertFooter**,
+you can prompt users for actions or provide extra information. The layout of these components can
+be customized according to your preferences, providing flexibility in design.
 
 ```jsx
 <Alert ele={<FlexBox fld="column" />} status="info">
@@ -91,8 +100,9 @@ It's like your alert's very own stage. And guess what? You're the director, cust
 
 ### Informational
 
-Time to let your messages shine! Grab the spotlight with informational alerts. These sturdy bars are like the VIP section for your important news -
-they make sure nobody misses out. And the best part? You're in control! Just flip the switch by using the <mark>isFilled</mark> property, and watch your message take center stage.
+You have the ability to capture users' attention effectively by utilizing solid alerts.
+To make alerts stand out even more prominently, you can employ the [[isFilled]] attribute,
+which renders alert messages with a solid and attention-grabbing appearance.
 
 ```jsx
 <Stack order="column" gap="1rem">
@@ -113,8 +123,9 @@ they make sure nobody misses out. And the best part? You're in control! Just fli
 
 ### Rounded or Sharp-Edged
 
-You're in charge of the alert's fashion show! Whether you're into sleek edges or cozy curves, you've got the power to make it your own.
-Just snap your fingers (or set the <mark>isSharp</mark> property), and watch your alert transform into the style icon you've always dreamed of. Walk that runway, designer! 🎉
+You have the option to personalize the style of filled alerts to have sharp edges. By utilizing the [[isSharp]]
+attribute, you can achieve this look. This setting is useful when you want the alerts
+to match the design of your website, whether it's solid and sharp-edged or more rounded in appearance.
 
 ```jsx
 <Stack order="column" gap="1rem">

@@ -51,21 +51,19 @@ module.exports = {
           remarkPlugins: [
             require(`remark-gfm`),
             require(`remark-emoji`),
-            require(`./plugins/gatsby-remark-prop-style-plugin`)
+            require(`./plugins/gatsby-remark-prop-style-plugin`),
           ],
-          rehypePlugins: [
-            require(`rehype-slug`), 
-            [require(`rehype-autolink-headings`), { behavior: `wrap` }]],
+          rehypePlugins: [require(`rehype-slug`), [require(`rehype-autolink-headings`), { behavior: `wrap` }]],
         },
         gatsbyRemarkPlugins: [
           {
-            resolve: "gatsby-remark-external-links",
+            resolve: 'gatsby-remark-external-links',
             options: {
-              target: "_blank",
-              rel: "nofollow"
-            }
+              target: '_blank',
+              rel: 'nofollow',
+            },
           },
-        ]
+        ],
       },
     },
     `gatsby-plugin-react-helmet`,

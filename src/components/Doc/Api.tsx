@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Divider, FlexBox, Stack, Tag, Text } from '@tidy-ui/all';
+import { DividerEnhanced, FlexBox, Stack, Tag, Text } from '@tidy-ui/all';
 import { Prop } from 'ui';
 import { IMdxFields, IMdxFrontmatter } from '../../types';
 
@@ -60,7 +60,15 @@ const Api: React.FC<Props> = ({ component }) => {
     fields: { componentInterfaces },
   } = currentDoc;
   return (
-    <Stack order="column" gap="1rem" divider={<Divider />}>
+    <Stack
+      order="column"
+      gap="1rem"
+      divider={
+        <DividerEnhanced>
+          <Text.caption disabled>props</Text.caption>
+        </DividerEnhanced>
+      }
+    >
       {componentInterfaces.map((c) => (
         <React.Fragment key={c.name}>
           <FlexBox ali="center" gap="1rem">

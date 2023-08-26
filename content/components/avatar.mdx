@@ -1,15 +1,15 @@
 ---
-status: DRAFT
+status: NEW
 component: avatar
 class: presentation
 title: Avatar
 lib: '@tidy-ui/avatar'
-description:
-  Meet the Avatar component - your personal canvas for self-expression! It's like a magical frame that holds your profile pics,
-  initials, and even your favorite icons. And guess what? We've got your back even when you're feeling mysterious - we've got that stylish Person icon ready for you.
-  The Avatar is all about you, with sizes that fit just right, accents that add a pop, and even cool live status badges.
-  You can even gather your Avatars into a stackable group for some extra flair.
-  It knows how to blend into your app's style, making it a perfect match for social networks, chat apps, and any place where you want to add that personal touch.
+description: The Avatar component is created to help you showcase your unique self. Imagine
+  it as a special frame that contains your profile images, initials, and your favorite icons.
+  You can adjust its size to fit well, add extra touches to give it your style, and even include
+  status indicators. You're even able to gather multiple Avatars in a group. It's versatile,
+  able to match your app's appearance, which means it works perfectly for social networks,
+  chat applications, and any place where you want to add your own personal touch.
 ---
 
 <DocLib component="avatar" />
@@ -18,55 +18,144 @@ description:
 
 ## Overview
 
-The Avatar component is your passport to user representation perfection. Let's dive into the exciting features and possibilities:
+Welcome to the complete guide for the Avatar component, your pathway to creating amazing user
+representations. Let's explore its exciting set of features and the numerous possibilities it offers:
 
-- Showcase user profile images, initials, or icons with flair.
-- Don't worry if you're low on content - a friendly Person icon fills in the gaps.
-- Explore a range of sizes and accents to match your unique style and vibe.
-- Craving some social media pizzazz? Add a live status badge for that extra flair.
-- Want to create a visually captivating stack of user representations? Cue the AvatarGroup!
-- Get ready to give your app a personal touch by customizing behavior and appearance using robust theme settings.
+- <u>Versatile Display</u>: Use the Avatar component to elegantly present user profile images, initials, or icons,
+  injecting a touch of elegance to the representation.
+- <u>Friendly Fill-Ins</u>: No worries if you're missing some content - a genial Person icon is here to seamlessly fill
+  in any gaps.
+- <u>Size and Style Flexibility</u>: Discover an array of sizes and accents to perfectly align with your distinct style
+  and personality.
+- <u>Elevate Social Media</u>: Elevate your user representations with live status badges, adding that extra layer of
+  dynamism.
+- <u>Unified Stack Effect</u>: Envision creating captivating stacks of user representations. Introducing the
+  AvatarGroup, ready to create visually appealing compositions.
+- <u>Personalize Your App</u>: Customize behavior and appearance effortlessly with the assistance of robust theme
+  settings.
 
-We're thrilled to introduce you to a fantastic trio of avatar-inspired components that are all set to sprinkle some magic onto your interface.
+Let's explore three remarkable components that revolve around avatars:
 
-**Avatar** : Meet the star of the show - the Avatar itself! It's your go-to for showcasing user images,
-their initials in style, or even dropping in a cool Person icon. Whether you're feeling photo-ready or simply mysterious, the Avatar's got you covered.
+**Avatar** : This component is designed to showcase user images, display their initials in a stylish
+manner, and even provide a fallback option with a simple Person icon.
 
-**AvatarBadge** : We've got something special up our sleeve - the AvatarBadge! It's like the cherry on top, hanging out at the bottom right corner of your Avatar.
-Use it to tell the world about user statuses in a fun and eye-catching way.
+**AvatarBadge** : Think of this as the finishing touch, situated at the bottom right corner of
+your Avatar. It's a spot where you can add extra information, like a user's status, for instance.
 
-**AvatarGroup** : Need a way to bring your avatars together in harmony? Say hello to AvatarGroup! It's like a backstage manager that stacks
-your avatars in a row, giving your interface a touch of unity. And the best part? You're the director, deciding how many avatars get to be in the spotlight at once.
+**AvatarGroup** : This component arranges your avatars in a row, giving your interface a sense of cohesion.
+You have the freedom to determine how many avatars are displayed together at any given time.
 
 ## Key Features
 
-### User Representation Galore
+### User Representation
 
-The Avatar component lets you roll out the red carpet for user awesomeness. Display their profile images, their cool initials, or funky icons – whatever floats their boat!
+The Avatar component offers a simple yet powerful way to represent users visually within your application.
+It provides flexibility through various configurations:
 
-### 2. Friendly Fallback
+#### Using Source
 
-No content? No worries! The Avatar component's got your back with a friendly Person icon that steps in when you need it.
+You can enhance the Avatar's appearance by setting a source [[src]], which displays a user's profile image
+within a visually appealing circular frame.
 
-### 3. Size Matters
+#### Fallback to Initials
 
-Play around with different sizes and accents to match your app's overall look and feel. It's all about giving your users the spotlight they deserve.
+In case no source is available, you have the option to set a [[name]]. The Avatar will then generate initials from
+the user's full name and display them neatly within the circular frame.
 
-### 4. Social Media Flair
+#### Icon Integration
 
-Want to up the ante? Deck out your Avatar with a live status badge – perfect for adding that social media-style zing.
+For instances when neither source nor name is provided, the Avatar can still shine by rendering a specified
+[[icon]] inside the circular frame. This ensures a consistent and meaningful representation even without specific user details.
 
-### 5. Stack 'Em Up
+```jsx
+<Stack>
+  <Avatar src="https://picsum.photos/id/64/200/200.webp" />
+  <Avatar name="Isaac Newton" />
+  <Avatar icon={<Icon.RotatingCircle />} />
+</Stack>
+```
 
-Introducing AvatarGroup! Stack multiple Avatars in a visually appealing way and choose how many to showcase at once. It's like having a party on your screen!
+### Handy Backup
 
-### 6. Unleash Creativity
+When you encounter a situation where user details are unavailable and no custom icon is specified, the Avatar
+component gracefully defaults to displaying a universally recognizable person icon. This ensures that your application
+maintains a consistent and visually pleasing user representation even when specific information is absent.
 
-Customize your Avatars' behavior and appearance like a pro. Thanks to robust theme settings, you have the power to create a seamless user experience that fits your app's unique identity.
+```jsx
+<Avatar />
+```
 
-## Getting Started
+### Finding the Right Fit
 
-Ready to sprinkle some user magic into your app? Dive into the Avatar component and explore the possibilities. Whether you're building a social network, a lively chat app, or simply adding a dash of personality, the Avatar component is your creative playground. Get started, have fun, and watch as your users come to life with the Avatar component's superpowers!
+The Avatar component provides the flexibility to set different sizes according to your needs. By utilizing the [[girth]] property,
+you can choose from a range of options, including double-extra-small to double-extra-large. This variety ensures that
+the Avatar harmonizes seamlessly with your overall design aesthetic and user interface requirements.
+
+```jsx
+<Stack>
+  <Avatar girth="xxs" src="https://picsum.photos/id/823/200/200.webp" />
+  <Avatar girth="xs" src="https://picsum.photos/id/832/200/200.webp" />
+  <Avatar girth="sm" src="https://picsum.photos/id/836/200/200.webp" />
+  <Avatar girth="md" src="https://picsum.photos/id/978/200/200.webp" />
+  <Avatar girth="lg" src="https://picsum.photos/id/996/200/200.webp" />
+  <Avatar girth="xl" src="https://picsum.photos/id/1027/200/200.webp" />
+  <Avatar girth="xxl" src="https://picsum.photos/id/1074/200/200.webp" />
+</Stack>
+```
+
+### Social Media Vibe
+
+Elevating user representation becomes effortless with the Avatar component's versatile features.
+Here's how you can enhance its visual impact:
+
+#### Accent for Extra Information
+
+Adding an accent to the Avatar creates a visually appealing circular border. This border can be utilized
+to convey supplementary information, contributing to a more informative user interface.
+
+#### AvatarBadge for Added Detail
+
+The AvatarBadge feature lets you go a step further by including a dot on the Avatar. This subtle yet
+effective addition can be used to signify user actions, notifications, or other meaningful cues.
+
+#### Tone for User Status
+
+For an extra layer of information, you can set a tone for the AvatarBadge. This enables you to communicate
+valuable user status details such as online, offline, or other relevant indicators.
+
+```jsx
+<Stack>
+  <Avatar accent="rgb(22, 162, 73)" src="https://picsum.photos/id/646/200/200.webp" />
+  <Avatar src="https://picsum.photos/id/659/200/200.webp">
+    <AvatarBadge tone="rgb(245, 159, 10)"/>
+  </AvatarBadge>
+</Stack>
+```
+
+### Group Them Up
+
+This feature allows you to stack numerous Avatars in a visually pleasing arrangement, maintaining a cohesive user
+representation. With the ability to set the [[max]] attribute, you have control over the number of Avatars displayed
+within the group, ensuring an organized and streamlined user interface.
+
+```jsx
+<AvatarGroup max={8}>
+  <Avatar src="https://picsum.photos/id/64/200/200.webp" />
+  <Avatar src="https://picsum.photos/id/237/200/200.webp" />
+  <Avatar src="https://picsum.photos/id/433/200/200.webp" />
+  <Avatar src="https://picsum.photos/id/646/200/200.webp" />
+  <Avatar src="https://picsum.photos/id/659/200/200.webp" />
+  <Avatar src="https://picsum.photos/id/660/200/200.webp" />
+  <Avatar src="https://picsum.photos/id/669/200/200.webp" />
+  <Avatar src="https://picsum.photos/id/823/200/200.webp" />
+  <Avatar src="https://picsum.photos/id/832/200/200.webp" />
+  <Avatar src="https://picsum.photos/id/836/200/200.webp" />
+  <Avatar src="https://picsum.photos/id/978/200/200.webp" />
+  <Avatar src="https://picsum.photos/id/996/200/200.webp" />
+  <Avatar src="https://picsum.photos/id/1027/200/200.webp" />
+  <Avatar src="https://picsum.photos/id/1074/200/200.webp" />
+</AvatarGroup>
+```
 
 ## Props
 

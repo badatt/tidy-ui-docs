@@ -53,7 +53,7 @@ const Components: React.FC = () => {
     <>
       {Object.keys(sorted).map((s) => {
         return (
-          <FlexBox key={s} fld="column" alc="stretch">
+          <FlexBox key={s} fld="column" alc="stretch" margin="1rem 0">
             <Text.caption uc bld margin="1rem 0" tone="minor">
               {s}
             </Text.caption>
