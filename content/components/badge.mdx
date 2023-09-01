@@ -1,59 +1,173 @@
 ---
-status: DRAFT
+status: NEW
 component: badge
 class: presentation
 title: Badge
 lib: '@tidy-ui/badge'
-description: The Badge component enhances components like an adjective, adding info. It adds content/dot to top-right, with tones, fill/outline options. Limit numeric content, add '+'. Blink for dynamic effects. Themed and styled.
+description:
+  Badge component is a dynamic embellishment that imparts additional information to components, akin to an adjective
+  enhancing a sentence. This versatile component introduces content or a discreet dot to the top-right corner,
+  enriched by customizable tones, fill or outline alternatives. It displays a '+' after a predefined numeric limit
+  threshold to maintain clarity. Notably, the Badge component can be configured to exhibit a dynamic blinking effect,
+  elevating its visual impact for dynamic user experiences.
 ---
 
-# Badge Component Guide
+<DocLib component="badge" />
 
-Welcome to the Badge Component Guide! Get ready to add an extra touch of flair and information to your components with the versatile Badge component. Whether you want to emphasize a component's attributes, show additional content, or indicate a live status, the Badge component is your go-to tool. Let's dive into the exciting details!
+---
 
 ## Overview
 
-The Badge component is like a descriptive adjective for your components, qualifying and enhancing their appearance. Think of it as a stylish label that adds more context and value to your user interface elements. With the Badge component, you can:
+Badge is a powerful and descriptive tool that transforms your components into dynamic expressions. Much like an
+adjective enriches a sentence, the Badge component enhances your interface elements, adding an extra layer
+of context and refinement. Here's how the Badge component enhances your design:
 
-- Attach extra information to any component.
-- Display content or a dot at the top-right corner of the component.
-- Choose from a variety of tones to match your design aesthetics.
-- Opt for filled or outlined styles for a personalized look.
-- Control numeric content display and add a "+" sign for larger values.
-- Add a subtle blink to create dynamic and eye-catching live status indicators.
+- --Qualifying Adjective-- Imagine the Badge component as a stylish label that imparts an additional layer of
+  meaning and value to your user interface components. It serves as a versatile qualifier, enriching the appearance
+  and functionality of your elements.
+
+- --Enhanced Context-- With the Badge component, you can seamlessly integrate descriptive badges to your components,
+  elevating their significance and visual appeal. Picture it as a stylish embellishment that imparts valuable context
+  to your user interface elements.
+
+With the Badge component, you unlock an array of features:
+
+- --Extra Information Attachment-- Seamlessly attach supplementary information to any component, enhancing its usability
+  and user understanding.
+
+- --Top-Right Corner Element-- Position content or a subtle dot at the top-right corner of the component, adding a
+  touch of elegance and practicality.
+
+- --Tone Variety-- Tailor the Badge component to your design's aesthetics by selecting from a spectrum of tones
+  that resonate with your interface.
+
+- --Personalized Styles-- Choose between filled or outlined styles, enabling you to craft a badge that seamlessly
+  integrates into your application's design theme.
+
+- --Numeric Content Management-- Easily manage numeric content with the Badge component. Control the display of larger
+  values and automatically add a `+` sign when a predetermined threshold is reached.
+
+- --Dynamic Blink Effect-- Elevate your user experience by adding a subtle blink effect to the Badge component,
+  creating captivating and eye-catching live status indicators.
 
 ## Key Features
 
-### 1. Additional Information
+### Qualify Any Component
 
-Elevate your components by adding meaningful information using the Badge component. Whether you want to highlight a product's special feature, indicate a notification count, or display a user's status, the Badge has you covered.
+Imagine adding a touch of distinction to your products, notifications, or user statuses. Simply wrap any component
+with the **Badge** element and harness the [[content]] attribute to infuse it with enriched meaning.
 
-### 2. Content or Dot
+```jsx
+<Stack gap="2rem">
+  <Badge content={9}>
+    <Icon ele={<Icon.Email />} />
+  </Badge>
+  <Badge content={9}>
+    <Text.body1>Mails</Text.body1>
+  </Badge>
+</Stack>
+```
 
-Choose between adding content (such as numbers, text, or icons) or a simple dot to the top-right corner of your component. This allows you to create a focal point or draw attention to specific details.
+### Various Tones
 
-### 3. Various Tones
+Unify your app's aesthetics seamlessly with Badge customization. Explore a spectrum of [[tone]] options,
+allowing you to align Badge appearance with your color palette and branding.
 
-Customize the Badge's appearance to seamlessly blend with your app's design. Pick from a range of tones that match your color palette and branding.
+```jsx
+<Stack gap="2rem">
+  <Badge content={10} tone="major">
+    <Icon ele={<Icon.Add />} />
+  </Badge>
+  <Badge content={10} tone="minor">
+    <Icon ele={<Icon.AddCircle />} />
+  </Badge>
+  <Badge content={10} tone="neutral">
+    <Icon ele={<Icon.CalendarMonth />} />
+  </Badge>
+  <Badge content={10} tone="info">
+    <Icon ele={<Icon.Info />} />
+  </Badge>
+  <Badge content={10} tone="success">
+    <Icon ele={<Icon.Success />} />
+  </Badge>
+  <Badge content={10} tone="warning">
+    <Icon ele={<Icon.Warning />} />
+  </Badge>
+  <Badge content={10} tone="danger">
+    <Icon ele={<Icon.Dangerous />} />
+  </Badge>
+</Stack>
+```
 
-### 4. Filled or Outlined Styles
+### Content or Dot
 
-Tailor the Badge's look to your preference. Opt for a filled style for a bold and vibrant appearance, or go for an outlined style for a more subtle touch.
+Refine precision by placing content or an understated dot in the top-right corner of your component.
+Employ the [[isDotted]] attribute to effortlessly draw attention to the details that matter.
 
-### 5. Numeric Limit and "+"
+```jsx
+<Badge isDotted tone="danger">
+  <Icon ele={<Icon.Menu />} />
+</Badge>
+```
 
-When displaying numeric content, you have the flexibility to set a desired limit. If the number exceeds this limit, the Badge will intelligently add a "+" sign to indicate larger values without cluttering your interface.
+### Filled or Outlined Styles
 
-### 6. Blinking Animation
+Define visual resonance with your design vision. Opt for a bold filled style or a subtle, outlined variant
+using the [[isOutlined]] attribute.
 
-Add a dynamic flair to your app by making the Badge blink at regular intervals. This feature is perfect for creating live status indicators, making your app feel more engaging and interactive.
+```jsx
+<Stack gap="2rem">
+  <Badge content={10} tone="major" isOutlined>
+    <Icon ele={<Icon.CopyAll />} />
+  </Badge>
+  <Badge content={10} tone="minor" isOutlined>
+    <Icon ele={<Icon.Person />} />
+  </Badge>
+  <Badge content={10} tone="neutral" isOutlined>
+    <Icon ele={<Icon.Phone />} />
+  </Badge>
+  <Badge content={10} tone="info" isOutlined>
+    <Icon ele={<Icon.FileUpload />} />
+  </Badge>
+  <Badge content={10} tone="success" isOutlined>
+    <Icon ele={<Icon.CheckCircle />} />
+  </Badge>
+  <Badge content={10} tone="warning" isOutlined>
+    <Icon ele={<Icon.Close />} />
+  </Badge>
+  <Badge content={10} tone="danger" isOutlined>
+    <Icon ele={<Icon.Remove />} />
+  </Badge>
+</Stack>
+```
 
-### 7. Theming and Styles
+### Numeric Limit and "+"
 
-As with all good things, the Badge component is powered by the magic of theming and styles. Easily integrate it into your app's design language and maintain a consistent visual experience.
+Add numeric content elegantly with the Badge. Specify a [[max]] value to gracefully accommodate varying data ranges.
+When numbers surpass the limit, the Badge smartly incorporates a `+` sign for clarity without complexity.
 
-## Getting Started
+```jsx
+<Stack gap="2rem">
+  <Badge content={300} max={200} tone="info">
+    <Icon ele={<Icon.Email />} />
+  </Badge>
+  <Badge content={110} tone="info">
+    <Icon ele={<Icon.Email />} />
+  </Badge>
+</Stack>
+```
 
-Now that you're familiar with the incredible capabilities of the Badge component, it's time to start adding that extra "oomph" to your app! Dive into the code and explore the endless possibilities to enhance user interactions and make your app truly shine.
+### Blinking Animation
 
-Remember, the Badge component is here to add that special touch of distinction and information. Let your creativity flow and enjoy the journey of making your app even more appealing and engaging with the Badge component!
+Enliven your app's interaction using the captivating [[isBlink]] attribute. Harness dynamic blinking animations
+to create engaging live status indicators, adding an element of intrigue to user experiences.
+
+```jsx
+<Badge isDotted isBlink tone="success">
+  <Icon ele={<Icon.Person />} />
+</Badge>
+```
+
+## Props
+
+<DocApi component="badge" />

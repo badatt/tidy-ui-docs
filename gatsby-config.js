@@ -52,6 +52,7 @@ module.exports = {
             require(`remark-gfm`),
             require(`remark-emoji`),
             require(`./plugins/gatsby-remark-prop-style-plugin`),
+            require(`./plugins/gatsby-remark-u-style-plugin`),
           ],
           rehypePlugins: [require(`rehype-slug`), [require(`rehype-autolink-headings`), { behavior: `wrap` }]],
         },
