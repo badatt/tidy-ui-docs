@@ -1,4 +1,4 @@
-import { LiveEditor, LiveError } from 'react-live';
+import { LiveEditor, LiveError, LivePreview } from 'react-live';
 import { Code as TCode, color, css, hsla, styled } from '@tidy-ui/all';
 
 export const Code = styled(TCode)`
@@ -26,3 +26,5 @@ export const Err = styled(LiveError)`
     font-family: ${font.mono};
   `}
 `;
+
+export const Preview = styled(LivePreview)``;
