@@ -2,7 +2,6 @@ import { LiveEditor, LiveError, LivePreview } from 'react-live';
 import { Code as TCode, color, css, hsla, styled } from '@tidy-ui/all';
 
 export const Code = styled(TCode)`
-  margin: 2rem 0 0 0;
   ${({ theme: { isDark } }) => css`
     & pre {
       background-color: ${isDark ? hsla(color.slate[900]) : hsla(color.slate[800])};

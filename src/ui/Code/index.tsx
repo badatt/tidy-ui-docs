@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { LiveContext, LiveProvider } from 'react-live';
-import { Alert, Border, Chip } from '@tidy-ui/all';
+import { Alert, Border, Chip, Panel, PanelBody, PanelHeader, Text } from '@tidy-ui/all';
 import ReactLiveScope from './scope';
 import * as Styled from './styles';
 
@@ -43,9 +43,14 @@ const Editor: React.FC = () => {
       ) : (
         <Styled.Preview />
       )}
-      <Styled.Code>
-        <Styled.Editor code={code} language={language} disabled={disabled} onChange={onChange} />
-      </Styled.Code>
+      <Panel margin="2rem 0 0 0">
+        <PanelHeader ele={<Text.body1 udl ctr />}>Reveal the editable code sample</PanelHeader>
+        <PanelBody>
+          <Styled.Code>
+            <Styled.Editor code={code} language={language} disabled={disabled} onChange={onChange} />
+          </Styled.Code>
+        </PanelBody>
+      </Panel>
     </>
   );
 };

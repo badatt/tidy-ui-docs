@@ -1,5 +1,5 @@
 ---
-status: DRAFT
+status: NEW
 component: border
 class: layout
 title: Border
@@ -15,51 +15,180 @@ description: The Border component is a multifunctional tool designed for enclosi
 
 ## Overview
 
-The Border component is your go-to solution for encapsulating and enclosing components or groups. It's like wrapping a present, adding that final touch to your user interface. With the Border component, you can:
+The Border component serves as a primary solution for encapsulating and enhancing components or groups within
+your user interface, akin to wrapping a present to add that final touch. With the Border component, you can:
 
-- Customize the border with content, such as plain text or even components like Chips, positioned in all directions.
-- Create borders with different densities, allowing you to control the thickness in pixels.
-- Craft sharp-edged borders for a sleek and modern look.
-- Infuse borders with colors and tones based on the enclosed content's classification.
-- Play with various shades to perfectly match your app's aesthetics.
-- Explore creative border variants like dashed or dotted styles.
+- --Customization with Content-- With the Border component, you have the flexibility to customize borders by
+  including content. This content can range from plain text to dynamic components like Chips, and can be
+  strategically positioned in all directions.
+
+- --Controlled Thickness-- Tailor the thickness of your borders with precision, allowing you to exert pixel-level
+  control. Different density options are available to achieve the desired visual weight.
+
+- --Color Infusion-- You can infuse borders with colors and tones that align with the classification of the
+  enclosed content. This not only enhances aesthetics but also aids in effective information conveyance.
+
+- --Aesthetic Harmony-- Experiment with a variety of shades to ensure your borders harmonize seamlessly with your
+  app's overall aesthetics, delivering a visually pleasing and cohesive user experience.
+
+- --Creative Variants-- Explore creative border variants, such as dashed or dotted styles, to add unique and
+  distinctive elements to your design repertoire.
+
+## Imports
+
+```js
+import { Border } from '@tidy-ui/all';
+// or
+import { Border } from '@tidy-ui/layout';
+// or
+import { Border } from '@tidy-ui/border';
+```
 
 ## Key Features
 
-### 1. Encapsulation Magic
+### Encapsulation
 
-The Border component is your virtual hug, encapsulating individual components or groups to create visually appealing structures that catch the eye.
+The Border component acts as a virtual hug, encapsulating individual components or groups to create visually
+appealing structures within your user interface. Simply wrap your component with the **Border** tag to
+utilize this feature.
 
-### 2. Qualify with Content
+```jsx
+<Border>
+  <Text.h5>The Great Wall of China</Text.h5>
+  <Text.base>
+    One of the most iconic and awe-inspiring structures on Earth, the Great Wall of China spans approximately 13,171
+    miles (21,196 kilometers). Contrary to popular belief, it is not a single continuous wall but a collection of walls
+    and fortifications built over centuries by various Chinese dynasties. Its main purpose was to protect against
+    invasions by nomadic tribes from the north. This incredible feat of engineering showcases the determination and
+    ingenuity of ancient Chinese civilization. Today, it stands as a UNESCO World Heritage Site and a symbol of China's
+    rich history and culture.
+  </Text.base>
+</Border>
+```
 
-Personalize your borders by adding content like text or even other components (e.g., Chips). Position them in any direction to enhance the border's message.
+### Qualify with Content
 
-### 3. Density Control
+Personalize your borders by adding [[content]] such as text or other components like Chips. Position the content
+in any direction using the [[positioning]] attribute to enhance the border's message. Adjust content alignment
+using the [[align]] attribute for a polished and cohesive design.
 
-Fine-tune the border's thickness with different density options, ensuring it fits harmoniously within your design.
+```jsx
+<Border
+  align={16}
+  positioning="top-center"
+  content={
+    <Tag tone="major" isFilled>
+      Facts
+    </Tag>
+  }
+>
+  <Text.h5>The Great Wall of China</Text.h5>
+  <Text.base>
+    One of the most iconic and awe-inspiring structures on Earth, the Great Wall of China spans approximately 13,171
+    miles (21,196 kilometers). Contrary to popular belief, it is not a single continuous wall but a collection of walls
+    and fortifications built over centuries by various Chinese dynasties. Its main purpose was to protect against
+    invasions by nomadic tribes from the north. This incredible feat of engineering showcases the determination and
+    ingenuity of ancient Chinese civilization. Today, it stands as a UNESCO World Heritage Site and a symbol of China's
+    rich history and culture.
+  </Text.base>
+</Border>
+```
 
-### 4. Sharp Edges
+### Density Control
 
-Go for a clean and contemporary look by creating sharp-edged borders that exude modern elegance.
+Fine-tune the border's thickness with different [[density]] options, allowing precise control in pixels.
+Ensure your borders harmoniously integrate into your overall UI design by mastering density control.
 
-### 5. Colorful Accents
+```jsx
+<Border density="8px">
+  <Text.h5>The Great Wall of China</Text.h5>
+  <Text.base>
+    One of the most iconic and awe-inspiring structures on Earth, the Great Wall of China spans approximately 13,171
+    miles (21,196 kilometers). Contrary to popular belief, it is not a single continuous wall but a collection of walls
+    and fortifications built over centuries by various Chinese dynasties. Its main purpose was to protect against
+    invasions by nomadic tribes from the north. This incredible feat of engineering showcases the determination and
+    ingenuity of ancient Chinese civilization. Today, it stands as a UNESCO World Heritage Site and a symbol of China's
+    rich history and culture.
+  </Text.base>
+</Border>
+```
 
-Bring life to your borders by coloring them with various tones based on the classification of the enclosed information.
+### Sharp Edges
 
-### 6. Shades of Style
+Achieve a clean and contemporary look by creating sharp-edged borders with the [[isSharp]] attribute.
+This imparts a sleek and sophisticated appearance to your user interface.
+
+```jsx
+<Border isSharp>
+  <Text.h5>The Great Wall of China</Text.h5>
+  <Text.base>
+    One of the most iconic and awe-inspiring structures on Earth, the Great Wall of China spans approximately 13,171
+    miles (21,196 kilometers). Contrary to popular belief, it is not a single continuous wall but a collection of walls
+    and fortifications built over centuries by various Chinese dynasties. Its main purpose was to protect against
+    invasions by nomadic tribes from the north. This incredible feat of engineering showcases the determination and
+    ingenuity of ancient Chinese civilization. Today, it stands as a UNESCO World Heritage Site and a symbol of China's
+    rich history and culture.
+  </Text.base>
+</Border>
+```
+
+### Colorful Tones
+
+Add life to your borders by coloring them with various tones based on the classification of the enclosed information.
+Utilize the [[tone]] attribute to achieve your desired color palette for borders.
+
+```jsx
+<Border tone="major">
+  <Text.h5>The Great Wall of China</Text.h5>
+  <Text.base>
+    One of the most iconic and awe-inspiring structures on Earth, the Great Wall of China spans approximately 13,171
+    miles (21,196 kilometers). Contrary to popular belief, it is not a single continuous wall but a collection of walls
+    and fortifications built over centuries by various Chinese dynasties. Its main purpose was to protect against
+    invasions by nomadic tribes from the north. This incredible feat of engineering showcases the determination and
+    ingenuity of ancient Chinese civilization. Today, it stands as a UNESCO World Heritage Site and a symbol of China's
+    rich history and culture.
+  </Text.base>
+</Border>
+```
+
+### Shades of Style
 
 Experiment with different shades to achieve the perfect border color that aligns with your app's visual identity.
+Use the [[shade]] attribute, ranging from 50 to 950 for lighter to darker shades, to ensure aesthetic harmony.
 
-### 7. Creative Variants
+```jsx
+<Border shade={700}>
+  <Text.h5>The Great Wall of China</Text.h5>
+  <Text.base>
+    One of the most iconic and awe-inspiring structures on Earth, the Great Wall of China spans approximately 13,171
+    miles (21,196 kilometers). Contrary to popular belief, it is not a single continuous wall but a collection of walls
+    and fortifications built over centuries by various Chinese dynasties. Its main purpose was to protect against
+    invasions by nomadic tribes from the north. This incredible feat of engineering showcases the determination and
+    ingenuity of ancient Chinese civilization. Today, it stands as a UNESCO World Heritage Site and a symbol of China's
+    rich history and culture.
+  </Text.base>
+</Border>
+```
 
-Inject character into your UI by exploring border variants like dashed or dotted styles, adding a touch of uniqueness.
+### Creative Variants
 
-### 8. Theming and Styles
+Inject character into your UI by exploring border variants like dashed or dotted styles.
+Customize your design by setting the [[variant]] attribute to achieve distinctive border styles.
 
-As with all great components, the Border component is powered by theming and styles, ensuring seamless integration and visual consistency.
-
-## Getting Started
-
-Ready to take your UI design to the next level? Dive into the Border component and unlock its potential to enhance your app's structure and aesthetics. Whether you're creating a clean, modern look or adding vibrant accents, the Border component is your creative tool. Explore the possibilities, experiment with styles, and let your app's personality shine through with the Border component's dynamic features!
+```jsx
+<Border variant="double" density="8px">
+  <Text.h5>The Great Wall of China</Text.h5>
+  <Text.base>
+    One of the most iconic and awe-inspiring structures on Earth, the Great Wall of China spans approximately 13,171
+    miles (21,196 kilometers). Contrary to popular belief, it is not a single continuous wall but a collection of walls
+    and fortifications built over centuries by various Chinese dynasties. Its main purpose was to protect against
+    invasions by nomadic tribes from the north. This incredible feat of engineering showcases the determination and
+    ingenuity of ancient Chinese civilization. Today, it stands as a UNESCO World Heritage Site and a symbol of China's
+    rich history and culture.
+  </Text.base>
+</Border>
+```
 
 ## Props
+
+<DocApi component="border" />
