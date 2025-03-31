@@ -28,12 +28,12 @@ jobs:
           registry-url: https://registry.npmjs.org/
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::409556541503:role/GithubActionsCIRole
           aws-region: ap-south-2
 
-      - name: Verify AWS Access
+      - name: Verify AWS Credentials
         run: aws sts get-caller-identity
 
       - name: Deploy Infrastructure
