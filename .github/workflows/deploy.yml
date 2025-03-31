@@ -33,7 +33,7 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::409556541503:role/GithubActionsCIRole
+          role-to-assume: arn:aws:iam::318489830886:role/GithubActionsCIRole
           aws-region: ap-south-2
 
       - name: Verify AWS Credentials
