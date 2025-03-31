@@ -27,6 +27,16 @@ jobs:
           node-version: '18.16.0'
           registry-url: https://registry.npmjs.org/
 
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::409556541503:role/GithubActionsCIRole
+          aws-region: eu-north-1
+
+      - name: Deploy Infrastructure
+        run: |
+          aws s3 ls
+
       - name: Bootstrap
         run: npm run bootstrap
 
