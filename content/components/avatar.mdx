@@ -4,46 +4,13 @@ component: avatar
 class: presentation
 title: Avatar
 lib: '@tidy-ui/avatar'
-description: The Avatar component is created to help you showcase your unique self. Imagine
-  it as a special frame that contains your profile images, initials, and your favorite icons.
-  You can adjust its size to fit well, add extra touches to give it your style, and even include
-  status indicators. You're even able to gather multiple Avatars in a group. It's versatile,
-  able to match your app's appearance, which means it works perfectly for social networks,
-  chat applications, and any place where you want to add your own personal touch.
+description: The Avatar component displays profile images, initials, or icons with customizable size, style, and status indicators. 
+  It supports grouped avatars and adapts seamlessly to various app designs, making it ideal for social networks and chat applications.
 ---
 
 <DocLib component="avatar" />
 
 ---
-
-## Overview
-
-Welcome to the complete guide for the Avatar component, your pathway to creating amazing user
-representations. Let's explore its exciting set of features and the numerous possibilities it offers:
-
-- --Versatile Display-- Use the Avatar component to elegantly present user profile images, initials, or icons,
-  injecting a touch of elegance to the representation.
-- --Friendly Fill-Ins-- No worries if you're missing some content - a genial Person icon is here to seamlessly fill
-  in any gaps.
-- --Size and Style Flexibility-- Discover an array of sizes and accents to perfectly align with your distinct style
-  and personality.
-- --Elevate Social Media-- Elevate your user representations with live status badges, adding that extra layer of
-  dynamism.
-- --Unified Stack Effect-- Envision creating captivating stacks of user representations. Introducing the
-  AvatarGroup, ready to create visually appealing compositions.
-- --Personalize Your App-- Customize behavior and appearance effortlessly with the assistance of robust theme
-  settings.
-
-Let's explore three remarkable components that revolve around avatars:
-
-**Avatar** : This component is designed to showcase user images, display their initials in a stylish
-manner, and even provide a fallback option with a simple Person icon.
-
-**AvatarBadge** : Think of this as the finishing touch, situated at the bottom right corner of
-your Avatar. It's a spot where you can add extra information, like a user's status, for instance.
-
-**AvatarGroup** : This component arranges your avatars in a row, giving your interface a sense of cohesion.
-You have the freedom to determine how many avatars are displayed together at any given time.
 
 ## Imports
 
@@ -57,25 +24,18 @@ import { Avatar, AvatarBadge, AvatarGroup } from '@tidy-ui/avatar';
 
 ## Key Features
 
-### User Representation
+### Avatar Display  
 
-The Avatar component offers a simple yet powerful way to represent users visually within your application.
-It provides flexibility through various configurations:
+The Avatar component provides a flexible way to represent users consistently.  
 
-#### Using Source
+#### Profile Image  
+Set a [[src]] to display a user's profile picture in a circular frame.  
 
-You can enhance the Avatar's appearance by setting a source [[src]], which displays a user's profile image
-within a visually appealing circular frame.
+#### Initials  
+If no image is available, setting a [[name]] generates and displays initials.  
 
-#### Fallback to Initials
-
-In case no source is available, you have the option to set a [[name]]. The Avatar will then generate initials from
-the user's full name and display them neatly within the circular frame.
-
-#### Icon Integration
-
-For instances when neither source nor name is provided, the Avatar can still shine by rendering a specified
-[[icon]] inside the circular frame. This ensures a consistent and meaningful representation even without specific user details.
+#### Icon  
+When neither [[src]] nor [[name]] is provided, an [[icon]] ensures a recognizable representation.
 
 ```jsx
 <Stack>
@@ -85,21 +45,19 @@ For instances when neither source nor name is provided, the Avatar can still shi
 </Stack>
 ```
 
-### Handy Backup
+### Default Fallback  
 
-When you encounter a situation where user details are unavailable and no custom icon is specified, the Avatar
-component gracefully defaults to displaying a universally recognizable person icon. This ensures that your application
-maintains a consistent and visually pleasing user representation even when specific information is absent.
+If user details and a custom icon are unavailable, the Avatar component defaults to a universal person icon, 
+ensuring a consistent and visually cohesive representation.
 
 ```jsx
 <Avatar />
 ```
 
-### Finding the Right Fit
+### Size Customization  
 
-The Avatar component provides the flexibility to set different sizes according to your needs. By utilizing the [[girth]] property,
-you can choose from a range of options, including double-extra-small to double-extra-large. This variety ensures that
-the Avatar harmonizes seamlessly with your overall design aesthetic and user interface requirements.
+The Avatar component allows you to adjust its size using the [[girth]] property, offering options from extra-small 
+to extra-large for seamless integration with your design and UI needs.
 
 ```jsx
 <Stack>
@@ -113,25 +71,18 @@ the Avatar harmonizes seamlessly with your overall design aesthetic and user int
 </Stack>
 ```
 
-### Social Media Vibe
+### Enhanced User Representation  
 
-Elevating user representation becomes effortless with the Avatar component's versatile features.
-Here's how you can enhance its visual impact:
+Elevate the Avatar component's visual impact with these features:  
 
-#### Accent for Extra Information
+#### Border Accent  
+Add a circular border to highlight the Avatar and convey extra information.  
 
-Adding an accent to the Avatar creates a visually appealing circular border. This border can be utilized
-to convey supplementary information, contributing to a more informative user interface.
+#### Avatar Badge  
+Include a small dot to indicate notifications, user actions, or status updates.  
 
-#### AvatarBadge for Added Detail
-
-The AvatarBadge feature lets you go a step further by including a dot on the Avatar. This subtle yet
-effective addition can be used to signify user actions, notifications, or other meaningful cues.
-
-#### Tone for User Status
-
-For an extra layer of information, you can set a tone for the AvatarBadge. This enables you to communicate
-valuable user status details such as online, offline, or other relevant indicators.
+#### Status Tone  
+Customize the badge's color to represent user status, such as online or offline.
 
 ```jsx
 <Stack>
@@ -142,11 +93,10 @@ valuable user status details such as online, offline, or other relevant indicato
 </Stack>
 ```
 
-### Group Them Up
+### Avatar Grouping  
 
-This feature allows you to stack numerous Avatars in a visually pleasing arrangement, maintaining a cohesive user
-representation. With the ability to set the [[max]] attribute, you have control over the number of Avatars displayed
-within the group, ensuring an organized and streamlined user interface.
+Stack multiple Avatars in a neat arrangement with the [[max]] attribute to control how many Avatars are displayed, 
+ensuring a clean and organized user interface.
 
 ```jsx
 <AvatarGroup max={8}>

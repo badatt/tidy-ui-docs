@@ -4,51 +4,13 @@ component: badge
 class: presentation
 title: Badge
 lib: '@tidy-ui/badge'
-description:
-  Badge component is a dynamic embellishment that imparts additional information to components, akin to an adjective
-  enhancing a sentence. This versatile component introduces content or a discreet dot to the top-right corner,
-  enriched by customizable tones, fill or outline alternatives. It displays a '+' after a predefined numeric limit
-  threshold to maintain clarity. Notably, the Badge component can be configured to exhibit a dynamic blinking effect,
-  elevating its visual impact for dynamic user experiences.
+description: The Badge component adds contextual info to elements, displaying text or a dot in the top-right corner. 
+  It supports custom colors, styles, and a "+" for overflow limits. Optional blinking enhances visibility for dynamic experiences.
 ---
 
 <DocLib component="badge" />
 
 ---
-
-## Overview
-
-Badge is a powerful and descriptive tool that transforms your components into dynamic expressions. Much like an
-adjective enriches a sentence, the Badge component enhances your interface elements, adding an extra layer
-of context and refinement. Here's how the Badge component enhances your design:
-
-- --Qualifying Adjective-- Imagine the Badge component as a stylish label that imparts an additional layer of
-  meaning and value to your user interface components. It serves as a versatile qualifier, enriching the appearance
-  and functionality of your elements.
-
-- --Enhanced Context-- With the Badge component, you can seamlessly integrate descriptive badges to your components,
-  elevating their significance and visual appeal. Picture it as a stylish embellishment that imparts valuable context
-  to your user interface elements.
-
-With the Badge component, you unlock an array of features:
-
-- --Extra Information Attachment-- Seamlessly attach supplementary information to any component, enhancing its usability
-  and user understanding.
-
-- --Top-Right Corner Element-- Position content or a subtle dot at the top-right corner of the component, adding a
-  touch of elegance and practicality.
-
-- --Tone Variety-- Tailor the Badge component to your design's aesthetics by selecting from a spectrum of tones
-  that resonate with your interface.
-
-- --Personalized Styles-- Choose between filled or outlined styles, enabling you to craft a badge that seamlessly
-  integrates into your application's design theme.
-
-- --Numeric Content Management-- Easily manage numeric content with the Badge component. Control the display of larger
-  values and automatically add a `+` sign when a predetermined threshold is reached.
-
-- --Dynamic Blink Effect-- Elevate your user experience by adding a subtle blink effect to the Badge component,
-  creating captivating and eye-catching live status indicators.
 
 ## Imports
 
@@ -62,10 +24,10 @@ import { Badge } from '@tidy-ui/badge';
 
 ## Key Features
 
-### Qualify Any Component
+### Add Meaning to Any Component  
 
-Imagine adding a touch of distinction to your products, notifications, or user statuses. Simply wrap any component
-with the **Badge** element and harness the [[content]] attribute to infuse it with enriched meaning.
+Enhance notifications, or user statuses by wrapping any component with a **Badge** 
+and using the [[content]] attribute to provide additional context.
 
 ```jsx
 <Stack gap="2rem">
@@ -78,10 +40,9 @@ with the **Badge** element and harness the [[content]] attribute to infuse it wi
 </Stack>
 ```
 
-### Various Tones
+### Custom Badge Tones  
 
-Unify your app's aesthetics seamlessly with Badge customization. Explore a spectrum of [[tone]] options,
-allowing you to align Badge appearance with your color palette and branding.
+Customize the Badge's appearance with a range of [[tone]] options to match your app's color palette and branding, ensuring a cohesive design.
 
 ```jsx
 <Stack gap="2rem">
@@ -109,10 +70,9 @@ allowing you to align Badge appearance with your color palette and branding.
 </Stack>
 ```
 
-### Content or Dot
+### Content or Dot  
 
-Refine precision by placing content or an understated dot in the top-right corner of your component.
-Employ the [[isDotted]] attribute to effortlessly draw attention to the details that matter.
+Add precision by placing content or a subtle dot in the top-right corner of your component. Use the [[isDotted]] attribute to highlight key details effectively.
 
 ```jsx
 <Badge isDotted tone="danger">
@@ -120,10 +80,9 @@ Employ the [[isDotted]] attribute to effortlessly draw attention to the details 
 </Badge>
 ```
 
-### Filled or Outlined Styles
+### Filled or Outlined Styles  
 
-Define visual resonance with your design vision. Opt for a bold filled style or a subtle, outlined variant
-using the [[isOutlined]] attribute.
+Choose between a bold filled style or a more subtle outlined variant with the [[isOutlined]] attribute to match your design vision.
 
 ```jsx
 <Stack gap="2rem">
@@ -151,10 +110,10 @@ using the [[isOutlined]] attribute.
 </Stack>
 ```
 
-### Numeric Limit and "+"
+### Numeric Limit and "+"  
 
-Add numeric content elegantly with the Badge. Specify a [[max]] value to gracefully accommodate varying data ranges.
-When numbers surpass the limit, the Badge smartly incorporates a `+` sign for clarity without complexity.
+Display numeric content neatly with the Badge by setting a [[max]] value. When numbers exceed the limit, 
+the Badge adds a `+` sign for clear, concise communication.
 
 ```jsx
 <Stack gap="2rem">
@@ -167,10 +126,9 @@ When numbers surpass the limit, the Badge smartly incorporates a `+` sign for cl
 </Stack>
 ```
 
-### Blinking Animation
+### Blinking Animation  
 
-Enliven your app's interaction using the captivating [[isBlink]] attribute. Harness dynamic blinking animations
-to create engaging live status indicators, adding an element of intrigue to user experiences.
+Use the [[isBlink]] attribute to add dynamic blinking animations, creating engaging live status indicators that enhance user interaction and intrigue.
 
 ```jsx
 <Badge isDotted isBlink tone="success">

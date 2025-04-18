@@ -44,7 +44,7 @@ const Editor: React.FC = () => {
         <Styled.Preview />
       )}
       <Panel margin="2rem 0 0 0">
-        <PanelHeader ele={<Text.body1 udl ctr />}>Reveal the editable code sample</PanelHeader>
+        <PanelHeader ele={<Text.body1 udl ctr />}>Live editor</PanelHeader>
         <PanelBody>
           <Styled.Code>
             <Styled.Editor code={code} language={language} disabled={disabled} onChange={onChange} />
