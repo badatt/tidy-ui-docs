@@ -4,7 +4,8 @@ component: avatar
 class: presentation
 title: Avatar
 lib: '@tidy-ui/avatar'
-description: The Avatar component displays profile images, initials, or icons with customizable size, style, and status indicators. 
+description:
+  The Avatar component displays profile images, initials, or icons with customizable size, style, and status indicators.
   It supports grouped avatars and adapts seamlessly to various app designs, making it ideal for social networks and chat applications.
 ---
 
@@ -24,17 +25,20 @@ import { Avatar, AvatarBadge, AvatarGroup } from '@tidy-ui/avatar';
 
 ## Key Features
 
-### Avatar Display  
+### Avatar Display
 
-The Avatar component provides a flexible way to represent users consistently.  
+The Avatar component provides a flexible way to represent users consistently.
 
-#### Profile Image  
-Set a [[src]] to display a user's profile picture in a circular frame.  
+#### Profile Image
 
-#### Initials  
-If no image is available, setting a [[name]] generates and displays initials.  
+Set a [[src]] to display a user's profile picture in a circular frame.
 
-#### Icon  
+#### Initials
+
+If no image is available, setting a [[name]] generates and displays initials.
+
+#### Icon
+
 When neither [[src]] nor [[name]] is provided, an [[icon]] ensures a recognizable representation.
 
 ```jsx
@@ -45,18 +49,18 @@ When neither [[src]] nor [[name]] is provided, an [[icon]] ensures a recognizabl
 </Stack>
 ```
 
-### Default Fallback  
+### Default Fallback
 
-If user details and a custom icon are unavailable, the Avatar component defaults to a universal person icon, 
+If user details and a custom icon are unavailable, the Avatar component defaults to a universal person icon,
 ensuring a consistent and visually cohesive representation.
 
 ```jsx
 <Avatar />
 ```
 
-### Size Customization  
+### Size Customization
 
-The Avatar component allows you to adjust its size using the [[girth]] property, offering options from extra-small 
+The Avatar component allows you to adjust its size using the [[girth]] property, offering options from extra-small
 to extra-large for seamless integration with your design and UI needs.
 
 ```jsx
@@ -71,17 +75,20 @@ to extra-large for seamless integration with your design and UI needs.
 </Stack>
 ```
 
-### Enhanced User Representation  
+### Enhanced User Representation
 
-Elevate the Avatar component's visual impact with these features:  
+Elevate the Avatar component's visual impact with these features:
 
-#### Border Accent  
-Add a circular border to highlight the Avatar and convey extra information.  
+#### Border Accent
 
-#### Avatar Badge  
-Include a small dot to indicate notifications, user actions, or status updates.  
+Add a circular border to highlight the Avatar and convey extra information.
 
-#### Status Tone  
+#### Avatar Badge
+
+Include a small dot to indicate notifications, user actions, or status updates.
+
+#### Status Tone
+
 Customize the badge's color to represent user status, such as online or offline.
 
 ```jsx
@@ -93,9 +100,9 @@ Customize the badge's color to represent user status, such as online or offline.
 </Stack>
 ```
 
-### Avatar Grouping  
+### Avatar Grouping
 
-Stack multiple Avatars in a neat arrangement with the [[max]] attribute to control how many Avatars are displayed, 
+Stack multiple Avatars in a neat arrangement with the [[max]] attribute to control how many Avatars are displayed,
 ensuring a clean and organized user interface.
 
 ```jsx
