@@ -1,0 +1,49 @@
+name: PROD deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    name: Github pages
+    runs-on: ubuntu-latest
+    environment: sandbox
+    env:
+      CI: true
+      FORCE_COLOR: true
+    defaults:
+      run:
+        shell: bash
+    permissions:
+      contents: write
+      id-token: write
+      pages: write
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'v22.14.0'
+          registry-url: https://registry.npmjs.org/
+
+      - name: Bootstrap
+        run: npm run bootstrap
+
+      - name: Vet
+        run: npm run vet
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.DEPLOYMENT_GITHUB_TOKEN }}
+          publish_dir: ./public
+          external_repository: ${{ vars.DEPLOYMENT_GITHUB_REPO }}
+          cname: ${{ vars.DOMAIN }}
