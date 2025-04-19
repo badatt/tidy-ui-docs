@@ -20,7 +20,7 @@ const {
   Positioning,
   Direction,
   Shade,
-} = require(`@tidy-ui/types`);
+} = require('@tidy-ui/types');
 const _ = require(`lodash`);
 
 const parseDoc = (jsdoc) => {
