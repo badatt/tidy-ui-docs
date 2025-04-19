@@ -9,7 +9,7 @@ jobs:
   publish:
     name: Github pages
     runs-on: ubuntu-latest
-    environment: sandbox
+    environment: PROD
     env:
       CI: true
       FORCE_COLOR: true
