@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { DividerEnhanced, FlexBox, Stack, Tag, Text } from '@tidy-ui/all';
+
 import { Prop } from 'ui';
+
 import { IMdxFields, IMdxFrontmatter } from '../../types';
 
 interface IApiDocData {

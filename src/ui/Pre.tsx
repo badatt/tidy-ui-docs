@@ -1,5 +1,6 @@
 import * as React from 'react';
 import type { Props } from '@mdx-js/react/lib';
+
 import { Code, Ide } from './Code';
 
 interface RestProps {

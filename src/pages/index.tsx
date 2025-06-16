@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { Button, color, css, FlexBox, hsla, styled, Text, useTheme } from '@tidy-ui/all';
+
 import { Page } from 'components';
 
 const HeroName = styled(Text.Hero)`

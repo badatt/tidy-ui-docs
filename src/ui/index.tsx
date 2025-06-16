@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { Props } from '@mdx-js/react/lib';
 import { Anchor, Chip, Divider, Note, Text } from '@tidy-ui/all';
+
 import { DocApi, DocLib } from '../components';
 import { H1, H2, H3, H4, H5, H6 } from './headings';
 import Image from './Image';

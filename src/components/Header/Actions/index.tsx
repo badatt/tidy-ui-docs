@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Stack, orchidDark, orchidLight } from '@tidy-ui/all';
+
 import { useTheme } from 'hooks';
 import Icon from 'ui/Icon';
+
 import * as Styled from './styles';
 
 const Actions: React.FC = () => {

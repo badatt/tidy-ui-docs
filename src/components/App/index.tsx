@@ -2,8 +2,10 @@ import React from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Container, GlobalDefaultStyle, GlobalFont, GlobalResetStyle, TidyUiProvider } from '@tidy-ui/all';
+
 import { Icon } from 'ui';
 import Header from 'components/Header';
+
 import { BackToTop, GlobalStyle } from './styles';
 
 interface Props {
