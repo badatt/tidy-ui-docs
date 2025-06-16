@@ -83,15 +83,16 @@
     "build": "GATSBY_ACTIVE_ENV=dev gatsby build",
     "clean": "gatsby clean",
     "develop": "gatsby develop --verbose",
-    "format": "prettier \"**/*.{js,jsx,json,yml,yaml,css,less,scss,ts,tsx,md,graphql,mdx}\" --check --log-level warn",
-    "format:fix": "prettier \"**/*.{js,jsx,json,yml,yaml,css,less,scss,ts,tsx,md,graphql,mdx}\" --write --log-level warn",
+    "format": "prettier \"**/*.{js,jsx,json,yml,yaml,css,less,scss,ts,tsx,md,graphql,mdx}\" --check --log-level=warn",
+    "format:fix": "prettier \"**/*.{js,jsx,json,yml,yaml,css,less,scss,ts,tsx,md,graphql,mdx}\" --write --log-level=warn",
     "lint": "eslint . -c .eslintrc --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npm run format:fix && npm run lint:md && eslint . -c .eslintrc --ext .js,.jsx,.ts,.tsx --fix",
     "lint:md": "markdownlint-cli2-fix \"**/*.md\" \"**/*.mdx\" \"#**/node_modules/**\" \"#**/CHANGELOG.md\" \"#LICENSE\" \"#**/*/_*.md\" \"#internals/md/**\"",
     "serve": "gatsby serve",
     "start": "npm run develop",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "vet": "npm run format && npm run lint"
+    "vet": "npm run format && npm run lint",
+    "vet:fix": "npm run lint:fix"
   },
   "repository": {
     "type": "git",
