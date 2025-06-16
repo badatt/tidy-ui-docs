@@ -79,9 +79,9 @@ const Toc: React.FC<Props> = ({ slug }) => {
 
   return (
     <Styled.Nav>
-      <Text.caption uc bld padding="1rem 0 0 0">
+      <Text.Caption uc bld padding="1rem 0 0 0">
         Index
-      </Text.caption>
+      </Text.Caption>
       <ContentItems items={tableOfContents?.items} activeItem={activeItem} />
     </Styled.Nav>
   );

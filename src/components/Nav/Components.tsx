@@ -54,9 +54,9 @@ const Components: React.FC = () => {
       {Object.keys(sorted).map((s) => {
         return (
           <FlexBox key={s} fld="column" alc="stretch" margin="1rem 0">
-            <Text.caption uc bld margin="1rem 0" tone="minor">
+            <Text.Caption uc bld margin="1rem 0" tone="minor">
               {s}
-            </Text.caption>
+            </Text.Caption>
             {sorted[s].map((c) => (
               <Styled.ComponentLink to={`${c.fields.slug}`} key={c.id} activeClassName="active">
                 {c.frontmatter.component}

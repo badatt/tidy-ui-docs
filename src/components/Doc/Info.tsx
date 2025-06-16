@@ -58,7 +58,7 @@ const Info: React.FC<Props> = ({ slug }) => {
   const { docs } = site.siteMetadata!;
   return (
     <FlexBox ali="center" gap="1rem">
-      <Text.caption>{currentDoc.fields.timeToRead?.text}</Text.caption>
+      <Text.Caption>{currentDoc.fields.timeToRead?.text}</Text.Caption>
       <a href={encodeURI(`${docs?.githubLink}${docs?.contentPath}${currentDoc.fields.pageSourcePath}`)} target="_blank">
         <IconButton girth="xs" tone="info" icon={<Icon icon="fa-brands fa-github" />}>
           Edit this page

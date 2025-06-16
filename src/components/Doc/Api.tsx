@@ -65,27 +65,27 @@ const Api: React.FC<Props> = ({ component }) => {
       gap="1rem"
       divider={
         <DividerEnhanced>
-          <Text.caption disabled>props</Text.caption>
+          <Text.Caption disabled>props</Text.Caption>
         </DividerEnhanced>
       }
     >
       {componentInterfaces.map((c) => (
         <React.Fragment key={c.name}>
           <FlexBox ali="center" gap="1rem">
-            <Text.h6 bld>{c.name}</Text.h6>
+            <Text.H6 bld>{c.name}</Text.H6>
             <Tag girth="sm">{c.since}</Tag>
           </FlexBox>
 
-          <Text.base>
+          <Text.Base>
             <div
               dangerouslySetInnerHTML={{
                 __html: c.description!,
               }}
             />
-          </Text.base>
+          </Text.Base>
           {c.members?.map((m) => (
             <React.Fragment key={m.name}>
-              <Text.base margin="2rem 0">
+              <Text.Base margin="2rem 0">
                 <Stack align="center" gap="1rem" margin="0.5rem 0">
                   <FlexBox gap="1rem" ali="center">
                     <b>
@@ -123,7 +123,7 @@ const Api: React.FC<Props> = ({ component }) => {
                     </p>
                   )}
                 </Stack>
-              </Text.base>
+              </Text.Base>
             </React.Fragment>
           ))}
         </React.Fragment>
