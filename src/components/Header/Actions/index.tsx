@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Stack } from '@tidy-ui/all';
-import { useReadApp, useUpdateApp } from 'hooks';
+import { Stack, orchidDark, orchidLight } from '@tidy-ui/all';
+import { useTheme } from 'hooks';
 import Icon from 'ui/Icon';
 import * as Styled from './styles';
 
@@ -22,16 +22,7 @@ const Actions: React.FC = () => {
     }
   `);
 
-  const { data } = useReadApp();
-  const { mutate } = useUpdateApp();
-
-  const handleThemeChange = () => {
-    if (data?.theme == 'light') {
-      mutate({ theme: 'dark' });
-    } else {
-      mutate({ theme: 'light' });
-    }
-  };
+  const { theme, changeTheme } = useTheme();
 
   return (
     <Stack gap="0.5rem">
@@ -39,8 +30,8 @@ const Actions: React.FC = () => {
         <Styled.IconBtn icon={<Icon icon="fa-brands fa-github" />} />
       </a>
       <Styled.IconBtn
-        onClick={handleThemeChange}
-        icon={data?.theme == 'dark' ? <Icon icon="fa-regular fa-sun" /> : <Icon icon="fa-solid fa-moon" />}
+        onClick={() => changeTheme(theme.isDark ? orchidLight : orchidDark)}
+        icon={theme.isDark ? <Icon icon="fa-regular fa-sun" /> : <Icon icon="fa-solid fa-moon" />}
       />
     </Stack>
   );

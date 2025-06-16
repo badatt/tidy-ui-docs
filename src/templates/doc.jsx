@@ -18,12 +18,12 @@ const Doc = ({ children, ...data }) => {
   return (
     <MdDoc path={path} slug={slug}>
       <ContentWrapper>
-        <Text.h2 bld margin="2rem 0">
+        <Text.H2 bld margin="2rem 0">
           {title}
-        </Text.h2>
-        <Text.base style={{ lineHeight: 1.8 }}>
+        </Text.H2>
+        <Text.Base style={{ lineHeight: 1.8 }}>
           <blockquote>{description}</blockquote>
-        </Text.base>
+        </Text.Base>
         <MDXProvider components={mdxComponents}>{children}</MDXProvider>
       </ContentWrapper>
     </MdDoc>

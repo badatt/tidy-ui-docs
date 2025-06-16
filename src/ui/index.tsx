@@ -29,7 +29,7 @@ export const mdxComponents = {
   img: Image,
   li: Li,
   ol: Ol,
-  p: (props: Props) => <Text.p {...props} style={{ lineHeight: 1.8, marginBottom: '1rem' }} />,
+  p: (props: Props) => <Text.P {...props} style={{ lineHeight: 1.8, marginBottom: '1rem' }} />,
   pre: Pre,
   ul: Ul,
 };

@@ -26,7 +26,7 @@ const MdDoc: React.FC<Props> = ({ children, path, slug }) => {
           </FlexBox>
           {children}
           <DividerEnhanced>
-            <Text.caption disabled>End of content</Text.caption>
+            <Text.Caption disabled>End of content</Text.Caption>
           </DividerEnhanced>
           <Footer />
         </FlexItem>

@@ -19,12 +19,12 @@ const NotFoundPage: React.FC = () => {
           <FlexBox ctr fld="column" gap="2rem">
             <FlexItem>
               <FlexBox fld="column" gap="1rem">
-                <Text.h1>Oops !</Text.h1>
-                <Text.h6>It seems we've hit a hiccup - the page you're after isn't in the usual spot.</Text.h6>
-                <Text.body1>
+                <Text.H1>Oops !</Text.H1>
+                <Text.H6>It seems we've hit a hiccup - the page you're after isn't in the usual spot.</Text.H6>
+                <Text.Body1>
                   We apologize for any inconvenience this may cause. While our technical team diligently investigates,
                   please consider perusing other sections of our website.
-                </Text.body1>
+                </Text.Body1>
               </FlexBox>
             </FlexItem>
             <FlexItem>
