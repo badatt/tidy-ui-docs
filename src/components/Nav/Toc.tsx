@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
-import { IMdxFields } from 'types';
 import { Text } from '@tidy-ui/all';
+
+import { IMdxFields } from 'types';
 import { useScrollSpy } from 'hooks';
+
 import * as Styled from './styles';
 
 export interface ITocItem {

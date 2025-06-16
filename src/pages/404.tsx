@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { FlexBox, FlexItem, IconButton, Text } from '@tidy-ui/all';
+
 import { Icon } from 'ui';
 import { Page } from 'components';
 
@@ -39,7 +40,7 @@ const NotFoundPage: React.FC = () => {
           </FlexBox>
         </FlexItem>
         <FlexItem span={18}>
-          <img src={notFound.publicURL} />
+          <img src={notFound.publicURL} alt={notFound.publicURL} />
         </FlexItem>
       </FlexBox>
     </Page>

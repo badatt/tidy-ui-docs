@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { styled, Text } from '@tidy-ui/all';
+
 import { mdxComponents } from 'ui';
 import { MdDoc } from 'components';
 

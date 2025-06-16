@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Container } from '@tidy-ui/all';
+
 import SEO from './SEO';
 
 interface Props extends React.PropsWithChildren {

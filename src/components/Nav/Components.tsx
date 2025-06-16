@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import _ from 'lodash';
-import { IMdxFields, IMdxFrontmatter } from 'types';
 import { FlexBox, Text } from '@tidy-ui/all';
+
+import { IMdxFields, IMdxFrontmatter } from 'types';
 import { Icon } from 'ui';
+
 import * as Styled from './styles';
 
 interface IComponentNode {

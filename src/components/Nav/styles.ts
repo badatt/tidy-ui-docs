@@ -1,5 +1,6 @@
 import { Link } from 'gatsby';
 import { color, createFontStyle, css, hsla, styled } from '@tidy-ui/all';
+
 import Icon from 'ui/Icon';
 
 export const Nav = styled.nav`

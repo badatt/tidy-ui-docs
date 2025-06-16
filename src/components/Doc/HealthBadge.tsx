@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { IMdRemoteAsset, IPublicUrl } from 'types';
 import { FlexBox } from '@tidy-ui/all';
+
+import { IMdRemoteAsset, IPublicUrl } from 'types';
 
 interface IBadgeNode {
   frontmatter: IMdRemoteAsset;
