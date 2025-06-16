@@ -1,4 +1,5 @@
 const { readFileSync } = require(`fs-extra`);
+const path = require('path');
 const {
   TextVariant,
   StackOrder,
@@ -24,11 +25,7 @@ const {
 const _ = require(`lodash`);
 
 const parseDoc = (jsdoc) => {
-  try {
-    return JSON.parse(jsdoc !== undefined ? readFileSync(jsdoc, 'utf8') : []);
-  } catch (e) {
-    return [];
-  }
+  return JSON.parse(jsdoc !== undefined ? readFileSync(jsdoc, 'utf8') : []);
 };
 
 const getInterfaces = (docs) => {
@@ -120,7 +117,9 @@ const getMembers = (docs, i) => {
 };
 
 module.exports = (component) => {
-  const jsdoc = component != null ? require.resolve(`@tidy-ui/${component}/jsdoc.json`) : undefined;
+  const packageJsonPath = require.resolve(`@tidy-ui/${component}`);
+  const packageDir = path.dirname(packageJsonPath);
+  const jsdoc = path.join(packageDir, '..', 'jsdoc.json');
   const content = parseDoc(jsdoc);
   const chainedDoc = _.chain(content);
   const interfaces = getInterfaces(chainedDoc);

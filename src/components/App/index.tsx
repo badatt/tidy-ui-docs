@@ -6,11 +6,8 @@ import {
   GlobalDefaultStyle,
   GlobalFont,
   GlobalResetStyle,
-  orchidDark,
-  orchidLight,
   TidyUiProvider,
 } from '@tidy-ui/all';
-import { useReadApp } from 'hooks';
 import { Icon } from 'ui';
 import Header from 'components/Header';
 import { BackToTop, GlobalStyle } from './styles';
@@ -37,7 +34,6 @@ const App: React.FC<Props> = ({ children }) => {
 };
 
 const Layout: React.FC<Props> = ({ children }) => {
-  const { data } = useReadApp();
   const scrollToTopBtnRef = React.useRef<HTMLButtonElement>(null);
 
   React.useEffect(() => {
@@ -60,7 +56,7 @@ const Layout: React.FC<Props> = ({ children }) => {
         family="'Open Sans', sans-serif"
         url="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
       />
-      <TidyUiProvider theme={data?.theme == 'dark' ? orchidDark : orchidLight}>
+      <TidyUiProvider>
         <GlobalDefaultStyle />
         <GlobalStyle />
         <Container as="main" maxWidth="xl">
