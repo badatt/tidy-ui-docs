@@ -1,5 +1,6 @@
 import React from 'react';
 import { FlexBox } from '@tidy-ui/all';
+
 import Actions from './Actions';
 import HomeLogo from './HomeLogo';
 import * as Styled from './styles';

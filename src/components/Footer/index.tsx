@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { FlexBox, Text } from '@tidy-ui/all';
+
 import { Icon } from 'ui';
 
 const Footer: React.FC = () => {

@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { FlexBox, IconButton, Text } from '@tidy-ui/all';
+
 import { Icon } from 'ui';
+
 import { IMdxFields, ISite } from '../../types';
 
 interface IDocInfoData {
