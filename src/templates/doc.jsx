@@ -17,7 +17,7 @@ const Doc = ({ children, ...data }) => {
   const { description, title } = frontmatter;
 
   return (
-    <MdDoc path={path} slug={slug}>
+    <MdDoc title={path} slug={slug}>
       <ContentWrapper>
         <Text.H2 bld margin="2rem 0">
           {title}

@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { LiveContext, LiveProvider } from 'react-live';
-import { Alert, Border, Chip, Panel, PanelBody, PanelHeader, Text } from '@tidy-ui/all';
+import { themes } from 'prism-react-renderer';
+import { color, hsla, FlexBox, Paper } from '@tidy-ui/all';
+
+import { useTheme } from 'hooks';
 
 import ReactLiveScope from './scope';
 import * as Styled from './styles';
@@ -9,61 +12,110 @@ interface Props {
   code: string;
   disabled?: boolean;
   language?: string;
+  noPreview?: boolean;
+  ErrorWrapper?: React.FC<React.PropsWithChildren>;
+  SuccessWrapper?: React.FC<React.PropsWithChildren>;
+  PreviewWrapper?: React.FC<React.PropsWithChildren>;
+  CodeWrapper?: React.FC<React.PropsWithChildren>;
 }
 
-const Ide: React.FC<Props> = (props) => {
+interface PreviewProps {
+  ErrorWrapper?: React.FC<React.PropsWithChildren>;
+  SuccessWrapper?: React.FC<React.PropsWithChildren>;
+}
+
+const VsCode: React.FC<React.PropsWithChildren> = ({ children }) => {
+  return (
+    <Paper ele={<FlexBox fld="column" gap="0.5rem" />} padding="0.5rem">
+      <FlexBox gap="1rem" padding="0.25rem 0.5rem">
+        <Styled.VsCodeWindowBtn style={{ background: hsla(color.red[500]) }} />
+        <Styled.VsCodeWindowBtn style={{ background: hsla(color.amber[500]) }} />
+        <Styled.VsCodeWindowBtn style={{ background: hsla(color.green[500]) }} />
+      </FlexBox>
+      {children}
+    </Paper>
+  );
+};
+
+const LiveCode: React.FC = () => {
+  const { code, language, disabled, onChange } = React.useContext(LiveContext);
+  const { theme } = useTheme();
+  return disabled ? (
+    <Styled.Code>
+      <Styled.Editor
+        code={code}
+        language={language}
+        disabled={disabled}
+        onChange={onChange}
+        theme={theme.isDark ? themes.vsDark : themes.vsLight}
+      />
+    </Styled.Code>
+  ) : (
+    <VsCode>
+      <Styled.Code>
+        <Styled.Editor
+          code={code}
+          language={language}
+          disabled={disabled}
+          onChange={onChange}
+          theme={theme.isDark ? themes.vsDark : themes.vsLight}
+        />
+      </Styled.Code>
+    </VsCode>
+  );
+};
+
+const LiveError: React.FC = () => {
+  return <Styled.Err />;
+};
+
+const LiveSuccess: React.FC = () => {
+  return <Styled.Preview />;
+};
+
+const LivePreview: React.FC<PreviewProps> = (props) => {
+  const { error } = React.useContext(LiveContext);
+  if (error) {
+    return props.ErrorWrapper ? (
+      <props.ErrorWrapper>
+        <LiveError />
+      </props.ErrorWrapper>
+    ) : (
+      <LiveError />
+    );
+  }
+
+  if (!error) {
+    return props.SuccessWrapper ? (
+      <props.SuccessWrapper>
+        <LiveSuccess />
+      </props.SuccessWrapper>
+    ) : (
+      <LiveSuccess />
+    );
+  }
+};
+
+const LiveEditor: React.FC<Props> = (props) => {
   return (
     <LiveProvider scope={ReactLiveScope} {...props}>
-      <Border
-        align={16}
-        content={
-          <Chip girth="xs" tone="info">
-            LIVE EXAMPLE
-          </Chip>
-        }
-        margin="4rem 0"
-        padding="2rem 1rem 1rem 1rem"
-        variant="dashed"
-        density="2px"
-        positioning="top-right"
-      >
-        <Editor />
-      </Border>
-    </LiveProvider>
-  );
-};
-
-const Editor: React.FC = () => {
-  const { code, language, disabled, onChange, error } = React.useContext(LiveContext);
-  return (
-    <>
-      {error ? (
-        <Alert isFilled status="danger" margin="0 0 1rem 0">
-          <Styled.Err />
-        </Alert>
+      {!props.noPreview &&
+        (props.PreviewWrapper ? (
+          <props.PreviewWrapper>
+            <LivePreview ErrorWrapper={props.ErrorWrapper} SuccessWrapper={props.SuccessWrapper} />
+          </props.PreviewWrapper>
+        ) : (
+          <LivePreview ErrorWrapper={props.ErrorWrapper} SuccessWrapper={props.SuccessWrapper} />
+        ))}
+      {props.CodeWrapper ? (
+        <props.CodeWrapper>
+          <LiveCode />
+        </props.CodeWrapper>
       ) : (
-        <Styled.Preview />
+        <LiveCode />
       )}
-      <Panel margin="2rem 0 0 0">
-        <PanelHeader ele={<Text.Body1 udl ctr />}>Live editor</PanelHeader>
-        <PanelBody>
-          <Styled.Code>
-            <Styled.Editor code={code} language={language} disabled={disabled} onChange={onChange} />
-          </Styled.Code>
-        </PanelBody>
-      </Panel>
-    </>
-  );
-};
-
-const Code: React.FC<Props> = (props) => {
-  return (
-    <LiveProvider {...props}>
-      <Styled.Code>
-        <Styled.Editor />
-      </Styled.Code>
     </LiveProvider>
   );
 };
 
-export { Code, Ide };
+export { LiveEditor, LiveCode, LiveError, LiveSuccess };
