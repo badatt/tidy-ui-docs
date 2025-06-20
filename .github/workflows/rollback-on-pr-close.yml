@@ -2,14 +2,14 @@ name: Pull request checks & lint
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [closed]
     branches:
-      - main
       - develop
 
 jobs:
-  vet-test-sandbox-deploy:
-    name: vet, test & sandbox deploy
+  rollback-pr:
+    name: vet, test & coverage
+    if: github.event.pull_request.merged == false
     runs-on: ubuntu-latest
     environment: sandbox
     env:
