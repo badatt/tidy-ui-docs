@@ -11,12 +11,17 @@ jobs:
   vetTestCoverage:
     name: vet, test & coverage
     runs-on: ubuntu-latest
+    environment: sandbox
     env:
       CI: true
       FORCE_COLOR: true
     defaults:
       run:
         shell: bash
+    permissions:
+      contents: write
+      id-token: write
+      pages: write
 
     steps:
       - name: Check out the code
@@ -36,3 +41,11 @@ jobs:
 
       - name: Build
         run: npm run build
+      
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.DEPLOYMENT_GITHUB_TOKEN }}
+          publish_dir: ./public
+          external_repository: ${{ vars.DEPLOYMENT_GITHUB_REPO }}
+          cname: ${{ vars.DOMAIN }}
