@@ -2,7 +2,7 @@ import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Anchor, Chip, FlexBox } from '@tidy-ui/all';
 
-import { IMdxFrontmatter, ISite } from '../../types';
+import { IMdxFrontmatter, ISite } from 'types';
 
 interface ILibData {
   lib: {

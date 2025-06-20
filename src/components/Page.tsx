@@ -4,13 +4,13 @@ import { Container } from '@tidy-ui/all';
 import SEO from './SEO';
 
 interface Props extends React.PropsWithChildren {
-  path: string;
+  title: string;
 }
 
-const Page: React.FC<Props> = ({ children, path }) => {
+const Page: React.FC<Props> = ({ children, title }) => {
   return (
     <>
-      <SEO title={path} />
+      <SEO title={title} />
       <Container height="calc(100vh - 80px)" gutter="0">
         {children}
       </Container>

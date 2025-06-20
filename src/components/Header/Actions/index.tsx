@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Stack, orchidDark, orchidLight } from '@tidy-ui/all';
+import { orchidDark, orchidLight, FlexBox } from '@tidy-ui/all';
 
 import { useTheme } from 'hooks';
-import Icon from 'ui/Icon';
+import { Icon } from 'ui';
 
 import * as Styled from './styles';
 
@@ -27,7 +27,7 @@ const Actions: React.FC = () => {
   const { theme, changeTheme } = useTheme();
 
   return (
-    <Stack gap="0.5rem">
+    <FlexBox gap="0.5rem" ali="center">
       <a href={source.githubLink} target="_blank">
         <Styled.IconBtn icon={<Icon icon="fa-brands fa-github" />} />
       </a>
@@ -35,7 +35,7 @@ const Actions: React.FC = () => {
         onClick={() => changeTheme(theme.isDark ? orchidLight : orchidDark)}
         icon={theme.isDark ? <Icon icon="fa-regular fa-sun" /> : <Icon icon="fa-solid fa-moon" />}
       />
-    </Stack>
+    </FlexBox>
   );
 };
 

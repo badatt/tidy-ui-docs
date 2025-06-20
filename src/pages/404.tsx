@@ -14,7 +14,7 @@ const NotFoundPage: React.FC = () => {
     }
   `);
   return (
-    <Page path="/404 Not found">
+    <Page title="/404 Not found">
       <FlexBox ctr fld="column" ali="center">
         <FlexItem span={6}>
           <FlexBox ctr fld="column" gap="2rem">

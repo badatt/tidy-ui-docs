@@ -71,7 +71,7 @@ export interface IRemoteAsset {
  * gatsby-config site data
  */
 export interface ISite {
-  siteMetadata?: ISiteMetaData;
+  siteMetadata: ISiteMetaData;
 }
 
 export interface ISiteMetaData {
@@ -87,6 +87,10 @@ export interface ISiteMetaData {
 export interface IAuthor {
   email?: string;
   name?: string;
+  github?: string;
+  githubUsername?: string;
+  linkedin?: string;
+  url?: string;
 }
 
 export interface IDocs {

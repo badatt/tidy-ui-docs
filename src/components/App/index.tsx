@@ -41,7 +41,9 @@ const Layout: React.FC<Props> = ({ children }) => {
       });
     });
     window.addEventListener('scroll', () => {
-      scrollToTopBtnRef.current!.style.display = window.scrollY > 640 ? 'flex' : 'none';
+      if (scrollToTopBtnRef?.current != null) {
+        scrollToTopBtnRef.current.style.display = window.scrollY > 640 ? 'flex' : 'none';
+      }
     });
   }, []);
 
@@ -55,7 +57,7 @@ const Layout: React.FC<Props> = ({ children }) => {
       <TidyUiProvider>
         <GlobalDefaultStyle />
         <GlobalStyle />
-        <Container as="main" maxWidth="xl">
+        <Container as="main">
           <Header />
           {children}
         </Container>

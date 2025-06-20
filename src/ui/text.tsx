@@ -1,6 +1,6 @@
 import { color, css, hsla, styled } from '@tidy-ui/all';
 
-export const Prop = styled.span`
+export const ComponentProperty = styled.span`
   display: inline-block;
   border-radius: 4px;
   padding: 0 0.2em;

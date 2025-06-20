@@ -5,6 +5,10 @@ module.exports = {
     author: {
       name: 'Balu Praveen Datty',
       email: 'dev.badatt@gmail.com',
+      github: 'https://github.com/badatt',
+      githubUsername: '@badatt',
+      linkedin: 'https://www.linkedin.com/in/balu-praveen-datty/',
+      url: 'https://balu.datty.in',
     },
     description:
       'Tidy UI is a family of lightweight, modular React component library, providing essential building blocks for effortless application development. The components are powered styled-components, features include css-in-js, typography, layouts, theming etc',
@@ -19,7 +23,7 @@ module.exports = {
       githubLink: 'https://github.com/badatt/tidy-ui-docs',
       contentPath: '/tree/main/content',
     },
-    siteUrl: `http://localhost:8000`, // TODO change after deployment
+    siteUrl: `https://tidy-ui.com`,
   },
   plugins: [
     {
