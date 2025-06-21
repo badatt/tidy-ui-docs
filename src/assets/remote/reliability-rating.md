@@ -1,4 +1,5 @@
 ---
+id: assets-remote-reliability-rating
 title: Reliability Rating
 category: badge
 type: svg

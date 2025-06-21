@@ -1,4 +1,5 @@
 ---
+id: assets-remote-bug
 title: Bugs
 category: badge
 type: svg

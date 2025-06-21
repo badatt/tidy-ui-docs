@@ -4,7 +4,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Container, GlobalDefaultStyle, GlobalFont, GlobalResetStyle, TidyUiProvider } from '@tidy-ui/all';
 
 import { Icon } from 'ui';
-import Header from 'components/Header';
+import Header from 'components/Header/Header';
 
 import { BackToTop, GlobalStyle } from './styles';
 
@@ -57,7 +57,7 @@ const Layout: React.FC<Props> = ({ children }) => {
       <TidyUiProvider>
         <GlobalDefaultStyle />
         <GlobalStyle />
-        <Container as="main">
+        <Container as="main" gutter="8rem">
           <Header />
           {children}
         </Container>

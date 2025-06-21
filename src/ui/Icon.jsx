@@ -1,6 +1,6 @@
 import React from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab, faGithub, faNpm } from '@fortawesome/free-brands-svg-icons';
+import { fab, faGithub, faNpm, faReact } from '@fortawesome/free-brands-svg-icons';
 import { faCircleUp, faSun } from '@fortawesome/free-regular-svg-icons';
 import {
   faCube,
@@ -9,6 +9,11 @@ import {
   faPalette,
   fas,
   faScrewdriverWrench,
+  faBoxesPacking,
+  faBorderAll,
+  faLaptopCode,
+  faSliders,
+  faSquareCheck,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -24,6 +29,12 @@ library.add(
   faMoon,
   faSun,
   faCircleUp,
+  faReact,
+  faBoxesPacking,
+  faBorderAll,
+  faLaptopCode,
+  faSliders,
+  faSquareCheck,
 );
 
 const Icon = ({ ...props }) => <FontAwesomeIcon {...props} />;

@@ -12,6 +12,7 @@ import { ComponentProperty } from './text';
 export { default as Icon } from './Icon';
 export * from './text';
 export * as Code from './Code';
+export { Li, Ol, Ul };
 
 export const mdxComponents = {
   Chip: (props: Props) => <Chip {...props} tone="minor" girth="sm" margin="0 0 0.5rem 0" />,

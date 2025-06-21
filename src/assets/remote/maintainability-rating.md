@@ -1,4 +1,5 @@
 ---
+id: assets-remote-maintainability-rating
 title: Maintainability Rating
 category: badge
 type: svg

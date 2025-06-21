@@ -1,4 +1,5 @@
 ---
+id: assets-remote-publishing
 title: Publishing
 category: badge
 type: svg
