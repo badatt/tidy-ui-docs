@@ -51,12 +51,14 @@ export interface IMdxFields {
 /**
  * markdown & md remote assets
  */
-export interface IMdRemoteAsset {
-  category?: string;
+export interface IMdFrontMatter {
+  id: string;
+  type: string;
+  category: string;
   reference?: string;
   title?: string;
-  type?: string;
   url?: string;
+  description?: string;
 }
 
 export interface IPublicUrl {

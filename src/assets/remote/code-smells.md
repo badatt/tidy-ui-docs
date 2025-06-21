@@ -1,4 +1,5 @@
 ---
+id: assets-remote-code-smells
 title: Code Smells
 category: badge
 type: svg

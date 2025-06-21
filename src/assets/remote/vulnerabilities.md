@@ -1,4 +1,5 @@
 ---
+id: assets-remote-vulnerabilities
 title: Vulnerabilities
 category: badge
 type: svg

@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { DividerEnhanced, FlexBox, FlexItem, Text } from '@tidy-ui/all';
 
-import Footer from './Footer';
-import { MainNav, Toc } from './Nav';
+import Footer from './Footer/Footer';
+import { MainNav, Toc } from './Nav/Nav';
 import SEO from '../SEO';
 import Breadcrumb from './Breadcrumb';
-import { DocInfo } from '.';
+import { DocInfo } from './Doc';
 
 interface Props extends React.PropsWithChildren {
   path: string;

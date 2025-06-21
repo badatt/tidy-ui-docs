@@ -1,4 +1,5 @@
 ---
+id: assets-remote-license
 title: License
 category: badge
 type: svg

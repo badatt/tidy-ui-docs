@@ -47,6 +47,13 @@ module.exports = {
         path: `${__dirname}/content`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: `${__dirname}/data`,
+      },
+    },
     `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-plugin-mdx`,
@@ -106,7 +113,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-layout`,
       options: {
-        component: require.resolve(`${__dirname}/src/components/App/index.tsx`),
+        component: require.resolve(`${__dirname}/src/components/App/App.tsx`),
       },
     },
     `gatsby-plugin-sitemap`,

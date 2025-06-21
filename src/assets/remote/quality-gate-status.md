@@ -1,4 +1,5 @@
 ---
+id: assets-remote-quality-gate-status
 title: Quality Gate Status
 category: badge
 type: svg

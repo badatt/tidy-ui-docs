@@ -1,4 +1,5 @@
 ---
+id: assets-remote-security-rating
 title: Security Rating
 category: badge
 type: svg
