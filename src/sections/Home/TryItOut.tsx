@@ -29,7 +29,7 @@ const LivePreviewWrapper: React.FC<React.PropsWithChildren> = ({ children }) => 
 
 const TryItOut: React.FC<ITryItOutProps> = (props) => {
   return (
-    <Border variant="dashed">
+    <Border tone="info" variant="dashed">
       <FlexBox gap="1rem" fld="row-reverse" ali="stretch">
         <Code.LiveEditor
           code={props.$code}

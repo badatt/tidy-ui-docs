@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { LiveContext, LiveProvider } from 'react-live';
 import { themes } from 'prism-react-renderer';
-import { color, hsla, FlexBox, Paper } from '@tidy-ui/all';
+import { color, hsla, FlexBox, Paper, Text, FlexItem, Badge } from '@tidy-ui/all';
 
 import { useTheme } from 'hooks';
 
@@ -27,10 +27,19 @@ interface PreviewProps {
 const VsCode: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <Paper ele={<FlexBox fld="column" gap="0.5rem" />} padding="0.5rem">
-      <FlexBox gap="1rem" padding="0.25rem 0.5rem">
-        <Styled.VsCodeWindowBtn style={{ background: hsla(color.red[500]) }} />
-        <Styled.VsCodeWindowBtn style={{ background: hsla(color.amber[500]) }} />
-        <Styled.VsCodeWindowBtn style={{ background: hsla(color.green[500]) }} />
+      <FlexBox gap="1rem" padding="0.25rem 0.5rem" jsc="space-between" ali="center">
+        <FlexItem ele={<FlexBox gap="0.25rem" />}>
+          <Styled.VsCodeWindowBtn style={{ background: hsla(color.red[500]) }} />
+          <Styled.VsCodeWindowBtn style={{ background: hsla(color.amber[500]) }} />
+          <Styled.VsCodeWindowBtn style={{ background: hsla(color.green[500]) }} />
+        </FlexItem>
+        <FlexItem>
+          <Badge isDotted isBlink tone="success">
+            <Text.Caption bld disabled>
+              Live
+            </Text.Caption>
+          </Badge>
+        </FlexItem>
       </FlexBox>
       {children}
     </Paper>

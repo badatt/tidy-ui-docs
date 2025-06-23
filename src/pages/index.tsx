@@ -2,12 +2,12 @@ import React from 'react';
 import { DividerEnhanced, FlexBox, FlexItem, Text } from '@tidy-ui/all';
 
 import { Page, Footer } from 'components';
-import { Features, Hero, TryItOut } from 'sections';
+import { Features, Hero, TryItOut, HeroBg } from 'sections';
 
 const code = `<Card>
   <CardHeader isDivided>
     <FlexBox gap="1rem" ali="center">
-      <Avatar name="Balu Praveen Datty" />
+      <Avatar src="https://avatars.githubusercontent.com/u/43672979?v=4" />
       <FlexBox fld="column">
         <Text.H6>Balu Praveen Datty</Text.H6>
         <Text.Body1 color={hsla(color.slate[500])}>@badatt</Text.Body1>
@@ -19,7 +19,7 @@ const code = `<Card>
       <Text.Body1>
         I'm a passionate developer and the creator of Tidy UI, a component library built with care and
         attention to detail. I'd love for you to give it a try and share your feedback! If you come across any
-        bugs, please don't hesitate to{' '}
+        bugs, please don't hesitate to
         <Anchor
           girth="sm"
           href="https://github.com/badatt/tidy-ui/issues"
@@ -33,17 +33,17 @@ const code = `<Card>
         reach out. Id be happy to connect!
       </Text.Body1>
       <img
-        src="https://raw.githubusercontent.com/badatt/tidy-ui/main/internals/assets/images/storybook-logo.png"
+        src="https://picsum.photos/800/400"
         alt="Tidy UI"
       />
     </FlexBox>
   </CardBody>
   <CardFooter isDivided>
     <Stack>
-      <Anchor href="https://github.com/badatt" target="_blank" rel="noopener noreferrer">
+      <Anchor tone="major" href="https://github.com/badatt" target="_blank" rel="noopener noreferrer" canLaunch>
         GitHub
       </Anchor>
-      <Anchor href="https://www.linkedin.com/in/balu-praveen-datty/" target="_blank" rel="noopener noreferrer">
+      <Anchor tone="major" href="https://www.linkedin.com/in/balu-praveen-datty/" target="_blank" rel="noopener noreferrer" canLaunch>
         LinkedIn
       </Anchor>
     </Stack>
@@ -54,6 +54,7 @@ const code = `<Card>
 const IndexPage: React.FC = () => {
   return (
     <Page title="/Home">
+      <HeroBg />
       <FlexBox as="section" fld="column" padding="4rem 0" gap="4rem">
         <FlexItem>
           <Hero />
