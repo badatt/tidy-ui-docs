@@ -1,18 +1,24 @@
 import { styled, hsla, color } from '@tidy-ui/all';
 
 const HeroBg = styled.div`
-  height: 50vh;
-  width: 100%;
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 0;
-  background-blend-mode: screen;
-  background-image:
-    linear-gradient(to top left, ${hsla(color.purple[500], 0.6)} 0%, transparent 100%),
-    linear-gradient(to top right, ${hsla(color.pink[500], 0.6)} 0%, transparent 100%);
+  width: 100%;
+  height: 70vh;
+
+  background-image: radial-gradient(
+    circle at bottom center,
+    ${hsla(color.purple[500], 0.5)} 0%,
+    ${hsla(color.pink[500], 0.5)} 60%,
+    transparent 100%
+  );
+
   background-repeat: no-repeat;
-  background-size: 100% 50vh;
-  background-position: bottom;
+  background-size: 100% 100%;
+  pointer-events: none;
+  z-index: 0;
+
   mask-image: linear-gradient(to top, black 0%, transparent 100%);
 `;
 

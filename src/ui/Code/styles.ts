@@ -45,6 +45,7 @@ export const Preview = styled(LivePreview)`
       ${isDark ? hsla(color.slate[700], 0.5) : hsla(color.slate[400], 0.5)} 1px,
       transparent 1px
     );
+    box-shadow: ${layout.shadow};
     background-size: 8px 8px;
     background-color: ${isDark ? hsla(color.slate[900]) : hsla(color.slate[200])};
   `}

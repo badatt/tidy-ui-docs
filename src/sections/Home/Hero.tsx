@@ -15,6 +15,7 @@ const NpmCommand = styled.div`
     font-family: monospace;
     border-radius: ${layout.radius};
     background-color: ${isDark ? hsla(color.slate[700]) : hsla(color.slate[200])};
+    border: 1px solid ${isDark ? hsla(color.slate[600]) : hsla(color.slate[300])};
   `};
 `;
 
@@ -22,7 +23,7 @@ const HeroLogoBg = styled(HeroLogo)`
   min-height: 50vh;
   min-width: 80vw;
   right: 0;
-  position: absolute;
+  position: fixed;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
